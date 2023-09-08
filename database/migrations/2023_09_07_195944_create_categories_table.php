@@ -13,17 +13,41 @@ return new class extends Migration
      */
     public function up(): void
     {
-       
-
         Schema::create('categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->mediumText('image');
-            $table->text('discription');
+            $table->text('description'); 
             $table->timestamps();
         });
 
-        
+        Schema::create('volnteers', function (Blueprint $table) {
+            $table->id();
+            $table->string('volunteer_name'); 
+            $table->foreignId('category_id')->constrained('categories');
+            $table->text('description'); 
+            $table->integer('price');
+            $table->mediumText('main_picture');
+            $table->timestamps();
+        });
+
+        Schema::create('volnteerdetails', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('volunteer_id')->constrained('volnteers');
+            $table->bigInteger('price');
+            $table->timestamps();
+        });
+
+   
+
+        Schema::create('volnteeritems', function (Blueprint $table) {
+            $table->id();
+            $table->bigInteger('qty');
+            $table->timestamps();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('volunteer_id')->constrained('volnteers');
+        });
     }
 
     /**
@@ -33,6 +57,9 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('volnteeritems');
+        Schema::dropIfExists('volnteerdetails');
+        Schema::dropIfExists('volnteers');
         Schema::dropIfExists('categories');
     }
 };
