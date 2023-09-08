@@ -13,7 +13,7 @@ return new class extends Migration {
      */
     public function up(): void
     {
-
+        
 
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
@@ -37,3 +37,6 @@ return new class extends Migration {
         Schema::dropIfExists('admins');
     }
 };
+
+
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Volnteer;
+use App\Models\Volnteerdetail;
 use Illuminate\Http\Request;
 
 class VolnteerController extends Controller
@@ -44,9 +45,18 @@ class VolnteerController extends Controller
      * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteer $volnteer)
+    public function show($id)
     {
-        //
+    
+        $volnteer = Volnteer::find($id);
+        $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
+        $price = 0;
+        foreach($volnteerDetails as $volnteerDetail){
+$price+=$volnteerDetail->price;
+        }
+
+        return view('pages.volunteer')->with("price",$price)->with("volnteer",$volnteer);
+        
     }
 
     /**
