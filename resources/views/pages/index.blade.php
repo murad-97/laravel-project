@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>HELPZ - Free Charity Website Template</title>
+        <title>HELPZ</title>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
         <meta content="Free Website Template" name="keywords">
         <meta content="Free Website Template" name="description">
@@ -14,6 +14,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         
         <!-- CSS Libraries -->
+      
         <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
         <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
@@ -26,34 +27,7 @@
 
     <body>
         <!-- Top Bar Start -->
-        <div class="top-bar d-none d-md-block ">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="top-bar-left">
-                            <div class="text">
-                                <i class="fa fa-phone-alt"></i>
-                                <p>+123 456 7890</p>
-                            </div>
-                            <div class="text">
-                                <i class="fa fa-envelope"></i>
-                                <p>healmarkers@gmail.com</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="top-bar-right">
-                            <div class="social">
-                                <a href=""><i class="fab fa-twitter"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                <a href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!-- Top Bar End -->
 
         <!-- Nav Bar Start -->
@@ -67,11 +41,10 @@
                 <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                     <div class="navbar-nav ml-auto">
                         <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="causes.html" class="nav-item nav-link">Our Offerings</a>
-                        <a href="event.html" class="nav-item nav-link">Events</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
-                        <div class="nav-item dropdown">
+                        <a href="causes.html" class="nav-item nav-link">Our Services</a>
+                        {{-- <a href="event.html" class="nav-item nav-link">Events</a> --}}
+                        {{-- <a href="blog.html" class="nav-item nav-link">Blog</a> --}}
+                        {{-- <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Pages</a>
                             <div class="dropdown-menu">
                                 <a href="single.html" class="dropdown-item">Detail Page</a>
@@ -80,8 +53,11 @@
                                 <a href="donate.html" class="dropdown-item">Donate Now</a>
                                 <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
                             </div>
-                        </div>
+                        </div> --}}
+                        <a href="about.html" class="nav-item nav-link">About</a>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="#" class="nav-item nav-link">Login</a>
+                        <a href="#" class="nav-item nav-link">Regester</a>
                     </div>
                 </div>
             </div>
@@ -93,20 +69,23 @@
         <div class="carousel ">
             <div class="container-fluid">
                 <div class="owl-carousel">
-                    <div class="carousel-item" >
+                    <div class="carousel-item">
                         <div class="carousel-img">
-                            <img src="img/People holding charity medicine box flat vector illustration.jpg" alt="Image">
+                            <img src="img/slider2.jpeg" alt="Image">
                         </div>
-                        <div class="carousel-text" >
-                            <h1>Let's be kind for children</h1>
-                           
+                        <div class="carousel-text">
+                            <h1>Bringing smiles to millions</h1>
+                            <p>
+                                Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
+                            </p>
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="">Donate Now</a>
                                 <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
+                    
+                    {{-- <div class="carousel-item">
                         <div class="carousel-img">
                             <img src="img/carousel-2.jpg" alt="Image">
                         </div>
@@ -120,22 +99,21 @@
                                 <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="carousel-item">
+                    </div> --}}
+                    <div class="carousel-item" >
                         <div class="carousel-img">
-                            <img src="img/carousel-3.jpg" alt="Image">
+                            <img src="img/slider1.jpeg" alt="Image">
                         </div>
-                        <div class="carousel-text">
-                            <h1>Bringing smiles to millions</h1>
-                            <p>
-                                Sed ultrices, est eget feugiat accumsan, dui nibh egestas tortor, ut rhoncus nibh ligula euismod quam. Proin pellentesque odio
-                            </p>
+                        <div class="carousel-text" >
+                            <h1>HealthCare Heroes</h1>
+                           
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="">Donate Now</a>
                                 <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
@@ -343,7 +321,7 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
 <div class="causes">
     <div class="container">
         <div class="section-header text-center">
-            <p>Our Offerings</p>
+            <p>Our Services</p>
             <h2>Let's know how we can get the offerings and services</h2>
         </div>
         <div class="row">
@@ -713,8 +691,8 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
         <div class="blog">
             <div class="container">
                 <div class="section-header text-center">
-                    <p>Our Blog</p>
-                    <h2>Latest news & articles directly from our blog</h2>
+                    <p>Our Achievements</p>
+                    <h2>Latest news & articles directly from our achevmient</h2>
                 </div>
                 <div class="row">
                     <div class="col-lg-4">
@@ -781,13 +759,13 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-contact">
                             <h2>Our Head Office</h2>
-                            <p><i class="fa fa-map-marker-alt"></i>123 Street, New York, USA</p>
-                            <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
-                            <p><i class="fa fa-envelope"></i>info@example.com</p>
+                            <p><i class="fa fa-map-marker-alt"></i>30th Street, Irbid, Jordan</p>
+                            <p><i class="fa fa-phone-alt"></i>+962 78 7656330</p>
+                            <p><i class="fa fa-envelope"></i>info@helpz.com</p>
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a>
+                                {{-- <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a> --}}
                                 <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
                             </div>
@@ -798,7 +776,7 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                             <h2>Popular Links</h2>
                             <a href="">About Us</a>
                             <a href="">Contact Us</a>
-                            <a href="">Popular Causes</a>
+                            <a href="">Our Services</a>
                             <a href="">Upcoming Events</a>
                             <a href="">Latest Blog</a>
                         </div>
@@ -828,10 +806,10 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
             <div class="container copyright">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>&copy; <a href="#">Your Site Name</a>, All Right Reserved.</p>
+                        <p>&copy; <a href="#">HELEPZ</a>, All Right Reserved.</p>
                     </div>
                     <div class="col-md-6">
-                        <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p>
+                        {{-- <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p> --}}
                     </div>
                 </div>
             </div>
