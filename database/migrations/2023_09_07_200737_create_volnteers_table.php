@@ -12,19 +12,26 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::disableForeignKeyConstraints();
+        // Schema::disableForeignKeyConstraints();
         Schema::create('volnteers', function (Blueprint $table) {
             $table->id();
             $table->string('volunteer_name'); // Corrected column name
-            $table->bigInteger('category_id');
+            // $table->unsignedInteger('category_id');
             $table->text('description'); // Corrected column name
             $table->integer('price');
             $table->mediumText('main_picture');
             $table->timestamps();
 
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreignId('category_id')->references('id')->on('categories')->unsigned();
+            // $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreignId('category_id')->nullable()->constrained('category')->onDelete('cascade')->onUpdate('cascade');
+
+            // $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
+            
+                // $table->foreignId('category_id')->nullable()->constrained('categories')->onUpdate('cascade')->onDelete('cascade');
+            
         });
-        Schema::enableForeignKeyConstraints();
+        
 
     }
 
