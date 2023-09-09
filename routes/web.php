@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\VolnteerController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 
@@ -16,6 +17,11 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', [CategoryController::class, 'index']);
+Route::get('/', function () {
+    return view('pages.index');
+});
+Route::get('/categories/{id}',[VolnteerController::class, 'show'])
+;
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,4 +34,10 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+
+Route::get('/dash', function () {
+    return view('Dash.Home');
+});
+
 

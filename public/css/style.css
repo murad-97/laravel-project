@@ -948,6 +948,7 @@ a:focus {
 }
 
 .causes .progress-text {
+  
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
@@ -1988,7 +1989,7 @@ a:focus {
 }
 
 .sidebar .category-widget ul li span {
-    display: inline-block;
+
     float: right;
 }
 
