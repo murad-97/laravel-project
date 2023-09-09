@@ -30,17 +30,17 @@
         <!-- Top Bar End -->
 
         <!-- Nav Bar Start -->
-        <div class="navbar navbar-expand-lg bg-dark navbar-dark ">
-            <div class="container-fluid">
-                <a href="index.html" class="navbar-brand">Helpz</a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                    <span class="navbar-toggler-icon"></span>
+        <div class="navbar navbar-expand-lg bg-dark navbar-dark nav-sticky ">
+            <div class="container-fluid ">
+                <a href="index.html" class="navbar-brand nav-sticky">Helpz</a>
+                <button type="button" class="navbar-toggler nav-sticky" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon nav-sticky"></span>
                 </button>
 
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
-                        <a href="causes.html" class="nav-item nav-link">Our Services</a>
+                <div class="collapse navbar-collapse justify-content-between nav-sticky" id="navbarCollapse">
+                    <div class="navbar-nav ml-auto nav-sticky">
+                        <a href="index.html" class="nav-item nav-link active nav-sticky">Home</a>
+                        <a href="causes.html" class="nav-item nav-link nav-sticky">Our Services</a>
                         {{-- <a href="event.html" class="nav-item nav-link">Events</a> --}}
                         {{-- <a href="blog.html" class="nav-item nav-link">Blog</a> --}}
                         {{-- <div class="nav-item dropdown">
@@ -53,10 +53,10 @@
                                 <a href="volunteer.html" class="dropdown-item">Become A Volunteer</a>
                             </div>
                         </div> --}}
-                        <a href="about.html" class="nav-item nav-link">About</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
-                        <a href="#" class="nav-item nav-link">Login</a>
-                        <a href="#" class="nav-item nav-link">Regester</a>
+                        <a href="about.html" class="nav-item nav-link nav-sticky">About</a>
+                        <a href="contact.html" class="nav-item nav-link nav-sticky">Contact</a>
+                        <a href="#" class="nav-item nav-link nav-sticky">Login</a>
+                        <a href="#" class="nav-item nav-link nav-sticky">Regester</a>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                         </div>
                         <div class="carousel-text" >
                             <h1>HealthCare Heroes</h1>
-                           
+                        
                             <div class="carousel-btn">
                                 <a class="btn btn-custom" href="">Donate Now</a>
                                 <a class="btn btn-custom btn-play" data-toggle="modal" data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch Video</a>
@@ -269,6 +269,10 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
     <!-- Facts Start -->
 <div class="facts" data-parallax="scroll" data-image-src="img/istockphoto-1016780008-1024x1024-transformed.jpeg">
     <div class="container">
+        <div class="section-header text-center">
+            <p>Our Achievements </p>
+            {{-- <h2>Let's know how we can get the offerings and services</h2> --}}
+        </div>
         <div class="row">
             <div class="col-lg-3 col-md-6">
                 <div class="facts-item">
@@ -324,67 +328,16 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
             <h2>Let's know how we can get the offerings and services</h2>
         </div>
         <div class="row">
-            <div class="col-lg-4 col-md-6">
-                <div class="causes-item d-flex flex-column h-100  w-100" >
-                    <div class="causes-img border-1 border-dark">
-                        <img src="img/eq2.jpg" alt="Image" class="img-cause img-fluid">
-                    </div>
-                    <div class="causes-progress">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
-                                <span>50%</span>
-                            </div>
-                        </div>
-                        <div class="progress-text">
-                            <p><strong>Raised:</strong> JOD10000</p>
-                            <p><strong>Goal:</strong> JOD5000</p>
-                        </div>
-                    </div>
-                    <div class="causes-text">
-                        <h3>Equipment</h3>
-                        <p>include Medical Equipment Donations,
-                            Equipment Procurement and
-                            Equipment Maintenance and Training </p>
-                    </div>
-                    <div class="causes-btn">
-                        <a class="btn btn-custom">Get Donations
-                        </a>
-                       
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6 ">
-                <div class="causes-item d-flex flex-column h-100 w-100">
-                    <div class="causes-img">
-                        <img src="img/eq333.PNG" alt="Image" class="img-cause img-fluid">
-                    </div>
-                    <div class="causes-progress">
-                        <div class="progress">
-                            <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
-                                <span>90%</span>
-                            </div>
-                        </div>
-                        <div class="progress-text">
-                            <p><strong>Raised:</strong> JOD25000</p>
-                            <p><strong>Goal:</strong>JOD24000</p>
-                        </div>
-                    </div>
-                    <div class="causes-text">
-                        <h3>Services</h3>
-                        <p>include Medical Assistance Programs and We facilitate access to telemedicine services, allowing remote consultations 
-                          </p>
-                    </div>
-                    <div class="causes-btn">
-                        <a class="btn btn-custom">Get Donations
-                        </a>
-                    </div>
-                </div>
-            </div>
+            @foreach ($category as $item )
+            
+                
+            
+
             <div class="col-lg-4 col-md-6">
                 <div class="causes-item d-flex flex-column h-100 w-100" class="img-cause img-fluid">
                     <div class="causes-img">
                         <img src="img/istockphoto-1343294992-1024x1024-transformed-removebg-preview (1).png" alt="Image" height="300px">
-                     
+                    
                     </div>
                     <div class="causes-progress">
                         <div class="progress">
@@ -398,23 +351,24 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                         </div>
                     </div>
                     <div class="causes-text">
-                        <h3>Medicine</h3>
-                        <p>include Medication Assistance Helbz collaborates with pharmaceutical companies and healthcare providers to provide access to essential medications
-                           </p>
+                        <h3>{{ $item->name }}</h3>
+                        <p>{{ $item->description }}
+                        </p>
                     </div>
                     <div class="causes-btn">
-                        <a class="btn btn-custom">Get Donations
+                        <a href="{{ $item->id }}" class="btn btn-custom">Get Donations
                         </a>
                     </div>
                 </div>
             </div>
+            @endforeach
         </div>
     </div>
 </div>
 <!-- Causes End -->
 
         <!-- Donate Start -->
-        <div class="donate" data-parallax="scroll" data-image-src="img/imp2.PNG">
+        {{-- <div class="donate" data-parallax="scroll" data-image-src="img/imp2.PNG">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
@@ -455,13 +409,13 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                    
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Donate End -->
         
 
 
         <!-- Event Start -->
-<div class="event">
+{{-- <div class="event">
     <div class="container">
         <div class="section-header text-center">
             <p>Upcoming Events</p>
@@ -515,8 +469,52 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- Event End -->
+<!-- Volunteer Start -->
+        <div class="container">
+            <div class="section-header text-center">
+            <p>Become a Valounteer</p>
+            <h2>Let’s make a difference in the lives of others</h2>
+        </div>
+            
+            <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
+                <div class="row align-items-center">
+                    <div class="col-lg-5">
+                        <div class="volunteer-form">
+                            <form>
+                                <div class="control-group">
+                                    <input type="text" class="form-control" placeholder="Name" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <input type="email" class="form-control" placeholder="Email" required="required" />
+                                </div>
+                                <div class="control-group">
+                                    <textarea class="form-control" placeholder="Why you want to become a volunteer?" required="required"></textarea>
+                                </div>
+                                <div>
+                                    <button class="btn btn-custom" type="submit">Become a volunteer</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <div class="volunteer-content">
+                            <div class="section-header">
+                                <p>Become A Volunteer</p>
+                                <h2>Let’s make a difference in the lives of others</h2>
+                            </div>
+                            <div class="volunteer-text">
+                                <p>
+                                    Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Volunteer End -->
 
 
         <!-- Team Start -->
@@ -530,16 +528,15 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                     <div class="col-lg-4 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="img/husam.jfif" alt="Team Image" class="img-fluid">
+                                <img src="img/murad.jpg" alt="Team Image" class="img-fluid">
                             </div>
                             <div class="team-text">
-                                <h2>Husam Al-odat</h2>
+                                <h2>Murad Alzeroo</h2>
                                 <p>Full stuck developer</p>
                                 <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="https://github.com/murad-97" target="_blank"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.facebook.com/muradalshorman136" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.linkedin.com/in/murad-ashorman-38a608228/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -547,16 +544,15 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                     <div class="col-lg-4 col-md-6">
                         <div class="team-item">
                             <div class="team-img">
-                                <img src="img/mohammed.jpg" alt="Team Image">
+                                <img src="img/qasem (2).jpg" alt="Team Image">
                             </div>
                             <div class="team-text">
-                                <h2>Mohammed Ghzawi</h2>
+                                <h2>Qasem AL-Zou'bi</h2>
                                 <p>Full stuck developer</p>
                                 <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
-                                    <a href=""><i class="fab fa-facebook-f"></i></a>
-                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href="https://github.com/qasemzoubii" target="_blank"><i class="fab fa-github"></i></a>
+                                    <a href="https://www.facebook.com/qasemzo3bii" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="https://www.linkedin.com/in/qasem-zo3bi/" target="_blank" ><i class="fab fa-linkedin-in"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -570,15 +566,14 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                                 <h2>Shatha Rababah</h2>
                                 <p>Telecom Engineering</p>
                                 <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-github"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
                                     <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-               
+            
                 </div>
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
@@ -590,10 +585,9 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                                 <h2>Husam Al-odat</h2>
                                 <p>Full stuck developer</p>
                                 <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-github"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
                                     <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -607,10 +601,9 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                                 <h2>Mohammed Ghzawi</h2>
                                 <p>Full stuck developer</p>
                                 <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-github"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
                                     <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -624,20 +617,19 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                                 <h2>Shatha Rababah</h2>
                                 <p>Telecom Engineering</p>
                                 <div class="team-social">
-                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-github"></i></a>
                                     <a href=""><i class="fab fa-facebook-f"></i></a>
                                     <a href=""><i class="fab fa-linkedin-in"></i></a>
-                                    <a href=""><i class="fab fa-instagram"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-               
+            
                 </div>
             </div>
         </div>
         <!-- Team End -->
-     
+    
         
         <!-- Volunteer Start -->
         <div class="volunteer" data-parallax="scroll" data-image-src="./img/woww2.PNG">
@@ -687,7 +679,7 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
 
 
         <!-- Blog Start -->
-        <div class="blog">
+        {{-- <div class="blog">
             <div class="container">
                 <div class="section-header text-center">
                     <p>Our Achievements</p>
@@ -747,7 +739,7 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
                     </div>
                 </div>
             </div>
-        </div>
+        </div> --}}
         <!-- Blog End -->
 
 
@@ -819,9 +811,9 @@ At Helbz, we envision a world where healthcare disparities are a thing of the pa
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         
         <!-- Pre Loader -->
-        <div id="loader" class="show">
+        {{-- <div id="loader" class="show">
             <div class="loader"></div>
-        </div>
+        </div> --}}
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
