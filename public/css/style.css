@@ -1,3 +1,74 @@
+.container{
+    display: grid;
+    grid-template-columns: auto;
+width: 100%;
+
+}
+.containerr{
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 102px;
+
+}
+
+.sub-container{
+      background-color: rgba(255, 255, 255, 0.716);
+   justify-content: center;
+      margin: auto;
+    font-size: 20px;
+      height: 80%;
+      padding-right: 50px;
+      border-radius: 5px;
+
+}
+.cont{
+    padding-bottom:100px;
+}
+.conten2t{
+    line-height: 100px;
+    /* padding-left: 50px; */
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+}
+.flex p:nth-child(2){
+    margin-left: 80px;
+    font-weight: bold;
+}
+.content hr{
+    color: black;
+}
+.button-cancel{
+    color: white;
+    padding: 10px 85px;
+   background-color: #59AB6E;
+   border: none;
+   border-radius: 5px;
+   font-weight:bold ;
+    font-size: 17px;
+    margin: 30px;
+}
+.button-conformation{
+    color: white;
+    padding: 10px 60px;
+   background-color: #59AB6E;
+   border: none;
+   border-radius: 5px;
+   font-weight:bold ;
+    font-size: 17px;
+}
+.flex-button{
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-between;
+   
+}
+
+
+
 /*******************************/
 /********* General CSS *********/
 /*******************************/
@@ -948,6 +1019,7 @@ a:focus {
 }
 
 .causes .progress-text {
+  
     margin-top: 5px;
     display: flex;
     justify-content: space-between;
@@ -1988,7 +2060,7 @@ a:focus {
 }
 
 .sidebar .category-widget ul li span {
-    display: inline-block;
+
     float: right;
 }
 
