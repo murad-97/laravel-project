@@ -44,6 +44,8 @@ return new class extends Migration
         Schema::create('volnteeritems', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('qty');
+            $table->bigInteger('number');
+            $table->string('location');
             $table->timestamps();
             $table->foreignId('user_id')->constrained('users');
             $table->foreignId('volunteer_id')->constrained('volnteers');

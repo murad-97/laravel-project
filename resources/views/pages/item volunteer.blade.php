@@ -78,51 +78,64 @@
 
                         <div class="tab-content">
                             <div class="p-list">
-                                <span> DONATIONS: <i class="fa fa-inr"></i> </span>
-
+                                <span> DESCREPTION: <i class="fa fa-inr"></i> </span>
+<P>{{ $volnteer->description }}</P>
                             </div>
-                            <div class="causes p-0">
-                                <div class="causes-progress m-0">
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar"
-                                            aria-valuenow="{{ intval(($price / $volnteer->price) * 100) }}"
-                                            aria-valuemin="0" aria-valuemax="100">
-                                            <span>{{ intval(($price / $volnteer->price) * 100) }}%</span>
-                                        </div>
-                                    </div>
-                                    <div class="progress-text" style="display: flex;justify-content:space-between">
-                                        <p><strong>Raised:</strong> JOD{{ $price }}</p>
-                                        <p><strong>Goal:</strong> JOD{{ $volnteer->price }}</p>
-                                    </div>
-                                </div>
-                            </div>
+                           
                             <hr>
                             <div class="donate-form">
                                 <div class="p-list">
                                     <span> Make Your Donation: <i class="fa fa-inr"></i> </span>
     
                                 </div>
-                                <form method="post" action="{{ route("paypal") }}">
-                                    @csrf
-                                        <input id="don" name="id" type="number" class="form-control" placeholder="USD" required="required" value="{{ $volnteer->id }}"  hidden/>
-                                        <input id="don" name="price" type="number" class="form-control" placeholder="USD" required="required" value="20" />
-                                        
-                                        <button type="submit"> pay with paypal</button>
-                                    
-                                </form>
+                                <div class="volunteer-form">
+                                    <form method="POST" action="/volunteeringitem">
+                                        @csrf
+                                        <div class="control-group">
+                                            <input type="text" name="id" class="form-control" placeholder="NUMBER" hidden value="{{ $volnteer->id  }}" />
+                                        </div>
+                                        <div class="control-group">
+                                            <input type="text" name="number" class="form-control" placeholder="NUMBER" />
+                                        </div>
+                                        <span style="color: red">@error("number"){{ $message }}
+                                            
+                                            
+                                            @enderror</span>
+                                            
+                                            <br>
+                                            <div class="control-group">
+                                            <input type="TEXT" name="location" class="form-control" placeholder="LOCATION"  />
+                                        </div>
+                                        <span style="color: red">@error("location"){{ $message }}
+                                            
+                                            @enderror</span>
+                                            
+                                            <br>
+                                        <div class="control-group">
+                                            <input type="TEXT" name="qty" class="form-control" placeholder="QTY" >
+                                        </div>
+                                        <span style="color: red">@error("qty"){{ $message }}
+                                            
+                                            @enderror</span>
+                                            <br>
+                                        <div>
+                                            <button class="btn btn-custom" type="submit">DONATE</button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
 
                             <hr>
                         </div>
                     </div>
-                    {{-- <div class="_p-add-cart m-3">
+                    <div class="_p-add-cart m-3">
 
                         <div id="paypal-button-container"></div>
                         <p id="result-message"></p>
                         <input type="hidden" name="pid" value="18" />
                         <input type="hidden" name="price" value="850" />
                         <input type="hidden" name="url" value="" />
-                    </div> --}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -236,8 +249,7 @@
         <!-- Pre Loader -->
 
         <!-- JavaScript Libraries -->
-        
-        
+    
        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
        <script src="{{ asset('lib/easing/easing.min.js') }}"></script>
