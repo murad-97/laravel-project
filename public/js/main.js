@@ -1,3 +1,7 @@
+
+let inpt = document.getElementById('don')
+console.log(inpt);
+
 (function ($) {
     "use strict";
     
