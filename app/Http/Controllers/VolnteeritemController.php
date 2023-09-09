@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Volnteeritem;
+use App\Models\Volnteer;
 use Illuminate\Http\Request;
 
 class VolnteeritemController extends Controller
@@ -12,9 +13,12 @@ class VolnteeritemController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        $volnteer = Volnteer::find($id);
+       
+
+        return view("pages.item volunteer")->with("volnteer",$volnteer);
     }
 
     /**
@@ -24,7 +28,7 @@ class VolnteeritemController extends Controller
      */
     public function create()
     {
-        //
+       
     }
 
     /**
@@ -35,7 +39,13 @@ class VolnteeritemController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'number' => ['required', 'regex:/^07\d{8}$/'],
+            'location' => ['required'],
+            'qty' => ['required', 'numeric'],
+
+        ]);
+        dd($request);
     }
 
     /**

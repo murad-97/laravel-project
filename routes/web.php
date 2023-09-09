@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolnteerController;
 use App\Http\Controllers\VolnteerdetailController;
+use App\Http\Controllers\VolnteeritemController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 
@@ -20,8 +21,10 @@ use App\Http\Controllers\CategoryController;
 Route::get('/', [CategoryController::class, 'index']);
 
 Route::get('/categories/{id}',[VolnteerController::class, 'show']);
-Route::get('/volunteering/{id}',[VolnteerdetailController::class, 'index'])
-;
+Route::get('/volunteering/{id}',[VolnteerdetailController::class, 'index']);
+Route::get('/volunteering item/{id}',[VolnteeritemController::class, 'index']);
+Route::post('/volunteeringitem',[VolnteeritemController::class, 'store']);
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');

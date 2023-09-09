@@ -100,7 +100,7 @@
                         </div>
                     </div>
                     <div class="_p-add-cart m-3">
-                        <a href="/volunteering/{{ $volnteer->id }}}" class="btn btn-custom" tabindex="0" style="color: black">
+                        <a href="/volunteering item/{{ $volnteer->id }}" class="btn btn-custom" tabindex="0" style="color: black">
                             <i class="far fa-grin-wink"></i> In-Kind Donations
                         </a>
                         <a href="/volunteering/{{ $volnteer->id }}" class=" causes-btn btn btn-custom" tabindex="0" style="color: black">
