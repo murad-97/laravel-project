@@ -4,6 +4,8 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolnteerController;
 use App\Http\Controllers\VolnteerdetailController;
 use App\Http\Controllers\VolnteeritemController;
+use App\Http\Controllers\PaypalController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 
@@ -17,6 +19,9 @@ use App\Http\Controllers\CategoryController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::post('paypal/payment',[PaypalController::class, 'payment'])->name("paypal");
+Route::get('paypal/success',[PaypalController::class, 'success'])->name("paypal_success");
+Route::get('paypal/cancel',[PaypalController::class, 'cancel'])->name("paypal_cancel");
 
 Route::get('/', [CategoryController::class, 'index']);
 

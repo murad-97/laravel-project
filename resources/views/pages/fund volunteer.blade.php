@@ -102,9 +102,12 @@
                                     <span> Make Your Donation: <i class="fa fa-inr"></i> </span>
     
                                 </div>
-                                <form>
-                                    
-                                        <input id="don" type="number" class="form-control" placeholder="USD" required="required" />
+                                <form method="post" action="{{ route("paypal") }}">
+                                    @csrf
+                                        <input id="don" name="id" type="number" class="form-control" placeholder="USD" required="required" value="{{ $volnteer->id }}"  hidden/>
+                                        <input id="don" name="price" type="number" class="form-control" placeholder="USD" required="required" value="20" />
+                                        
+                                        <button type="submit"> pay with paypal</button>
                                     
                                 </form>
                             </div>
@@ -112,14 +115,14 @@
                             <hr>
                         </div>
                     </div>
-                    <div class="_p-add-cart m-3">
+                    {{-- <div class="_p-add-cart m-3">
 
                         <div id="paypal-button-container"></div>
                         <p id="result-message"></p>
                         <input type="hidden" name="pid" value="18" />
                         <input type="hidden" name="price" value="850" />
                         <input type="hidden" name="url" value="" />
-                    </div>
+                    </div> --}}
                 </div>
             </div>
         </div>
@@ -234,96 +237,7 @@
 
         <!-- JavaScript Libraries -->
         
-        <script
-            src="https://www.paypal.com/sdk/js?client-id=AZxyOq6-HLzJWP_B0nohCq48jCZrhMft-AmrXKc54yT5_qLrYqEMY6xIAIteWrr5u1GiNPDgS_I71z0Y&currency=USD">
-        </script>
-        <script>
-           
-        </script>
-        <script>
-           paypal.Buttons({
-            // Sets up the transaction when a payment button is clicked
-            createOrder: (data, actions) => {
-                return actions.order.create({
-                    "purchase_units": [{
-                        "custom_id": "1",
-                        "description": "asdasd",
-                        "amount": {
-                            "currency_code": "USD",
-                            "value": 10,
-                            "breakdown": {
-                                "item_total": {
-                                    "currency_code": "USD",
-                                    "value": 10
-                                }
-                            }
-                        },
-                        "items": [
-                            {
-                                "name": "murad",
-                                "description": "murad",
-                                "unit_amount": {
-                                    "currency_code": "USD",
-                                    "value": 10
-                                },
-                                "quantity": "1",
-                                "category": "DIGITAL_GOODS"
-                            },
-                        ]
-                    }]
-                });
-            },
-            // Finalize the transaction after payer approval
-            onApprove: (data, actions) => {
-                return actions.order.capture().then(function (orderData) {
-                    setProcessing(true);
-
-                    var postData = { paypal_order_check: 1, order_id: orderData.id };
-                    fetch('paypal_checkout_validate.php', {
-                        method: 'POST',
-                        headers: { 'Accept': 'application/json' },
-                        body: encodeFormData(postData)
-                    })
-                        .then((response) => response.json())
-                        .then((result) => {
-                            if (result.status == 1) {
-                                window.location.href = "payment-status.php?checkout_ref_id=" + result.ref_id;
-                            } else {
-                                const messageContainer = document.querySelector("#paymentResponse");
-                                messageContainer.classList.remove("hidden");
-                                messageContainer.textContent = result.msg;
-
-                                setTimeout(function () {
-                                    messageContainer.classList.add("hidden");
-                                    messageText.textContent = "";
-                                }, 5000);
-                            }
-                            setProcessing(false);
-                        })
-                        .catch(error => console.log(error));
-                });
-            }
-        }).render('#paypal-button-container');
-
-        const encodeFormData = (data) => {
-            var form_data = new FormData();
-
-            for (var key in data) {
-                form_data.append(key, data[key]);
-            }
-            return form_data;
-        }
-
-        // Show a loader on payment form processing
-        const setProcessing = (isProcessing) => {
-            if (isProcessing) {
-                document.querySelector(".overlay").classList.remove("hidden");
-            } else {
-                document.querySelector(".overlay").classList.add("hidden");
-            }
-        }    
-    </script>
-    </script>
+        
        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
        <script src="{{ asset('lib/easing/easing.min.js') }}"></script>

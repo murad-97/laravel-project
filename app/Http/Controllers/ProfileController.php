@@ -29,7 +29,7 @@ class ProfileController extends Controller
                 $findUser=new User();
                 $findUser->name=$user->name;
                 $findUser->email=$user->email;
-                $findUser->password="123456mohammad";
+                $findUser->password="123456mohammed";
                 $findUser->save();
                 
             }
