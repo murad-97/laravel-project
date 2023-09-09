@@ -45,7 +45,17 @@ class VolnteeritemController extends Controller
             'qty' => ['required', 'numeric'],
 
         ]);
-        dd($request);
+
+$volitem = new Volnteeritem;
+
+$volitem->qty = $request->input('qty');
+$volitem->number = $request->input('number');
+$volitem->location = $request->input('location');
+$volitem->user_id =1;
+$volitem->volunteer_id = $request->input('id');
+    $volitem->save();
+
+return view("pages.bill");
     }
 
     /**
