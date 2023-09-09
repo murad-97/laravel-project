@@ -23,7 +23,7 @@ class VolnteerController extends Controller
        $products = Volnteer::where('category_id', $id)
             ->orderBy('volunteer_name')
             ->paginate(6);
-       
+      
 
         $categories = Category::all();
         return view('pages.causes', [
@@ -62,7 +62,6 @@ class VolnteerController extends Controller
      */
     public function show($id)
     {
-    
         $volnteer = Volnteer::find($id);
         $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
         $price = 0;
@@ -124,7 +123,7 @@ $price+=$volnteerDetail->price;
             $query->where('volunteer_name', 'LIKE', '%' . $request->title . '%');
 
         }
-        $products = $query->get();
+        $products = $query->paginate(6);
 
 
 
