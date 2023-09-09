@@ -44,3 +44,7 @@ Route::get('/dash', function () {
 });
 
 
+//social login by google
+Route::get('/googlelogin', [ProfileController::class, 'googleLogin']);
+Route::get('/auth/google/callback', [ProfileController::class, 'googleHandle']);
+
