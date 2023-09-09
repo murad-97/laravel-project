@@ -1,3 +1,4 @@
+        <!-- Footer Start -->
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -10,7 +11,6 @@
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
-                                {{-- <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a> --}}
                                 <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
                             </div>
@@ -54,7 +54,6 @@
                         <p>&copy; <a href="#">HELEPZ</a>, All Right Reserved.</p>
                     </div>
                     <div class="col-md-6">
-                        {{-- <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p> --}}
                     </div>
                 </div>
             </div>
@@ -64,10 +63,6 @@
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         
-        <!-- Pre Loader -->
-        {{-- <div id="loader" class="show">
-            <div class="loader"></div>
-        </div> --}}
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
