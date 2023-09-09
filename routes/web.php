@@ -5,6 +5,7 @@ use App\Http\Controllers\VolnteerController;
 use App\Http\Controllers\VolnteerdetailController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', [CategoryController::class, 'index']);
+Route::post('/send-message', [ContactController::class, 'sendEmail'])->name('contact.send');
 
 Route::get('/categories/{id}',[VolnteerController::class, 'show']);
 Route::get('/volunteering/{id}',[VolnteerdetailController::class, 'index'])
@@ -39,5 +41,11 @@ require __DIR__.'/auth.php';
 Route::get('/dash', function () {
     return view('Dash.Home');
 });
+Route::get('/bill', function () {
+    return view('pages.bill');
+});
+// Route::get('/contact', function () {
+//     return view('pages.contact');
+// });
 
 
