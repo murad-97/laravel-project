@@ -18,9 +18,7 @@ use App\Http\Controllers\CategoryController;
 */
 
 Route::get('/', [CategoryController::class, 'index']);
-Route::get('/', function () {
-    return view('pages.index');
-});
+
 Route::get('/categories/{id}',[VolnteerController::class, 'show']);
 Route::get('/volunteering/{id}',[VolnteerdetailController::class, 'index'])
 ;
