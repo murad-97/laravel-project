@@ -36,6 +36,7 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('css-dash/style.css')}}" rel="stylesheet">
+    <link href="{{asset('css-dash/user_dash.css')}}" rel="stylesheet">
     
 </head>
 
@@ -75,9 +76,20 @@
                             <a href="signup.html" class="dropdown-item">Sign Up</a>
                         </div>
                     </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>Volunteers</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+
+                            <a href="signin.html" class="dropdown-item">Equpment</a>
+                            <a href="signup.html" class="dropdown-item">Services</a>
+                            <a href="signup.html" class="dropdown-item">Medicine</a>
+                        </div>
+                    </div>
                     <a href="product.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Products</a>
+                    <a href="{{route('allusers')}}" class="nav-item nav-link"><i class="fa fa-users me-2"></i></i>Usres</a>
+                    <a href="{{route('all_volunteers')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Volunteers</a>
                     <a href="Profile.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Profile Setting</a>
-                    <a href="order.html" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Orders</a>
+                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Categories</a>
                     <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
                     <a href="signin.html" class="nav-item nav-link"><i class="fa fa-sign-out me-2"></i>LogOut</a>
               

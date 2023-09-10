@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Volnteerdetail;
 use Illuminate\Http\Request;
+use App\Models\User;
 
-class VolnteerdetailController extends Controller
+class UserDashController extends Controller
 {
-    /**
+    //
+
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -15,6 +17,8 @@ class VolnteerdetailController extends Controller
     public function index()
     {
         //
+        $users = User::all();
+        return view('Dash.user_dash', compact('users'));
     }
 
     /**
@@ -41,10 +45,10 @@ class VolnteerdetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteerdetail $volnteerdetail)
+    public function show(User $volnteer)
     {
         //
     }
@@ -52,10 +56,10 @@ class VolnteerdetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Volnteerdetail $volnteerdetail)
+    public function edit(User $volnteer)
     {
         //
     }
@@ -64,10 +68,10 @@ class VolnteerdetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Volnteerdetail $volnteerdetail)
+    public function update(Request $request, User $volnteer)
     {
         //
     }
@@ -75,11 +79,14 @@ class VolnteerdetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Volnteerdetail $volnteerdetail)
+    public function destroy($id)
     {
         //
+        User::where(['id'=>$id])->delete();
+        return redirect()->route('allusers')->with (['success'=>'job deleted successfully']);
+        // return redirect('jobResource.job')->with (['success'=>'user deleted successfully']);
     }
 }

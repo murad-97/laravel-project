@@ -3,19 +3,40 @@
 namespace App\Http\Controllers;
 
 use App\Models\Volnteeritem;
+use App\Models\User;
+use App\Models\Volnteer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class VolnteeritemController extends Controller
+class VolnteeritemDashController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        //
+        $users = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name', 'volnteeritems.qty', 'volnteeritems.number', 'volnteeritems.location')
+        ->join('volnteeritems', 'volnteers.id', '=', 'volnteeritems.volunteer_id')
+        ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+        ->join('users', 'users.id', '=', 'volnteeritems.user_id')
+        ->get();
+        // $users = DB::select('SELECT 
+        //     users.name,
+        //     users.email,
+        //     volnteers.volunteer_name,
+        //     volnteeritems.qty
+        //     FROM volnteers
+        //     JOIN volnteeritems ON volnteers.id = volnteeritems.volunteer_id
+        //     JOIN categories ON volnteers.category_id = categories.id
+        //     JOIN users ON volnteeritems.user_id = users.id);
+    
+        // dd($users);
+        return view("Dash.detail")->with("users",$users);
     }
+    
 
     /**
      * Show the form for creating a new resource.
