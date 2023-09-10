@@ -19,11 +19,10 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
                             <h2>Popular Links</h2>
-                            <a href="">About Us</a>
-                            <a href="">Contact Us</a>
-                            <a href="">Our Services</a>
-                            <a href="">Upcoming Events</a>
-                            <a href="">Latest Blog</a>
+                            <a href="#about">About Us</a>
+                            <a href="#contact">Contact Us</a>
+                            <a href="#off">Our Offerings</a>
+                            <a href="#ach">Our Achievements</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">

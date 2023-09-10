@@ -52,10 +52,6 @@ Route::get('/dash', function () {
 Route::get('/bill', function () {
     return view('pages.bill');
 });
-// Route::get('/contact', function () {
-//     return view('pages.contact');
-// });
-
 
 //social login by google
 Route::get('/googlelogin', [ProfileController::class, 'googleLogin']);

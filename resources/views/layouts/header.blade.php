@@ -33,18 +33,19 @@
         <!-- Nav Bar Start -->
         <div class="navbar navbar-expand-lg bg-dark navbar-dark nav-sticky ">
             <div class="container-fluid ">
-                <a href="index.html" class="navbar-brand nav-sticky">Helpz</a>
-                <button type="button" class="navbar-toggler nav-sticky" data-toggle="collapse" data-target="#navbarCollapse">
+                <a href="#" class="navbar-brand nav-sticky">Helpz </a>
+                <button type="button" class="navbar-toggler nav-sticky" data-toggle="collapse" data-target="#home">
                     <span class="navbar-toggler-icon nav-sticky"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-between nav-sticky" id="navbarCollapse">
                     <div class="navbar-nav ml-auto nav-sticky">
-                        <a href="index.html" class="nav-item nav-link active nav-sticky">Home</a>
-                        <a href="causes.html" class="nav-item nav-link nav-sticky">Our Services</a>
+                        <a href="#" class="nav-item nav-link active nav-sticky">Home</a>
+                        <a href="#off" class="nav-item nav-link nav-sticky">Our Offerings</a>
+                        <a href="#ach" class="nav-item nav-link nav-sticky">Our Achievements</a>
                     
-                        <a href="about.html" class="nav-item nav-link nav-sticky">About</a>
-                        <a href="contact.html" class="nav-item nav-link nav-sticky">Contact</a>
+                        <a href="#about" class="nav-item nav-link nav-sticky">About</a>
+                        <a href="#contact" class="nav-item nav-link nav-sticky">Contact</a>
                         <a href="#" class="nav-item nav-link nav-sticky">Login</a>
                         <a href="#" class="nav-item nav-link nav-sticky">Regester</a>
                     </div>
