@@ -37,9 +37,9 @@ Route::get('/volunteering item/{id}',[VolnteeritemController::class, 'index']);
 Route::post('/volunteeringitem',[VolnteeritemController::class, 'store']);
 
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -60,6 +60,10 @@ Route::get('/bill', function () {
 //social login by google
 Route::get('/googlelogin', [ProfileController::class, 'googleLogin']);
 Route::get('/auth/google/callback', [ProfileController::class, 'googleHandle']);
+
+
+
+Route::get('/pages.profile.edit', [ProfileController::class, 'index']);
 
 Route::get('/causes', function () {
     return view('pages.causes');

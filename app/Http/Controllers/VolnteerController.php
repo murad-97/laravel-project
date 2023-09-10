@@ -62,14 +62,17 @@ class VolnteerController extends Controller
      */
     public function show($id)
     {
-        $volnteer = Volnteer::find($id);
-        $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
+        
+             $volnteer = Volnteer::find($id);
+        $volnteerDetails = Volnteerdetail::where('volunteer_id', $id)->get();
         $price = 0;
         foreach($volnteerDetails as $volnteerDetail){
 $price+=$volnteerDetail->price;
         }
 
         return view('pages.volunteer')->with("price",$price)->with("volnteer",$volnteer);
+  
+       
         
     }
 

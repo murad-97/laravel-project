@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 
@@ -17,30 +18,58 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function googleLogin(){
+
+    public function index()
+    {
+
+
+
+
+
+
+        // [
+        //     'volunteer_name' => $volunteer_name,
+        //     'name' => $name,
+        //     'qty'=> $qty,
+        //     'price'=> $price,
+        //     'main_picture'=> $main_picture
+
+        // ]);
+
+    }
+
+
+
+    public function googleLogin()
+    {
         return socialite::driver('google')->redirect();
     }
-    public function googleHandle(){
-        try{
-            $user=Socialite::driver('google')->user();
-            $findUser=User::where('email',$user->email)->first();
-           
-            if(!$findUser){
-                $findUser=new User();
-                $findUser->name=$user->name;
-                $findUser->email=$user->email;
-                $findUser->password="123456mohammed";
+    public function googleHandle()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            $findUser = User::where('email', $user->email)->first();
+
+
+            if (!$findUser) {
+                $findUser = new User();
+                $findUser->name = $user->name;
+                $findUser->email = $user->email;
+                $findUser->password = "123456mohammad";
                 $findUser->save();
-                
+
             }
-            session()->put('id',$findUser->id);
-            session()->put('type',$findUser->type);
+            Auth::login($findUser);
+            // session()->put('type',$findUser->type);
+
+
+            session()->put('id', $findUser->id);
+            session()->put('type', $findUser->type);
             return redirect('/');
 
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
             dd($e->getMessage());
-            
+
         }
     }
     /**
@@ -48,8 +77,28 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $users = DB::select('SELECT 
+        users.id,
+        volnteers.volunteer_name,
+        categories.name,
+        volnteeritems.qty,
+        volnteerdetails.price,
+        volnteers.main_picture
+        FROM volnteers
+        JOIN volnteeritems 
+                    ON volnteers.id = volnteeritems.volunteer_id
+        JOIN volnteerdetails 
+                     ON volnteers.id = volnteerdetails.volunteer_id
+        JOIN categories 
+                     ON volnteers.category_id = categories.id
+        JOIN users 
+                    ON volnteerdetails.user_id = users.id
+                   AND volnteeritems.user_id = users.id 
+                   where users.id = ?', [1]);
+        // dd($users);
         return view('profile.edit', [
             'user' => $request->user(),
+            "users" => $users
         ]);
     }
 
@@ -83,10 +132,11 @@ class ProfileController extends Controller
         Auth::logout();
 
         $user->delete();
-
+        dd(session());
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return Redirect::to('/');
     }
+
 }

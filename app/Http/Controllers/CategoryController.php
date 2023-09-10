@@ -15,7 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      
+    //   if(auth()->user()x)
         $category = Category::all();
         return view('pages.index')->with('category',$category);
     }
