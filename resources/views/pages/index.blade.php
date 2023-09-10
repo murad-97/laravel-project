@@ -62,8 +62,8 @@
         
 
         <!-- About Start -->
-        <div class="about">
-            <div class="container">
+        <div class="about" >
+            <div class="container" id="about">
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about-img" data-parallax="scroll" data-image-src="img/People holding charity medicine box flat vector illustration.jpg"></div>
@@ -191,7 +191,7 @@ At Helpz, we envision a world where healthcare disparities are a thing of the pa
         
         
     <!-- Facts Start -->
-<div class="facts" data-parallax="scroll" data-image-src="img/istockphoto-1016780008-1024x1024-transformed.jpeg">
+<div class="facts" id="ach" data-parallax="scroll" data-image-src="img/istockphoto-1016780008-1024x1024-transformed.jpeg">
     <div class="container">
         <div class="section-header text-center">
             <p>Our Achievements </p>
@@ -245,13 +245,13 @@ At Helpz, we envision a world where healthcare disparities are a thing of the pa
         
         
         <!-- Causes Start -->
-<div class="causes">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Our Services</p>
+<div class="causes" >
+    <div class="container" id="off" >
+        <div class="section-header text-center" >
+            <p>Our offerings</p>
             <h2>Let's know how we can get the offerings and services</h2>
         </div>
-        <div class="row">
+        <div class="row" >
             @foreach ($category as $item )
             
                 
@@ -557,7 +557,7 @@ At Helpz, we envision a world where healthcare disparities are a thing of the pa
         
         <!-- Volunteer Start -->
         <div class="volunteer" data-parallax="scroll" data-image-src="./img/woww2.PNG">
-            <div class="container">
+            <div class="container" id="contact">
                 <div class="row align-items-center">
                     <div class="col-lg-7">
                         <div class="volunteer-content">
