@@ -78,7 +78,7 @@ Route::POST('/add',[VolunteerDashController::class,'store'])->name('Add_voluntee
 // .....................................................admin>>>>>>>>>>>>>>>>>>>>>>>>
 
 
-Route::resource('admin', AdminDashController::class);
+Route::resource('admin', AdminDashhController::class);
 
 
 Route::resource('services', ServicesDashController::class);
@@ -87,9 +87,9 @@ Route::resource('equipment', equipmentDashController::class);
 
 Route::resource('medicine', MedicineDashController::class);
 
-Route::get('/detail',[VolnteeritemDashController::class,'index'])->name('all_details');
+Route::get('/detail',[VolnteeritemDashhhController::class,'index'])->name('all_details');
 
-Route::get('/item',[VolnteerdetailDashController::class,'index'])->name('all_details');
+Route::get('/item',[VolnteerdetailDashhController::class,'index'])->name('all_details');
 
 Route::resource('category', CategoryDashController::class);
 
