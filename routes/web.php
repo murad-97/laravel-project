@@ -48,3 +48,7 @@ Route::get('/dash', function () {
 Route::get('/googlelogin', [ProfileController::class, 'googleLogin']);
 Route::get('/auth/google/callback', [ProfileController::class, 'googleHandle']);
 
+
+
+Route::get('/pages.profile.edit', [ProfileController::class, 'index']);
+
