@@ -1,21 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Admin;
+use App\Models\Volnteer;
+use App\Models\Volnteerdetail;
 use Illuminate\Http\Request;
 
-class AdminDashController extends Controller
+class VolnteerdetailDashhController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        $admins = Admin::all();
-        return view('Dash.admin', compact('admins'));
+        $users = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name',
+         'volnteerdetails.price')
+        ->join('volnteerdetails', 'volnteers.id', '=', 'volnteerdetails.volunteer_id')
+        ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+        ->join('users', 'users.id', '=', 'volnteerdetails.user_id')
+        ->get();
+     
+            //  dd($users1);  
+
+            return view("Dash.item")->with("users",$users);
     }
 
     /**
@@ -42,10 +45,10 @@ class AdminDashController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Volnteerdetail  $volnteerdetail
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(Volnteerdetail $volnteerdetail)
     {
         //
     }
@@ -53,10 +56,10 @@ class AdminDashController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Volnteerdetail  $volnteerdetail
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(Volnteerdetail $volnteerdetail)
     {
         //
     }
@@ -65,10 +68,10 @@ class AdminDashController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Volnteerdetail  $volnteerdetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, Volnteerdetail $volnteerdetail)
     {
         //
     }
@@ -76,13 +79,11 @@ class AdminDashController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\Volnteerdetail  $volnteerdetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Volnteerdetail $volnteerdetail)
     {
-        Admin::destroy($id);
-        return redirect()->route('admin.index')->with(['success' => 'Deleted successfully
-        ']);
+        //
     }
 }

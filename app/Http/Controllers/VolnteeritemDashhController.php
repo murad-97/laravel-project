@@ -1,21 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Volnteeritem;
 use App\Models\User;
 use App\Models\Volnteer;
+use App\Models\Volnteeritem;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class VolnteeritemDashController extends Controller
+
+class VolnteeritemDashhController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-
     public function index()
     {
         $users = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name', 'volnteeritems.qty', 'volnteeritems.number', 'volnteeritems.location')
