@@ -51,8 +51,25 @@
                     
                         <a href="about.html" class="nav-item nav-link nav-sticky">About</a>
                         <a href="contact.html" class="nav-item nav-link nav-sticky">Contact</a>
-                        <a href="#" class="nav-item nav-link nav-sticky">Login</a>
-                        <a href="#" class="nav-item nav-link nav-sticky">Regester</a>
+<div class="navbar-nav ml-5">
+    @if (Auth::check())
+    <span  class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</span>
+    <form method="POST" class="nav-item nav-link nav-sticky" action="{{ route('logout') }}">
+        @csrf
+
+        <a href="route('logout')"
+                onclick="event.preventDefault();
+                            this.closest('form').submit();">
+            {{ __('Log Out') }}
+        </a>
+    </form>
+    @else
+    <a href="/login" class="nav-item nav-link nav-sticky">Login</a>
+    <a href="/register" class="nav-item nav-link nav-sticky">Regester</a>   
+    @endif
+</div>
+
+                     
                     </div>
                 </div>
             </div>

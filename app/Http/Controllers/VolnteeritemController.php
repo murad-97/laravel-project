@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Volnteeritem;
 use App\Models\Volnteer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VolnteeritemController extends Controller
 {
@@ -15,10 +16,16 @@ class VolnteeritemController extends Controller
      */
     public function index($id)
     {
-        $volnteer = Volnteer::find($id);
+        if (Auth::check()) {
+            $volnteer = Volnteer::find($id);
        
 
-        return view("pages.item volunteer")->with("volnteer",$volnteer);
+            return view("pages.item volunteer")->with("volnteer",$volnteer);
+        }else{
+            return redirect()->route("login");
+
+        }
+       
     }
 
     /**

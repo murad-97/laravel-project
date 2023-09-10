@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Volnteerdetail;
 use App\Models\Volnteer;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class VolnteerdetailController extends Controller
 {
@@ -15,14 +16,20 @@ class VolnteerdetailController extends Controller
      */
     public function index($id)
     {
-        $volnteer = Volnteer::find($id);
-        $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
-        $price = 0;
-        foreach($volnteerDetails as $volnteerDetail){
-$price+=$volnteerDetail->price;
-        }
+        if (Auth::check()) {
+            $volnteer = Volnteer::find($id);
+            $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
+            $price = 0;
+            foreach($volnteerDetails as $volnteerDetail){
+    $price+=$volnteerDetail->price;
+            }
+    
+            return view('pages.fund volunteer')->with("price",$price)->with("volnteer",$volnteer);
+        }else{
+            return redirect()->route("login");
 
-        return view('pages.fund volunteer')->with("price",$price)->with("volnteer",$volnteer);
+        }
+    
     }
 
     /**

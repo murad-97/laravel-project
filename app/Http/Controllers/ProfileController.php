@@ -33,8 +33,10 @@ class ProfileController extends Controller
                 $findUser->save();
                 
             }
-            session()->put('id',$findUser->id);
-            session()->put('type',$findUser->type);
+            Auth::login($findUser);
+            // session()->put('type',$findUser->type);
+            
+
             return redirect('/');
 
         }
@@ -79,11 +81,11 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
-
+       
         Auth::logout();
 
         $user->delete();
-
+dd(session());
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
