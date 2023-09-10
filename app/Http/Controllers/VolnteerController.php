@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Volnteer;
+use App\Models\Category;
 use App\Models\Volnteerdetail;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
+
 
 class VolnteerController extends Controller
 {
@@ -13,9 +16,21 @@ class VolnteerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+         
+         
+       $products = Volnteer::where('category_id', $id)
+            ->orderBy('volunteer_name')
+            ->paginate(6);
+      
+
+        $categories = Category::all();
+        return view('pages.causes', [
+            'categories' => $categories,
+            'products' => $products
+
+        ]);
     }
 
     /**
@@ -47,15 +62,17 @@ class VolnteerController extends Controller
      */
     public function show($id)
     {
-    
-        $volnteer = Volnteer::find($id);
-        $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
+        
+             $volnteer = Volnteer::find($id);
+        $volnteerDetails = Volnteerdetail::where('volunteer_id', $id)->get();
         $price = 0;
         foreach($volnteerDetails as $volnteerDetail){
 $price+=$volnteerDetail->price;
         }
 
         return view('pages.volunteer')->with("price",$price)->with("volnteer",$volnteer);
+  
+       
         
     }
 
@@ -92,4 +109,43 @@ $price+=$volnteerDetail->price;
     {
         //
     }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Volnteer  $volnteer
+     * @return \Illuminate\Http\Response
+     */
+    public function search(Request $request)
+    {
+   
+        $categories = Category::all();
+        $query = Volnteer::query();
+        if (isset($request->title) && $request->title != null) {
+            
+            $query->where('volunteer_name', 'LIKE', '%' . $request->title . '%');
+
+        }
+        $products = $query->paginate(6);
+
+
+
+
+        return view('pages.causes', ['products' => $products, 'categories' => $categories,]);
+    // }
+    }
+
+    
+
+    public function orderbyname($id)
+    {
+        $categories = Category::all();
+         $products = Volnteer::select(['*'])
+            ->orderBy('volunteer_name')
+            ->paginate(6);
+        return view('pages.causes', ['products' => $products, 'categories' => $categories]);
+    }
+    
+   
+    
 }

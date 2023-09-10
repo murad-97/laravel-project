@@ -2,35 +2,42 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Volnteerdetail;
-use App\Models\Volnteer;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class VolnteerdetailController extends Controller
+use Vonage\Client\Credentials\Basic;
+use Vonage\Client;
+use Vonage\SMS\Message\SMS;
+use App\Models\SentSms;
+use Illuminate\Http\Request;
+
+class SentSmsController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        if (Auth::check()) {
-            $volnteer = Volnteer::find($id);
-            $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
-            $price = 0;
-            foreach($volnteerDetails as $volnteerDetail){
-    $price+=$volnteerDetail->price;
-            }
-    
-            return view('pages.fund volunteer')->with("price",$price)->with("volnteer",$volnteer);
-        }else{
-            return redirect()->route("login");
-
-        }
-    
+        //
     }
+public function Sent() {
+        $basic  = new Basic("6d4ecd4c", "IdmEAmF3HTQl1XHP");
+        $client = new Client($basic);
+
+        $response = $client->sms()->send(
+            new SMS("962789776587", 'HELPZ', 'A text message sent using the Nexmo SMS API')
+        );
+
+        $message = $response->current();
+
+        if ($message->getStatus() == 0) {
+            echo "The message was sent successfully\n";
+        } else {
+            echo "The message failed with status: " . $message->getStatus() . "\n";
+        }
+        return response()->json('SMS massage has been delevered',200);
+   }
+
 
     /**
      * Show the form for creating a new resource.
@@ -56,10 +63,10 @@ class VolnteerdetailController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteerdetail $volnteerdetail)
+    public function show(SentSms $sentSms)
     {
         //
     }
@@ -67,10 +74,10 @@ class VolnteerdetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function edit(Volnteerdetail $volnteerdetail)
+    public function edit(SentSms $sentSms)
     {
         //
     }
@@ -79,10 +86,10 @@ class VolnteerdetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Volnteerdetail $volnteerdetail)
+    public function update(Request $request, SentSms $sentSms)
     {
         //
     }
@@ -90,10 +97,10 @@ class VolnteerdetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Volnteerdetail $volnteerdetail)
+    public function destroy(SentSms $sentSms)
     {
         //
     }

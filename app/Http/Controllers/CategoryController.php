@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Collection;
 
 class CategoryController extends Controller
 {
@@ -14,6 +15,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
+    //   if(auth()->user()x)
         $category = Category::all();
         return view('pages.index')->with('category',$category);
     }
@@ -45,9 +47,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        //
+        $categories = Category::all();
     }
 
     /**
@@ -83,4 +85,28 @@ class CategoryController extends Controller
     {
         //
     }
+
+
+
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function categoryfilter(Request $request)
+    {
+        $query = Category::query();
+        if (isset($request->filltercategory) && $request->filltercategory != null) {
+            $query->where('name', $request->filltercategory);
+        }
+       
+        $categories = $query->get();
+        return view('pages.causes', ['categories' => $categories]);
+    }
+
+
+
+   
 }

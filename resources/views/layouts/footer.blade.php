@@ -1,3 +1,4 @@
+        <!-- Footer Start -->
         <div class="footer">
             <div class="container">
                 <div class="row">
@@ -10,7 +11,6 @@
                             <div class="footer-social">
                                 <a class="btn btn-custom" href=""><i class="fab fa-twitter"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-facebook-f"></i></a>
-                                {{-- <a class="btn btn-custom" href=""><i class="fab fa-youtube"></i></a> --}}
                                 <a class="btn btn-custom" href=""><i class="fab fa-instagram"></i></a>
                                 <a class="btn btn-custom" href=""><i class="fab fa-linkedin-in"></i></a>
                             </div>
@@ -19,11 +19,10 @@
                     <div class="col-lg-3 col-md-6">
                         <div class="footer-link">
                             <h2>Popular Links</h2>
-                            <a href="">About Us</a>
-                            <a href="">Contact Us</a>
-                            <a href="">Our Services</a>
-                            <a href="">Upcoming Events</a>
-                            <a href="">Latest Blog</a>
+                            <a href="#about">About Us</a>
+                            <a href="#contact">Contact Us</a>
+                            <a href="#off">Our Offerings</a>
+                            <a href="#ach">Our Achievements</a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -54,7 +53,6 @@
                         <p>&copy; <a href="#">HELEPZ</a>, All Right Reserved.</p>
                     </div>
                     <div class="col-md-6">
-                        {{-- <p>Designed By <a href="https://htmlcodex.com">HTML Codex</a></p> --}}
                     </div>
                 </div>
             </div>
@@ -64,25 +62,27 @@
         <!-- Back to top button -->
         <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         
-        <!-- Pre Loader -->
-        {{-- <div id="loader" class="show">
-            <div class="loader"></div>
-        </div> --}}
 
         <!-- JavaScript Libraries -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-        <script src="lib/easing/easing.min.js"></script>
-        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-        <script src="lib/waypoints/waypoints.min.js"></script>
-        <script src="lib/counterup/counterup.min.js"></script>
-        <script src="lib/parallax/parallax.min.js"></script>
+        <script src={{ asset("lib/easing/easing.min.js") }}></script>
+        <script src={{ asset("lib/owlcarousel/owl.carousel.min.js") }}></script>
+        <script src={{ asset("lib/waypoints/waypoints.min.js") }}></script>
+        <script src={{ asset("lib/counterup/counterup.min.js") }}></script>
+        <script src={{ asset("lib/parallax/parallax.min.js") }}></script>
+        
+        
+        
+        
+        
         
         <!-- Contact Javascript File -->
-        <script src="mail/jqBootstrapValidation.min.js"></script>
-        <script src="mail/contact.js"></script>
-
+        <script src={{ asset("mail/jqBootstrapValidation.min.js") }}></script>
+        <script src={{ asset("mail/contact.js") }}></script>
+        
         <!-- Template Javascript -->
-        <script src="js/main.js"></script>
+        <script src= {{ asset("js/main.js") }} ></script>
+        
     </body>
 </html>

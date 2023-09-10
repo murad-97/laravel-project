@@ -44,6 +44,16 @@ class ProfileController extends Controller
     {
         return socialite::driver('google')->redirect();
     }
+    public function googleHandle(){
+        try{
+            $user=Socialite::driver('google')->user();
+            $findUser=User::where('email',$user->email)->first();
+           
+            if(!$findUser){
+                $findUser=new User();
+                $findUser->name=$user->name;
+                $findUser->email=$user->email;
+                $findUser->password="123456mohammed";
     public function googleHandle()
     {
         try {
@@ -58,6 +68,10 @@ class ProfileController extends Controller
                 $findUser->save();
 
             }
+            Auth::login($findUser);
+            // session()->put('type',$findUser->type);
+            
+
             session()->put('id', $findUser->id);
             session()->put('type', $findUser->type);
             return redirect('/');
@@ -123,11 +137,11 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
-
+       
         Auth::logout();
 
         $user->delete();
-
+dd(session());
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
