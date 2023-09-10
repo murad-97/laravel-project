@@ -2,11 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection;
 
-class CategoryController extends Controller
+use Vonage\Client\Credentials\Basic;
+use Vonage\Client;
+use Vonage\SMS\Message\SMS;
+use App\Models\SentSms;
+use Illuminate\Http\Request;
+
+class SentSmsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +18,26 @@ class CategoryController extends Controller
      */
     public function index()
     {
-      
-        $category = Category::all();
-        return view('pages.index')->with('category',$category);
+        //
     }
+public function Sent() {
+        $basic  = new Basic("6d4ecd4c", "IdmEAmF3HTQl1XHP");
+        $client = new Client($basic);
+
+        $response = $client->sms()->send(
+            new SMS("962789776587", 'HELPZ', 'A text message sent using the Nexmo SMS API')
+        );
+
+        $message = $response->current();
+
+        if ($message->getStatus() == 0) {
+            echo "The message was sent successfully\n";
+        } else {
+            echo "The message failed with status: " . $message->getStatus() . "\n";
+        }
+        return response()->json('SMS massage has been delevered',200);
+   }
+
 
     /**
      * Show the form for creating a new resource.
@@ -44,21 +63,21 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(SentSms $sentSms)
     {
-        $categories = Category::all();
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit(SentSms $sentSms)
     {
         //
     }
@@ -67,10 +86,10 @@ class CategoryController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, SentSms $sentSms)
     {
         //
     }
@@ -78,35 +97,11 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Category  $category
+     * @param  \App\Models\SentSms  $sentSms
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(SentSms $sentSms)
     {
         //
     }
-
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function categoryfilter(Request $request)
-    {
-        $query = Category::query();
-        if (isset($request->filltercategory) && $request->filltercategory != null) {
-            $query->where('name', $request->filltercategory);
-        }
-       
-        $categories = $query->get();
-        return view('pages.causes', ['categories' => $categories]);
-    }
-
-
-
-   
 }

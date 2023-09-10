@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Volnteerdetail;
 use Illuminate\Http\Request;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
-use Symfony\Component\HttpFoundation\Session\Session;
 
 class PaypalController extends Controller
 {
@@ -33,12 +32,12 @@ class PaypalController extends Controller
         if (isset($response["id"]) && $response["id"] != null) {
             foreach ($response["links"] as $link) {
                 if ($link["rel"] === "approve") {
-                    dd(session()->has("id"));
                     $volnteer = new Volnteerdetail;
                     $volnteer->user_id = 1;
                     $volnteer->volunteer_id = $request->id;
                     $volnteer->price = $request->price;
                     $volnteer->save();
+
                     return redirect()->away($link["href"]);
                 }
             }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\VolnteerController;
 use App\Http\Controllers\VolnteerdetailController;
@@ -7,8 +8,11 @@ use App\Http\Controllers\VolnteeritemController;
 use App\Http\Controllers\PaypalController;
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CategoryController;
+
 use App\Http\Controllers\ContactController;
+// use App\Http\Controllers\SentSmsController;
+
+use App\Http\Controllers\SentSmsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +61,24 @@ Route::get('/bill', function () {
 Route::get('/googlelogin', [ProfileController::class, 'googleLogin']);
 Route::get('/auth/google/callback', [ProfileController::class, 'googleHandle']);
 
+Route::get('/causes', function () {
+    return view('pages.causes');
+});
+
+// Route::resource('pages', VolnteerController::class);
+Route::get('/pages.causes/{id}', [VolnteerController::class, 'index'])->name('pages.causes');
+
+Route::get('/pages.causes', [VolnteerController::class, 'search'])->name('pages.causes');
+
+
+// Route::get('/pages.causes/{id}', [VolnteerController::class, 'orderbyname'])->name('pages.causes');
+// Route::get('/pages.causes', [VolnteerController::class, 'orderbyname2'])->name('pages.causes');
+
+// Route::get('/pages.causes', [CategoryController::class, 'categoryfilter'])->name('pages.causes');
+
+
+
+// Route::get('/pages.causes/{id}', [VolnteerController::class, 'filtercategory'])->name('pages.causes');
+
+
+Route::get('/sent-sms',[SentSmsController::class,'Sent']);

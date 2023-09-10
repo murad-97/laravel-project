@@ -280,7 +280,7 @@ At Helpz, we envision a world where healthcare disparities are a thing of the pa
                         </p>
                     </div>
                     <div class="causes-btn">
-                        <a href="{{ $item->id }}" class="btn btn-custom">Get Donations
+                        <a href="pages.causes/{{ $item->id }}" class="btn btn-custom">Get Donations
                         </a>
                     </div>
                 </div>
