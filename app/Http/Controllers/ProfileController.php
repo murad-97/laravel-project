@@ -21,21 +21,21 @@ class ProfileController extends Controller
 
     public function index()
     {
-       
 
 
-      
 
 
-            // [
-            //     'volunteer_name' => $volunteer_name,
-            //     'name' => $name,
-            //     'qty'=> $qty,
-            //     'price'=> $price,
-            //     'main_picture'=> $main_picture
 
-            // ]);
-            
+
+        // [
+        //     'volunteer_name' => $volunteer_name,
+        //     'name' => $name,
+        //     'qty'=> $qty,
+        //     'price'=> $price,
+        //     'main_picture'=> $main_picture
+
+        // ]);
+
     }
 
 
@@ -44,21 +44,12 @@ class ProfileController extends Controller
     {
         return socialite::driver('google')->redirect();
     }
-    public function googleHandle(){
-        try{
-            $user=Socialite::driver('google')->user();
-            $findUser=User::where('email',$user->email)->first();
-           
-            if(!$findUser){
-                $findUser=new User();
-                $findUser->name=$user->name;
-                $findUser->email=$user->email;
-                $findUser->password="123456mohammed";
     public function googleHandle()
     {
         try {
             $user = Socialite::driver('google')->user();
             $findUser = User::where('email', $user->email)->first();
+
 
             if (!$findUser) {
                 $findUser = new User();
@@ -70,7 +61,7 @@ class ProfileController extends Controller
             }
             Auth::login($findUser);
             // session()->put('type',$findUser->type);
-            
+
 
             session()->put('id', $findUser->id);
             session()->put('type', $findUser->type);
@@ -107,7 +98,7 @@ class ProfileController extends Controller
         // dd($users);
         return view('profile.edit', [
             'user' => $request->user(),
-            "users"=>$users
+            "users" => $users
         ]);
     }
 
@@ -137,11 +128,11 @@ class ProfileController extends Controller
         ]);
 
         $user = $request->user();
-       
+
         Auth::logout();
 
         $user->delete();
-dd(session());
+        dd(session());
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
