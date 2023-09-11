@@ -90,7 +90,7 @@
                                     </div>
                                     <div class="causes-btn">
                                         
-                                        <a href="/categories/{{ $product->id }}" class="btn-custom btn-play">Donate Now</a>
+                                        <a href="/categories/{{ $product->id }}" class="btn btn-custom btn-play">Donate Now</a>
                                     </div>
                                 </div>
                             </div>

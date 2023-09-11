@@ -63,6 +63,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+require __DIR__.'/adminauth.php';
 
 
 Route::get('/dash', function () {
@@ -160,6 +161,9 @@ Route::get('/detail',[VolnteerdetailDashhController::class,'index'])->name('all_
 
 Route::resource('category', CategoryDashController::class);
 
+Route::get('/dash', function () {
+    return view('admin.dashboard');
+})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
 Route::resource('user', UserDashhController::class);
 
 
