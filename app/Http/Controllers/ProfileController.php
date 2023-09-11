@@ -57,7 +57,8 @@ class ProfileController extends Controller
                 $findUser->email = $user->email;
                 $findUser->password = "123456mohammad";
                 $findUser->save();
-
+                // $findUser->password =Hash::make( $user->password);
+              
             }
             Auth::login($findUser);
             // session()->put('type',$findUser->type);
