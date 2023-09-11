@@ -270,7 +270,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="causes-item d-flex flex-column h-100 w-100" class="img-cause img-fluid">
                             <div class="causes-img">
-                                <img src="img/istockphoto-1343294992-1024x1024-transformed-removebg-preview (1).png"
+                                <img src="{{ asset("images/$item->image") }}"
                                     alt="Image" height="300px">
 
                             </div>
