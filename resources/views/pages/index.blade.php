@@ -79,8 +79,8 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="section-header">
-                        <p>Learn About Us</p>
-                        <h2>Helpz non-profit charity website</h2>
+                        <h2>Learn About Us</h2>
+                        <p>Helpz non-profit charity website</p>
                     </div>
                     <div class="about-tab">
                         <ul class="nav nav-pills nav-justified">
@@ -100,33 +100,20 @@
                                 Helpz is more than just a website; it's a compassionate community dedicated to creating
                                 positive change in healthcare. If you have gently used medical equipment that could make a
                                 difference in someone's life, we provide a seamless platform for you to donate and help
-                                those in need. For those who wish to contribute financially to healthcare initiatives, Helpz
-                                offers a range of trusted organizations and projects where your donations can have a direct
-                                impact. And if you or someone you know is seeking assistance, whether it's medical support,
-                                information, or resources, Helpz is here to connect you with the caring individuals and
-                                organizations ready to provide the support you deserve.
+                                those in need.
                             </div>
                             <div id="tab-content-2" class="container tab-pane fade">
                                 At Helpz, our mission is to bridge the gap in healthcare accessibility through the power of
                                 generosity and community.
                                 We are driven by the belief that everyone, regardless of their circumstances, deserves
                                 access to quality medical equipment
-                                and services. Our platform serves as a conduit for goodwill, enabling individuals,
-                                institutions, and organizations to donate surplus medical resources, financial support, or
-                                services to those in need. By empowering underserved communities and fostering
-                                collaboration, we work towards reducing waste, promoting health equity, and ultimately,
-                                making healthcare a universal right.
+                                and services.
                             </div>
                             <div id="tab-content-3" class="container tab-pane fade">
                                 At Helpz, we envision a world where healthcare disparities are a thing of the past, and
                                 every individual, regardless
                                 of their background,
-                                enjoys equal access to quality medical equipment and services. Our vision is to transform
-                                healthcare, foster innovation,
-                                create sustainable impact, empower communities, and be a global force for good. Together,
-                                with unwavering dedication and the support of our community, we aim to turn this vision into
-                                a reality, creating a healthier, more equitable, and compassionate world for generations to
-                                come. </div>
+                                enjoys equal access to quality medical equipment and services.</div>
                         </div>
                     </div>
                 </div>
@@ -140,8 +127,8 @@
     <div class="service">
         <div class="container">
             <div class="section-header text-center">
-                <p>What We Do?</p>
-                <h2>We believe that we can save more lifes with you</h2>
+                <h2>What We Do?</h2>
+                <p>We believe that we can save more lifes with you</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
@@ -221,7 +208,7 @@
     <div class="facts" data-parallax="scroll" data-image-src="img/istockphoto-1016780008-1024x1024-transformed.jpeg">
         <div class="container">
             <div class="section-header text-center">
-                <p>Our Achievements </p>
+                <h2>Our Achievements </h2>
                 {{-- <h2>Let's know how we can get the offerings and services</h2> --}}
             </div>
             <div class="row">
@@ -275,8 +262,8 @@
     <div class="causes">
         <div class="container">
             <div class="section-header text-center">
-                <p>Our Services</p>
-                <h2>Let's know how we can get the offerings and services</h2>
+                <h2>Our Services</h2>
+                <p>Let's know how we can get the offerings and services</p>
             </div>
             <div class="row">
                 @foreach ($category as $item)
@@ -305,7 +292,7 @@
                                 </p>
                             </div>
                             <div class="causes-btn">
-                                <a href="{{ $item->id }}" class="btn btn-custom">Get Donations
+                                <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">Get Donations
                                 </a>
                             </div>
                         </div>
@@ -423,8 +410,8 @@
     <!-- Volunteer Start -->
     <div class="container">
         <div class="section-header text-center">
-            <p>Become a Valounteer</p>
-            <h2>Let’s make a difference in the lives of others</h2>
+            <h2>Become a Valounteer</h2>
+            <p>Let’s make a difference in the lives of others</p>
         </div>
 
         <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
@@ -458,8 +445,8 @@
                 <div class="col-lg-7">
                     <div class="volunteer-content">
                         <div class="section-header">
-                            <p>Become A Volunteer</p>
-                            <h2>Let’s make a difference in the lives of others</h2>
+                            <h2>Become A Volunteer</h2>
+                            <p>Let’s make a difference in the lives of others</p>
                         </div>
                         <div class="volunteer-text">
                             <p>
@@ -480,8 +467,8 @@
     <div class="team">
         <div class="container">
             <div class="section-header text-center">
-                <p>Meet Our Partners</p>
-                <h2>Awesome guys behind our charity activities</h2>
+                <h2>Meet Our Partners</p>
+                <p>Awesome guys behind our charity activities</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
@@ -606,8 +593,8 @@
                 <div class="col-lg-7">
                     <div class="volunteer-content">
                         <div class="section-header">
-                            <p>Get In Touch</p>
-                            <h2>Contact for any query</h2>
+                            <h2>Get In Touch</h2>
+                            <p>Contact for any query</p>
                         </div>
                         <div class="volunteer-text">
                             <p>
