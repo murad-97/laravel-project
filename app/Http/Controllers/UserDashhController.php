@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
 use App\Models\User;
 class UserDashhController extends Controller
@@ -9,9 +8,15 @@ class UserDashhController extends Controller
     public function index()
     {
         //
-        $users = User::all();
-        return view('Dash.user_dash', compact('users'));
+        $user = User::all();
+        return view('Dash.user_dash', compact('user'));
     }
+
+    // public function goToAddUser()
+    // {
+    //     $users = User::all();
+    //     return view('Dash.add_user_dash', compact('users'));
+    // }
 
     /**
      * Show the form for creating a new resource.
@@ -20,7 +25,7 @@ class UserDashhController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dash.add_user_dash');
     }
 
     /**
@@ -31,7 +36,27 @@ class UserDashhController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       
+
+        // $request->validate([
+        //     'name' => 'required |max:30',
+        //     'email' => 'required|email|unique:users',           
+        //     'password' => [
+        //         'required',
+        //         'min:8',
+        //         'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+        //     ]
+        // ]);
+
+
+
+        $input = $request->all();
+        User::create($input);
+
+        return redirect()->route('user.index')
+                        ->with('success','Category created successfully.');
+
+
     }
 
     /**
@@ -76,9 +101,8 @@ class UserDashhController extends Controller
      */
     public function destroy($id)
     {
-        //
-        User::where(['id'=>$id])->delete();
-        return redirect()->route('allusers')->with (['success'=>'job deleted successfully']);
-        // return redirect('jobResource.job')->with (['success'=>'user deleted successfully']);
-    }
+        User::destroy($id);
+        return redirect()->route('user.index')->with(['success' => 'Deleted successfully
+        ']);
+}
 }

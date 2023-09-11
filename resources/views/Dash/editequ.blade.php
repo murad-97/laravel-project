@@ -14,8 +14,7 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container" style="margin:auto">
                 <div class="signup-content">
-                    <form method="post" action="{{route('medicine.update',$data['id'])}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">
-                        @method('PUT')
+                    <form method="post" action="{{route('equipment.update',$data['id'])}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">                        @method('PUT')
                        @csrf
                         <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update Equipment</h2>
                         <div class="form-group">
@@ -63,7 +62,7 @@
     </div>
 </div>
     
-</div>
+
 
 
 @endsection

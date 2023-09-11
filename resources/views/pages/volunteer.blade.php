@@ -5,7 +5,7 @@
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-6 ">
-                        <div class="about-img align-items-center"  ><img class=" col-12 " src="{{ asset("img/People holding charity medicine box flat vector illustration.jpg") }}" alt=""></div>
+                        <div class="about-img align-items-center"  ><img class=" col-12 " src="{{ asset("images/$volnteer->main_picture") }}" alt=""></div>
                     </div>
                     <div class="col-lg-6">
                         <div class="section-header">
@@ -19,14 +19,21 @@
                             <div class="tab-content">
                                 <div class="p-list">
                                     <span> DONATIONS: <i class="fa fa-inr"></i> </span>
-                                 
+                                    @php
+                                    if ($price != 0) {
+                                        $result = intval(($price / $volnteer->price) * 100);
+                                    } else {
+                                        $result = 0;
+                                    }
+                                    @endphp
                                 </div>
                                 <div class="causes p-0">
                                     <div class="causes-progress m-0">
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ intval(($price / $volnteer->price) * 100) }}"
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}"
                                                 aria-valuemin="0" aria-valuemax="100">
-                                                <span>{{ intval(($price / $volnteer->price) * 100) }}%</span>
+                                               
+                                                <span>{{ $result }}%</span>
                                             </div>
                                         </div>
                                         <div class="progress-text" style="display: flex;justify-content:space-between">
@@ -43,16 +50,14 @@
                                <hr>
                         </div>
                     </div>
-                    <div class="_p-add-cart m-3">
+                    <div class="causes-btn">
                         <a href="/volunteering item/{{ $volnteer->id }}" class="btn btn-custom btn-play" tabindex="0" >
                             <i class="far fa-grin-wink"></i> In-Kind Donations
                         </a>
                         <a href="/volunteering/{{ $volnteer->id }}" class="btn btn-custom btn-play" tabindex="0" >
                             <i class="fas fa-money-bill"></i> Cash Donations
                         </a>
-                        <input type="hidden" name="pid" value="18" />
-                        <input type="hidden" name="price" value="850" />
-                        <input type="hidden" name="url" value="" />
+                        
                     </div>   
                 </div>
             </div>

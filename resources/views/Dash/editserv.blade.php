@@ -1,4 +1,4 @@
-@extends('Dash.Master');
+@extends('Dash.Master')
 
  @section('Title')
     edite category
@@ -14,7 +14,7 @@
             <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container" style="margin:auto">
                 <div class="signup-content">
-                    <form method="post" action="{{route('medicine.update',$data['id'])}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">
+                    <form method="post" action="{{route('services.update',$data['id'])}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">
                         @method('PUT')
                        @csrf
                         <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update Category</h2>

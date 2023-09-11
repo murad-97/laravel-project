@@ -38,7 +38,7 @@ class equipmentDashController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request , Volnteer $equipment)
+    public function store(Request $request )
     {
            
         $request->validate([
@@ -58,8 +58,7 @@ class equipmentDashController extends Controller
 
         Volnteer::create($input);
 
-        return redirect()->route('equipment.index')
-                        ->with('success','Category created successfully.');
+        return redirect()->route('equipment.index')->with('success','Category created successfully.');
 
 
 
@@ -110,11 +109,11 @@ class equipmentDashController extends Controller
      */
     public function update(Request $request, Volnteer $equipment)
     {
-        $request->validate([
-            'name' => 'required',
-            'description' =>'required |max:300',
-            'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' =>'required |max:300',
+        //     'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        // ]);
 
         $input = $request->all();
 

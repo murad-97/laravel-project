@@ -24,7 +24,7 @@
                                         <th style="color: rgb(9, 9, 66);">Email-user</th>						
                                         <th style="color: rgb(9, 9, 66);">volunteer_name</th>	
                                         <th style="color: rgb(9, 9, 66);">Price</th>
-                                        <th style="color: rgb(9, 9, 66);">Action</th>
+                                     
                                         {{-- <th style="color: rgb(9, 9, 66);">&nbsp;</th> --}}
                                     </tr>
                                 </thead>
@@ -36,7 +36,7 @@
                                         <td>{{ $user->email}}</td>
                                         <td>{{ $user->volunteer_name}}</td>
                                         <td>{{ $user->price}}</td>
-                                        <td>{{ $equipment->price}}</td>
+                                      
                                   
                                       
                                       

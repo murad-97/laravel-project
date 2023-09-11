@@ -1,19 +1,18 @@
 @extends('Dash.Master')
 
  @section('Title')
-    edite category
+    edit category
  @endsection
 
  @section('content')
 
 
-
-                
+           
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
             <div class="d-flex justify-content-end ">
-                <a href="{{route('services.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
+                <a href="{{route('admin.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
             </div>
             <table class="table">
 
