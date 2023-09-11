@@ -68,7 +68,7 @@
                             <div class="col-lg-4  " style="padding: 10px 0px !important">
                                 <div class="causes-item" style="margin: 0px 10px !important">
                                     <div class="causes-img">
-                                        <img src="{{ asset('images/' . $product->main_picture) }}" alt="Image" />
+                                        <img src="{{ asset("images/$product->main_picture") }}" alt="Image" />
                                     </div>
                                     <div class="causes-progress" >
                                         <div class="progress">
