@@ -15,6 +15,12 @@
 }
 
 
+.white-input {
+    background-color: white !important; /* Set the background color to white */
+    color: black; /* Set the text color to black (or any color that contrasts well) */
+}
+
+
 /*** Spinner ***/
 #spinner {
     opacity: 0;

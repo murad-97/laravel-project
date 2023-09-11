@@ -1,18 +1,22 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserDashController;
+use App\Http\Controllers\VolunteerDashController;
+use App\Http\Controllers\CategoryDashController;
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AdminDashhController;
+use App\Http\Controllers\VolnteeritemDashhhController;
+use App\Http\Controllers\VolnteerdetailDashhController;
+use App\Http\Controllers\ServicesDashController;
 use App\Http\Controllers\VolnteerController;
+use App\Http\Controllers\equipmentDashController;
+use App\Http\Controllers\MedicineDashController;
 use App\Http\Controllers\VolnteerdetailController;
 use App\Http\Controllers\VolnteeritemController;
 use App\Http\Controllers\PaypalController;
-
 use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\ContactController;
-// use App\Http\Controllers\SentSmsController;
-
-use App\Http\Controllers\SentSmsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -86,3 +90,60 @@ Route::get('/pages.causes', [VolnteerController::class, 'search'])->name('pages.
 
 
 Route::get('/sent-sms',[SentSmsController::class,'Sent']);
+require __DIR__.'/auth.php';
+
+
+Route::get('/dash', function () {
+    return view('Dash.Home');
+});
+
+Route::get('/addcat', function () {
+    return view('Dash.addCategory');
+})->name('add_cat');
+
+// Route::get('/volunteers', function () {
+//     return view('Dash.volunteers');
+// })->name('volunteers');
+
+Route::get('/deletevolunteers/{id}',[VolunteerDashController::class,'destroy'])->name('delete_volunteer');
+
+Route::get('/user',[UserDashController::class,'index'])->name('allusers');
+Route::get('/deleteuser/{id}',[UserDashController::class,'destroy'])->name('del');
+Route::get('/volunteers',[VolunteerDashController::class,'index'])->name('all_volunteers');
+Route::get('/category',[CategoryDashController::class,'index'])->name('all_categories');
+Route::get('/delete/{id}',[CategoryDashController::class,'destroy'])->name('delete_category');
+Route::get('/edit_category/{id}',[CategoryDashController::class,'edit'])->name('edit_category');
+
+Route::post('/edite_category',[CategoryDashController::class,'update'])->name('edite_category');
+
+Route::POST('/addcat',[CategoryDashController::class,'store'])->name('Add_category');
+
+
+
+
+
+
+
+// Route::get('/delete/{id}',[VolunteerDashController::class,'destroy'])->name('delete_volunteer');
+Route::POST('/add',[VolunteerDashController::class,'store'])->name('Add_volunteer');
+
+// .....................................................admin>>>>>>>>>>>>>>>>>>>>>>>>
+
+
+Route::resource('admin', AdminDashhController::class);
+
+
+Route::resource('services', ServicesDashController::class);
+
+Route::resource('equipment', equipmentDashController::class);
+
+Route::resource('medicine', MedicineDashController::class);
+
+Route::get('/detail',[VolnteeritemDashhhController::class,'index'])->name('all_details');
+
+Route::get('/item',[VolnteerdetailDashhController::class,'index'])->name('all_details');
+
+Route::resource('category', CategoryDashController::class);
+
+
+

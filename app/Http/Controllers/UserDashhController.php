@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Admin;
 use Illuminate\Http\Request;
-
-class AdminController extends Controller
+use App\Models\User;
+class UserDashhController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //
+        $users = User::all();
+        return view('Dash.user_dash', compact('users'));
     }
 
     /**
@@ -41,10 +37,10 @@ class AdminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Admin $admin)
+    public function show(User $volnteer)
     {
         //
     }
@@ -52,10 +48,10 @@ class AdminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit(User $volnteer)
     {
         //
     }
@@ -64,10 +60,10 @@ class AdminController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, User $volnteer)
     {
         //
     }
@@ -75,11 +71,14 @@ class AdminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Admin  $admin
+     * @param  \App\Models\User  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
         //
+        User::where(['id'=>$id])->delete();
+        return redirect()->route('allusers')->with (['success'=>'job deleted successfully']);
+        // return redirect('jobResource.job')->with (['success'=>'user deleted successfully']);
     }
 }
