@@ -17,7 +17,7 @@
         <h3 class="flex">Thank you for your donation</p>
             </h3>
 
-            <div class="cont"> <a href="{{  url('/')  }}" class="button-cancel">home</a> <a href="{{ route("profile.edit") }}" class="button-conformation">profile</a></div>
+            <div class="cont"> <a href="{{  url('/')  }}" class="btn btn-custom">home</a> <a href="{{ route("profile.edit") }}" class="btn btn-custom">profile</a></div>
         </div>
     </div>
 </div>

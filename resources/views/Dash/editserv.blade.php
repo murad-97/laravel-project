@@ -8,49 +8,59 @@
 
  <div class="content">
 
-    <form  style="padding-top: 50px;" method="post" action="{{route('services.update',$data['id'])}}">
-        @method('PUT')
-        @csrf
-        <h3 style="color: black">Add volunteer</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="inputname4">name</label>
-                    <input type="name" name="name" value="{{ $data['volunteer_name'] }}" class="form-control white-input" id="inputname4" placeholder="name">
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container" style="margin:auto">
+                <div class="signup-content">
+                    <form method="post" action="{{route('medicine.update',$data['id'])}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">
+                        @method('PUT')
+                       @csrf
+                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update Category</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="volunteer_name" value="{{ $data['volunteer_name'] }}" id="name" placeholder="volunteer name"/>
+                            {{-- <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br> --}}
+                        </div>
+                       
+                      
+                        <div class="form-group">	
+                            <input type="text" class="form-input" name="description" value="{{ $data['description'] }}" placeholder="Description"/>
+                          
+                        </div>
+                        <div class="form-group">	
+                            <input  class="form-input" name="price" type="number" value="{{ $data['price'] }}" placeholder="price"/>
+                          
+                        </div>
+                     
+                        
+                        {{-- <div class="form-group">	
+                            <input type="text" class="form-input" name="password" id="password" placeholder="price"/>
+                           
+                        </div> --}}
+                        {{-- <div class="form-group">
+                            <input type="file" class="form-input" name="image" id="image" accept="image/*">
+                        </div> --}}
+                        <div class="form-group">
+                            <input  name="main_picture" type="file" class="form-control white-input" id="inputPrice">
+                            <img src="/images/{{ $data->main_picture }}" width="300px">
+                            {{-- <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br> --}}
+
+                             </div>
+                           
+                         
+                     
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                        </div>
+                        
+                          
+                        
+                    </form>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="inputState">description</label>
-                    <input type="text" name="description" value="{{ $data['description'] }}" class="form-control white-input" id="inputname4" placeholder="name">
-
-            </div>
-        </div>
-      
-        
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="inputCity">Price</label>
-                    <input name="price" type="number" value="{{ $data['price'] }}" class="form-control white-input" id="inputPrice">
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="inputPicture">picture</label>
-                    <input  name="picture" type="file" class="form-control white-input" id="inputPrice">
-
-                     </div>
-            </div>
-           
-        </div>
-        <div style="padding-top: 10px;">
-        <button type="submit" class="btn  btn-success" >Update Services</button>
-        </div>
-    </form>
-    
-</div>
-    
+        </section>
+    </div>
 </div>
 
 

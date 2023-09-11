@@ -1,4 +1,4 @@
-@extends('Dash.Master');
+@extends('Dash.Master')
 
  @section('Title')
     Dashbored
@@ -7,62 +7,59 @@
  @section('content')
 
 
- <div class="container " style="margin-top: 50px;">
-    <div class="table-wrap">
-        <div class="d-flex justify-content-end ">
-            <a href="{{route('medicine.create')}}" class="btn text-white py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block" style="background-color:rgba(16, 133, 16, 0.578) ; border-radius: 10px;">Add<i class="fa fa-plus  ms-2" ></i></a>
+
+
+
+                
+ <div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <div class="d-flex justify-content-end ">
+                <a href="{{route('medicine.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
+            </div>
+            <table class="table">
+
+                <thead>
+                    <tr>
+                        <th style="color: rgb(9, 9, 66);">Image</th>
+                        <th style="color: rgb(9, 9, 66);">Name</th>						
+                        <th style="color: rgb(9, 9, 66);">Description</th>
+                        <th style="color: rgb(9, 9, 66);">Price</th>
+                        <th style="color: rgb(9, 9, 66);">Action</th>
+                        {{-- <th style="color: rgb(9, 9, 66);">&nbsp;</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach ($medicine as  $medicine)
+                    <tr>
+                        
+                        <td><a href="#"><img src="/images/{{$medicine->main_picture }}" width="100px" height="100px" alt="Avatar"></a></td>              
+                        <td>{{ $medicine->volunteer_name}}</td>
+                        <td>{{ $medicine->description}}</td>
+                        <td>{{ $medicine->price}}</td>
+                        <td>
+                            <div style="display: grid; grid-template-columns: auto auto;">
+                          <button class="btn" style="width: 51px; height:39px; margin:auto; background-color:rgba(165, 204, 247, 0.786); "><a href="{{ route('medicine.edit',$medicine->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
+                            <form  method="POST" action="{{ route('medicine.destroy', $medicine->id) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure to delete this product?')">
+                                    <i class="fa fa-trash text-white" style="font-size: 17px"></i>
+                                </button> 
+                            </form>
+                            </div>
+                        </td>
+                      
+                      
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+         
         </div>
+    </div>
+</div>
 
-        {{-- @if(Session::has('success'))
-          <div class="alert alert-success "  style="background-color: red; color:white;" role="alert">
-            <a class="btn btn-info" style="color: white" href="{{route('Dash.addservice')}}">+Add new fruit</a>
-          {{Session::get('success')}}
-        </div> --}}
-       
-
-        <table class="table table-responsive table-borderless">
-            <thead>
-    
-                <th>&nbsp;</th>
-                <th>name</th>
-                <th>Id</th>
-                <th>pdescription </th>
-                <th>action</th>
-                <th>&nbsp;</th>
-            </thead>
-            <tbody>
-                @foreach ($medicine as  $medicine)
-               
-                <tr class="align-middle alert border-bottom" role="alert">
-                  
-                    <td class="text-center">
-                        <img class="pic"
-                            src="./images/p1.PNG"
-                            alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">{{ $medicine->volunteer_name}}</p>
-                            
-                        </div>
-                    </td>
-                   
-                    <td class="d-">
-                        <div class="fw-600">{{ $medicine->description}}</div>
-                        {{-- <input class="input" type="text" placeholder="{{ $medicine->password}}"> --}}
-                    </td>
-                    <td class="d-">
-                        <div class="fw-600">{{ $medicine->price}}</div>
-                        {{-- <input class="input" type="text" placeholder="{{ $medicine->password}}"> --}}
-                    </td>
-                    <td><a  href="{{ route('medicine.edit',  $medicine->id ) }}" ><i class="fa-regular fa-pen-to-square fa-lg" style="color: #ff841f;"></i></a></td>
-                    <td> 
-                        <form action="{{route('medicine.destroy',$medicine->id)}}" method="post">
-                      @csrf
-                      @method('DELETE')
-                      <button type="submit" class=" btn fa fa-trash text-danger" onclick="return confirm('Are you sure to delete this product?')"></button>
-                      </form> </td>
-                </tr>
-                @endforeach
 
  @endsection

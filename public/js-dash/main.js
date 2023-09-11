@@ -73,17 +73,18 @@
             datasets: [{
                     label: "Amman",
                     data: [15, 30, 55, 65, 60, 80, 95],
-                    backgroundColor: "rgba(99, 151, 8, 0.5)"
+                    backgroundColor: "rgba(216, 233, 251, 0.9)"
+                    
                 },
                 {
                     label: "Irbid",
                     data: [8, 35, 40, 60, 70, 55, 75],
-                    backgroundColor: "rgba(99, 151, 8, 0.4)"
+                    backgroundColor: "rgba(93, 207, 248, 0.42)"
                 },
                 {
                     label: "Zarga",
                     data: [12, 25, 45, 55, 65, 70, 60],
-                    backgroundColor: "rgba(99, 151, 8, 0.3)"
+                    backgroundColor: "rgba(216, 233, 249, 0.9)"
                 }
             ]
             },

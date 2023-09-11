@@ -1,4 +1,4 @@
-@extends('Dash.Master');
+@extends('Dash.Master')
 
  @section('Title')
     Dashbored
@@ -6,58 +6,42 @@
 
  @section('content')
 
+ <div class="container-xl">
+    <div class="table-responsive">
+        <div class="table-wrapper">
+            <table class="table">
 
- <div class="container " style="margin-top: 50px;">
-    <div class="table-wrap">
+                <thead>
+                    <tr>
+                        <th style="color: rgb(9, 9, 66);">User</th>
+                        <th style="color: rgb(9, 9, 66);">Email-user</th>		
+                        <th style="color: rgb(9, 9, 66);">Phone-user</th>					
+                        <th style="color: rgb(9, 9, 66);">Address-user</th>	
+                        <th style="color: rgb(9, 9, 66);">volunteer_name</th>	
+                        <th style="color: rgb(9, 9, 66);">Quntity</th>
+                        <th style="color: rgb(9, 9, 66);">Action</th>
+                        {{-- <th style="color: rgb(9, 9, 66);">&nbsp;</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
 
+                    @foreach ($users as  $user)
+                    <tr>
+                        <td>{{ $user->name}}</td>
+                        <td>{{ $user->email}}</td>
+                        <td>{{ $user->number}}</td>
+                        <td>{{ $user->location}}</td>
+                        <td>{{ $user->volunteer_name}}</td>
+                        <td>{{ $user->qty}}</td>
+                    </tr>
 
-       
-        <table class="table table-responsive table-borderless">
-            <thead>
-              
-                <th>&nbsp;</th>
-                <th>name</th>
-                <th>email</th>
-                <th>volunteer_name</th>
-                <th>price</th>
-                
-       
-                <th>&nbsp;</th>
-            </thead>
-
-            <tbody>
-                @foreach ($users as  $user)
-               
-                <tr class="align-middle alert border-bottom" role="alert">
-                  
-                    <td class="text-center">
-                        <img class="pic"
-                            src="./images/p1.PNG"
-                            alt="">
-                    </td>
-                    <td>
-                        <div>
-                            <p class="m-0 fw-bold">{{ $user->name}}</p>
-                            
-                        </div>
-                    </td>
-                   
-                    <td class="d-">
-                        <div class="fw-600">{{ $user->email}}</div>
-                    </td>
-                    <td class="d-">
-                        <div class="fw-600">{{ $user->volunteer_name}}</div>
-                        
-                    </td>
-                    <td class="d-">
-                     <div class="fw-600">{{ $user->price}}</div>
-                     
-                 </td>
-             
-                
-                </tr>
-                @endforeach
-
+                    @endforeach
+                </tbody>
+            </table>
+         
+        </div>
+    </div>
+</div>
  @endsection
 
 
