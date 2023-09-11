@@ -113,10 +113,10 @@ class ServicesDashController extends Controller
     {
 
 
-        $request->validate([
-            'name' => 'required',
-            'description' => 'required'
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required'
+        // ]);
 
         $input = $request->all();
 

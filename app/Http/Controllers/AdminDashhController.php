@@ -11,7 +11,8 @@ class AdminDashhController extends Controller
         $admins = Admin::all();
         return view('Dash.admin', compact('admins'));
     }
-
+    
+   
     /**
      * Show the form for creating a new resource.
      *
@@ -19,7 +20,7 @@ class AdminDashhController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dash.add_admin');
     }
 
     /**
@@ -30,7 +31,24 @@ class AdminDashhController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'name' => 'required |max:30',
+            'email' => 'required|email|unique:users',           
+            'password' => [
+                'required',
+                'min:8',
+                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+            ]
+        ]);
+
+
+
+        $input = $request->all();
+        Admin::create($input);
+
+        return redirect()->route('admin.index')
+                        ->with('success','Category created successfully.');
     }
 
     /**

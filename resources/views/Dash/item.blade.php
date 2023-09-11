@@ -19,7 +19,7 @@
                         <th style="color: rgb(9, 9, 66);">Address-user</th>	
                         <th style="color: rgb(9, 9, 66);">volunteer_name</th>	
                         <th style="color: rgb(9, 9, 66);">Quntity</th>
-                        <th style="color: rgb(9, 9, 66);">Action</th>
+                      
                         {{-- <th style="color: rgb(9, 9, 66);">&nbsp;</th> --}}
                     </tr>
                 </thead>
