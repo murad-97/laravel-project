@@ -1,11 +1,10 @@
 @extends('layouts.master')
 @section('title', 'Home')
-@section('title', 'Home')
 
 @section('content')
     <!-- Carousel Start -->
     <div class="carousel ">
-        <div class="container-fluid">
+        <div class="m-0">
             <div class="owl-carousel">
                 <div class="carousel-item">
                     <div class="carousel-img">
@@ -48,31 +47,6 @@
         </div>
     </div>
     <!-- Carousel End -->
-
-            </div>
-        </div>
-    </div>
-    <!-- Carousel End -->
-
-    <!-- Video Modal Start-->
-    <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    <!-- 16:9 aspect ratio -->
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" src="" id="video" allowscriptaccess="always"
-                            allow="autoplay"></iframe>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Video Modal End -->
 
     <!-- Video Modal Start-->
     <div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
@@ -160,104 +134,6 @@
         </div>
     </div>
     <!-- About End -->
-                            <div id="tab-content-3" class="container tab-pane fade">
-                                At Helpz, we envision a world where healthcare disparities are a thing of the past, and
-                                every individual, regardless
-                                of their background,
-                                enjoys equal access to quality medical equipment and services. Our vision is to transform
-                                healthcare, foster innovation,
-                                create sustainable impact, empower communities, and be a global force for good. Together,
-                                with unwavering dedication and the support of our community, we aim to turn this vision into
-                                a reality, creating a healthier, more equitable, and compassionate world for generations to
-                                come. </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- About End -->
-
-
-    <!-- Service Start -->
-    <div class="service">
-        <div class="container">
-            <div class="section-header text-center">
-                <p>What We Do?</p>
-                <h2>We believe that we can save more lifes with you</h2>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <img src="./img/wheel-chair.png" width="50px" class="mt-4">
-                        </div>
-                        <div class="service-text">
-                            <h3>Medical Equipment </h3>
-                            <p>Helpz provides a platform for individuals to donate gently used medical equipment.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <img src="./img/social-care.png" width="50px" class="mt-4">
-                        </div>
-                        <div class="service-text">
-                            <h3>Community Support</h3>
-                            <p> Helpz connects people seeking assistance with healthcare resources and information </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <img src="./img/campaign.png" width="55px" class="mt-4 ">
-                        </div>
-                        <div class="service-text">
-                            <h3>Awareness</h3>
-                            <p>We promote healthcare advocacy about important healthcare issues.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <img src="./img/give-money.png" width="55px" class="mt-4 ">
-                        </div>
-                        <div class="service-text">
-                            <h3>Financial Donations</h3>
-                            <p>We facilitate financial contributions to healthcare initiatives.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <img src="./img/party.png" width="55px" class="mt-4 ">
-                        </div>
-                        <div class="service-text">
-                            <h3>Event Coordination</h3>
-                            <p> We organize and support events aimed at addressing healthcare challenges.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <div class="service-item">
-                        <div class="service-icon">
-                            <img src="./img/community.png" width="55px" class="mt-4 ">
-                        </div>
-                        <div class="service-text">
-                            <h3>Community Building</h3>
-                            <p>A common goal of making a difference in healthcare.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Service End -->
-
 
 
     <!-- Service Start -->
@@ -442,8 +318,6 @@
 
     <!-- Donate Start -->
     {{-- <div class="donate" data-parallax="scroll" data-image-src="img/imp2.PNG">
-    <!-- Donate Start -->
-    {{-- <div class="donate" data-parallax="scroll" data-image-src="img/imp2.PNG">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-lg-5">
@@ -487,12 +361,8 @@
         </div> --}}
     <!-- Donate End -->
 
-    <!-- Donate End -->
 
 
-
-    <!-- Event Start -->
-    {{-- <div class="event">
     <!-- Event Start -->
     {{-- <div class="event">
     <div class="container">
@@ -549,10 +419,6 @@
         </div>
     </div>
 </div> --}}
-    <!-- Event End -->
-    <!-- Volunteer Start -->
-    <div class="container">
-        <div class="section-header text-center">
     <!-- Event End -->
     <!-- Volunteer Start -->
     <div class="container">
