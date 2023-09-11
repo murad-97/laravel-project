@@ -1,32 +1,33 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Volnteeritem;
 use App\Models\Volnteer;
+use App\Models\Volnteeritem;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class VolnteeritemController extends Controller
+class VolnteeritemDashhhController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($id)
+    public function index()
     {
-        if (Auth::check()) {
-            $volnteer = Volnteer::find($id);
-       
-
-            return view("pages.item volunteer")->with("volnteer",$volnteer);
-        }else{
-            return redirect()->route("login");
-
-        }
-       
+        $users = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name', 'volnteeritems.qty', 'volnteeritems.number', 'volnteeritems.location')
+        ->join('volnteeritems', 'volnteers.id', '=', 'volnteeritems.volunteer_id')
+        ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+        ->join('users', 'users.id', '=', 'volnteeritems.user_id')
+        ->get();
+        // $users = DB::select('SELECT 
+        //     users.name,
+        //     users.email,
+        //     volnteers.volunteer_name,
+        //     volnteeritems.qty
+        //     FROM volnteers
+        //     JOIN volnteeritems ON volnteers.id = volnteeritems.volunteer_id
+        //     JOIN categories ON volnteers.category_id = categories.id
+        //     JOIN users ON volnteeritems.user_id = users.id);
+    
+        // dd($users);
+        return view("Dash.detail")->with("users",$users);
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -35,7 +36,7 @@ class VolnteeritemController extends Controller
      */
     public function create()
     {
-       
+        //
     }
 
     /**
@@ -46,24 +47,7 @@ class VolnteeritemController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'number' => ['required', 'regex:/^07\d{8}$/'],
-            'location' => ['required'],
-            'qty' => ['required', 'numeric'],
-
-        ]);
-
-$volitem = new Volnteeritem;
-
-$volitem->qty = $request->input('qty');
-$volitem->number = $request->input('number');
-$volitem->location = $request->input('location');
-$volitem->user_id =Auth::user()->id;
-$volitem->volunteer_id = $request->input('id');
-    $volitem->save();
-    session(['reques' => $request->qty]);
-
-return view("pages.billitem");
+        //
     }
 
     /**

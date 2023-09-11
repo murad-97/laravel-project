@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Facades\DB;
 
 use App\Models\User;
 
@@ -17,30 +18,61 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
-    public function googleLogin(){
+
+    public function index()
+    {
+
+
+
+
+
+
+        // [
+        //     'volunteer_name' => $volunteer_name,
+        //     'name' => $name,
+        //     'qty'=> $qty,
+        //     'price'=> $price,
+        //     'main_picture'=> $main_picture
+
+        // ]);
+
+    }
+
+
+
+    public function googleLogin()
+    {
         return socialite::driver('google')->redirect();
     }
-    public function googleHandle(){
-        try{
-            $user=Socialite::driver('google')->user();
-            $findUser=User::where('email',$user->email)->first();
-           
-            if(!$findUser){
-                $findUser=new User();
-                $findUser->name=$user->name;
-                $findUser->email=$user->email;
-                $findUser->password="123456mohammed";
-                $findUser->save();
-                
-            }
-            session()->put('id',$findUser->id);
-            session()->put('type',$findUser->type);
-            return redirect('/');
+    public function googleHandle()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            $findUser = User::where('email', $user->email)->first();
 
-        }
-        catch(Exception $e){
+
+            if (!$findUser) {
+                $findUser = new User();
+                $findUser->name = $user->name;
+                $findUser->email = $user->email;
+                $findUser->password = "123456mohammad";
+                $findUser->save();
+
+            }
+            Auth::login($findUser);
+            // session()->put('type',$findUser->type);
+
+
+            session()->put('id', $findUser->id);
+            session()->put('type', $findUser->type);
+           
+         
+            return redirect()->intended();
+
+
+        } catch (Exception $e) {
             dd($e->getMessage());
-            
+
         }
     }
     /**
@@ -48,8 +80,41 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
+        $users = DB::table('volnteers')
+    ->select([
+        'users.id',
+        'volnteers.volunteer_name',
+        'categories.name',
+        'volnteeritems.qty',
+        'volnteers.main_picture'
+    ])
+    ->join('volnteeritems', 'volnteers.id', '=', 'volnteeritems.volunteer_id')
+    ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+    ->join('users', function ($join) {
+        $join->on('volnteeritems.user_id', '=', 'users.id')
+            ->where('users.id', '=', Auth::user()->id);
+    })
+    ->get();
+        $usersdetail = DB::table('volnteers')
+    ->select([
+        'users.id',
+        'volnteers.volunteer_name',
+        'categories.name',
+        'volnteerdetails.price',
+        'volnteers.main_picture'
+    ])
+    ->join('volnteerdetails', 'volnteers.id', '=', 'volnteerdetails.volunteer_id')
+    ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+    ->join('users', function ($join) {
+        $join->on('volnteerdetails.user_id', '=', 'users.id')
+            ->where('users.id', '=', Auth::user()->id);
+    })
+    ->get();
+        // dd($users);
         return view('profile.edit', [
             'user' => $request->user(),
+            "users" => $users,
+            "userdetails" =>$usersdetail
         ]);
     }
 
@@ -83,10 +148,11 @@ class ProfileController extends Controller
         Auth::logout();
 
         $user->delete();
-
+        dd(session());
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return redirect()->intended("/");
     }
+
 }

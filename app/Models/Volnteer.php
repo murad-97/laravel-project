@@ -18,4 +18,14 @@ class Volnteer extends Model
         $this->hasMany(Volnteeritem::class, 'volunteer_id', 'id');
         
     }
+    protected $fillable = [
+        'id',
+        'volunteer_name',
+        'category_id',
+        'description',
+        'price',
+        'price',
+        'main_picture',
+    ];
+
 }

@@ -1,35 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Models\Volnteerdetail;
 use App\Models\Volnteer;
+use App\Models\Volnteerdetail;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class VolnteerdetailController extends Controller
+class VolnteerdetailDashhController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index($id)
+    public function index()
     {
-        if (Auth::check()) {
-            $volnteer = Volnteer::find($id);
-            $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
-            $price = 0;
-            foreach($volnteerDetails as $volnteerDetail){
-    $price+=$volnteerDetail->price;
-            }
-    
-            return view('pages.fund volunteer')->with("price",$price)->with("volnteer",$volnteer);
-        }else{
-            return redirect()->route("login");
+        $users = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name',
+         'volnteerdetails.price')
+        ->join('volnteerdetails', 'volnteers.id', '=', 'volnteerdetails.volunteer_id')
+        ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+        ->join('users', 'users.id', '=', 'volnteerdetails.user_id')
+        ->get();
+     
+            //  dd($users1);  
 
-        }
-    
+            return view("Dash.item")->with("users",$users);
     }
 
     /**

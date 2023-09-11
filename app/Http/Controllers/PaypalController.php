@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Volnteerdetail;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Srmklive\PayPal\Services\PayPal as PayPalClient;
 
 class PaypalController extends Controller
@@ -33,11 +34,11 @@ class PaypalController extends Controller
             foreach ($response["links"] as $link) {
                 if ($link["rel"] === "approve") {
                     $volnteer = new Volnteerdetail;
-                    $volnteer->user_id = 1;
+                    $volnteer->user_id = Auth::user()->id;
                     $volnteer->volunteer_id = $request->id;
                     $volnteer->price = $request->price;
                     $volnteer->save();
-
+                    session(['reques' => $request->price]);;
                     return redirect()->away($link["href"]);
                 }
             }
@@ -60,7 +61,7 @@ class PaypalController extends Controller
 
 
 
-            return "paypal_complete";
+            return view("pages.billdetail");
         } else {
             return redirect()->route("paypal_cancel");
 

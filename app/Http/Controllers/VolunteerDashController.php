@@ -2,34 +2,21 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Volnteerdetail;
 use App\Models\Volnteer;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 
-class VolnteerdetailController extends Controller
+class VolunteerDashController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($id)
+    public function index()
     {
-        if (Auth::check()) {
-            $volnteer = Volnteer::find($id);
-            $volnteerDetails = VolnteerDetail::where('volunteer_id', $id)->get();
-            $price = 0;
-            foreach($volnteerDetails as $volnteerDetail){
-    $price+=$volnteerDetail->price;
-            }
-    
-            return view('pages.fund volunteer')->with("price",$price)->with("volnteer",$volnteer);
-        }else{
-            return redirect()->route("login");
-
-        }
-    
+        
+        $allVolun = Volnteer::all();
+        return view('Dash.volunteers', compact('allVolun'));  
     }
 
     /**
@@ -50,16 +37,21 @@ class VolnteerdetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $vol= new Volnteer;
+        $vol->namevolunteer_name=$request->volunteer_name;
+        $vol->description=$request->description;
+        $vol->category_id=$request->category_id;
+        $vol->price=$request->price;
+        $vol->save();
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteerdetail $volnteerdetail)
+    public function show(Volnteer $volnteer)
     {
         //
     }
@@ -67,10 +59,10 @@ class VolnteerdetailController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function edit(Volnteerdetail $volnteerdetail)
+    public function edit(Volnteer $volnteer)
     {
         //
     }
@@ -79,10 +71,10 @@ class VolnteerdetailController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Volnteerdetail $volnteerdetail)
+    public function update(Request $request, Volnteer $volnteer)
     {
         //
     }
@@ -90,11 +82,13 @@ class VolnteerdetailController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Volnteerdetail  $volnteerdetail
+     * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Volnteerdetail $volnteerdetail)
+    public function destroy($id)
     {
-        //
+        Volnteer::where(['id'=>$id])->delete();
+        return redirect()->route('all_volunteers')->with (['success'=>'job deleted successfully']);
+       
     }
 }

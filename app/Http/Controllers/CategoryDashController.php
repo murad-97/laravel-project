@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection;
 
-class CategoryController extends Controller
+class CategoryDashController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +14,9 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    //   if(auth()->user()x)
-        $category = Category::all();
-        return view('pages.index')->with('category',$category);
+
+        $allcat = Category::all();
+        return view('Dash.category', compact('allcat')); 
     }
 
     /**
@@ -27,7 +26,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('Dash.addCategory');
     }
 
     /**
@@ -38,7 +37,15 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create([
+            'id' => $request->id,
+            'name' => $request->name,
+            'description' => $request->description,
+            'image'=>'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
+        ]);
+
+        return redirect()->route('category.index')->with(['success' => 'created successfully
+        ']);
     }
 
     /**
@@ -47,9 +54,9 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Category $category)
     {
-        $categories = Category::all();
+        //
     }
 
     /**
@@ -58,9 +65,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $data =Category::find($id);
+        return view('Dash.editcatg', compact('data'));
     }
 
     /**
@@ -70,43 +78,28 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
-    {
-        //
-    }
-
-
-
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function categoryfilter(Request $request)
-    {
-        $query = Category::query();
-        if (isset($request->filltercategory) && $request->filltercategory != null) {
-            $query->where('name', $request->filltercategory);
-        }
+      
+        $data['name'] = $request->name;
+        $data['description'] = $request->description;
        
-        $categories = $query->get();
-        return view('pages.causes', ['categories' => $categories]);
+
+        Category::where(['id' => $id])->update($data);
+        return redirect()->route('category.index')->with(['success' => 'Updated successfully
+        ']);
     }
 
-
-
-   
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        Category::destroy($id);
+        return redirect()->route('category.index')->with(['success' => 'Deleted successfully
+        ']);
+    }
 }
