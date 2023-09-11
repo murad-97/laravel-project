@@ -21,8 +21,9 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href={{ asset('lib/flaticon/font/flaticon.css') }} rel="stylesheet">
 
-
-
+{{-- ================ --}}
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
+{{-- ========================== --}}
 
 
     <link href={{ asset('lib/animate/animate.min.css') }} rel="stylesheet">
@@ -48,14 +49,14 @@
 
             <div class="collapse navbar-collapse justify-content-between nav-sticky" id="navbarCollapse">
                 <div class="navbar-nav ml-auto nav-sticky">
-                    <a href="#" class="nav-item nav-link active nav-sticky">Home</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link active nav-sticky">Home</a>
                     <a href="#off" class="nav-item nav-link nav-sticky">Our Offerings</a>
                     <a href="#ach" class="nav-item nav-link nav-sticky">Our Achievements</a>
                     <a href="#about" class="nav-item nav-link nav-sticky">About</a>
                     <a href="#contact" class="nav-item nav-link nav-sticky">Contact</a>
                     <div class="navbar-nav ml-5">
                         @if (Auth::check())
-                            <span class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</span>
+                            <a href="{{ route("profile.edit") }}" class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</a>
                             <form method="POST" class="nav-item nav-link nav-sticky" action="{{ route('logout') }}">
                                 @csrf
 

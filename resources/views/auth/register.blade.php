@@ -67,14 +67,14 @@
 </head>
 
 <body>
-    <section class="vh-100" style="background-color: #9A616D;">
+    <section class="vh-100" style="background-color: rgb(177,200,241);">
         <div class="container py-5 h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col col-xl-10">
                     <div class="card" style="border-radius: 1rem;">
                         <div class="row g-0">
                             <div class="col-md-6 col-lg-5 d-none d-md-block">
-                                <img src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+                                <img src="{{ asset("img/log.jpeg") }}"
                                     alt="login form" class="img-fluid" style="border-radius: 1rem 0 0 1rem; height: 650px;" />
                             </div>
                             
@@ -86,7 +86,7 @@
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                            <span style="color: #9A616D" class="h1 fw-bold mb-0">HELPZ</span>
+                                            <span style="color: #2958B0" class="h1 fw-bold mb-0">HELPZ</span>
                                         </div>
 
                                         <h5 class="fw-normal mb-1 pb-1" style="letter-spacing: 1px;">Sign Up Now</h5>
