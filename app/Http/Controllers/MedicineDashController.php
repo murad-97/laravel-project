@@ -41,16 +41,38 @@ class MedicineDashController extends Controller
     public function store(Request $request)
     {
 
-        Volnteer::create([
-            'volunteer_name' => $request->volunteer_name,
-            'category_id' => $request->category_id,
-            'price' => $request->price,
-            'description' => $request->description,
-            'main_picture'=>'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
+
+
+        $request->validate([
+            'volunteer_name' => 'required',
+            'description' => 'required',
+            'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        return redirect()->route('medicine.index')->with(['success' => 'created successfully
-        ']);
+        $input = $request->all();
+
+        if ($image = $request->file('main_picture')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['main_picture'] = "$profileImage";
+        }
+
+        Volnteer::create($input);
+
+        return redirect()->route('medicine.index')
+                        ->with('success','Category created successfully.');
+
+        // Volnteer::create([
+        //     'volunteer_name' => $request->volunteer_name,
+        //     'category_id' => $request->category_id,
+        //     'price' => $request->price,
+        //     'description' => $request->description,
+        //     'main_picture'=>'https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_1280.jpg'
+        // ]);
+
+        // return redirect()->route('medicine.index')->with(['success' => 'created successfully
+        // ']);
     }
 
     /**
@@ -86,15 +108,38 @@ class MedicineDashController extends Controller
      * @param  \App\Models\Volnteer  $volnteeritem
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Volnteer $medicine)
     {
-        $data['volunteer_name'] = $request->name;
-        $data['description'] = $request->description;
-        $data['price'] = $request->price;
 
-        Volnteer::where(['id' => $id])->update($data);
-        return redirect()->route('medicine.index')->with(['success' => 'Updated successfully
-        ']);
+
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required'
+        // ]);
+// dd($medicine);
+        $input = $request->all();
+
+        if ($image = $request->file('main_picture')) {
+            $destinationPath = 'images/';
+            $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
+            $image->move($destinationPath, $profileImage);
+            $input['main_picture'] = "$profileImage";
+        }else{
+            $input['main_picture']= $medicine->main_picture;
+        }
+
+        $medicine->update($input);
+
+        return redirect()->route('medicine.index')
+                        ->with('success','Category updated successfully');
+       
+        // $data['volunteer_name'] = $request->name;
+        // $data['description'] = $request->description;
+        // $data['price'] = $request->price;
+
+        // Volnteer::where(['id' => $id])->update($data);
+        // return redirect()->route('medicine.index')->with(['success' => 'Updated successfully
+        // ']);
     }
 
     /**

@@ -25,7 +25,7 @@ class VolnteeritemDashhhController extends Controller
         //     JOIN users ON volnteeritems.user_id = users.id);
     
         // dd($users);
-        return view("Dash.detail")->with("users",$users);
+        return view("Dash.item")->with("users",$users);
     }
     
 

@@ -1,12 +1,12 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\UserDashController;
+use App\Http\Controllers\UserDashhController;
 use App\Http\Controllers\VolunteerDashController;
 use App\Http\Controllers\CategoryDashController;
-use App\Http\Controllers\AdminDashController;
-use App\Http\Controllers\VolnteeritemDashController;
-use App\Http\Controllers\VolnteerdetailDashController;
+use App\Http\Controllers\AdminDashhController;
+use App\Http\Controllers\VolnteeritemDashhhController;
+use App\Http\Controllers\VolnteerdetailDashhController;
 use App\Http\Controllers\ServicesDashController;
 use App\Http\Controllers\equipmentDashController;
 use App\Http\Controllers\MedicineDashController;
@@ -45,6 +45,9 @@ Route::get('/dash', function () {
     return view('Dash.Home');
 });
 
+Route::get('/master', function () {
+    return view('Dash.Master');
+});
 Route::get('/addcat', function () {
     return view('Dash.addCategory');
 })->name('add_cat');
@@ -55,8 +58,8 @@ Route::get('/addcat', function () {
 
 Route::get('/deletevolunteers/{id}',[VolunteerDashController::class,'destroy'])->name('delete_volunteer');
 
-Route::get('/user',[UserDashController::class,'index'])->name('allusers');
-Route::get('/deleteuser/{id}',[UserDashController::class,'destroy'])->name('del');
+Route::get('/user',[UserDashhController::class,'index'])->name('allusers');
+Route::get('/deleteuser/{id}',[UserDashhController::class,'destroy'])->name('del');
 Route::get('/volunteers',[VolunteerDashController::class,'index'])->name('all_volunteers');
 Route::get('/category',[CategoryDashController::class,'index'])->name('all_categories');
 Route::get('/delete/{id}',[CategoryDashController::class,'destroy'])->name('delete_category');
@@ -87,11 +90,12 @@ Route::resource('equipment', equipmentDashController::class);
 
 Route::resource('medicine', MedicineDashController::class);
 
-Route::get('/detail',[VolnteeritemDashhhController::class,'index'])->name('all_details');
+Route::get('/item',[VolnteeritemDashhhController::class,'index'])->name('all_items');
 
-Route::get('/item',[VolnteerdetailDashhController::class,'index'])->name('all_details');
+Route::get('/detail',[VolnteerdetailDashhController::class,'index'])->name('all_details');
 
 Route::resource('category', CategoryDashController::class);
+
 
 
 

@@ -7,7 +7,6 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-
     <!-- Favicon -->
     <link href="img-dash/favicon.ico" rel="icon">
 
@@ -41,7 +40,7 @@
 </head>
 
 <body>
-    <div class="container-fluid position-relative d-flex p-0" style="background-color: wh;">
+    <div class="container-fluid position-relative d-flex p-0" style="background-color: white;">
         <!-- Spinner Start -->
         <div id="spinner" class="show  position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center" style="background-color: #f2f2f2;">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
@@ -55,7 +54,7 @@
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar " style="background-color: white;">
                 <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <img  src="./images/3.PNG" width="100px">
+                    <h1 style="color: rgb(10, 10, 105);">Helpz</h1>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -63,35 +62,33 @@
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-2 mb-2">
-                        <h6 class="mb-0">Shatha Rababah</h6>
+                       
                         <span>Shatha Rababah</span>
                     </div>
                 </div>
                 <div class="navbar-nav w-100">
-                    <a href="index.html" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a href="{{ asset('/dash') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
                     <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>Profile</a>
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-id-badge me-2"></i>Profile</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item">Sign In</a>
-                            <a href="signup.html" class="dropdown-item">Sign Up</a>
+                            <a href="signin.html" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fa fa-gear me-2"></i>Settings</a>
+                            <a href="signup.html" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fa fa-sign-out me-2"></i>Logout</a>
                         </div>
-                    </div>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fa fa-user me-2"></i>Volunteers</a>
-                        <div class="dropdown-menu bg-transparent border-0">
 
-                            <a href="signin.html" class="dropdown-item">Equpment</a>
-                            <a href="signup.html" class="dropdown-item">Services</a>
-                            <a href="signup.html" class="dropdown-item">Medicine</a>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="category" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-dollar-sign me-2"></i>Our offerings</a>
+                        <div class="dropdown-menu bg-transparent border-0">
+                            <a href="equipment" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fas fa-chair me-2"></i>Equipment</a>
+                            <a href="services" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fas fa-lightbulb me-2"></i>Services</a>
+                            <a href="medicine" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fas fa-medkit me-2"></i>Medicine</a>
                         </div>
                     </div>
-                    <a href="product.html" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Products</a>
-                    <a href="{{route('allusers')}}" class="nav-item nav-link"><i class="fa fa-users me-2"></i></i>Usres</a>
-                    <a href="{{route('all_volunteers')}}" class="nav-item nav-link"><i class="fa fa-th me-2"></i>Volunteers</a>
-                    <a href="Profile.html" class="nav-item nav-link"><i class="fa fa-keyboard me-2"></i>Profile Setting</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-table me-2"></i>Categories</a>
-                    <a href="chart.html" class="nav-item nav-link"><i class="fa fa-chart-bar me-2"></i>Charts</a>
-                    <a href="signin.html" class="nav-item nav-link"><i class="fa fa-sign-out me-2"></i>LogOut</a>
+                    <a href="admin" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Admin</a>
+                    <a href="{{ route('allusers') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Users</a>
+                    <a href="{{ asset('/detail') }}"  class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-dollar-sign me-2"></i>Monetaryvolunteer</a>
+                    <a href="{{ asset('/item') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-handshake me-2"></i>volunteeritems</a>
+                    <a href="signin.html" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fa fa-sign-out me-2"></i>LogOut</a>
               
                 </div>
             </nav>
@@ -101,30 +98,30 @@
 
 
         <!-- Content Start -->
-        <div class="content">
+        <div class="content" >
             <!-- Navbar Start -->
-            <nav class="navbar navbar-expand sticky-top px-4 py-0"  style="background-color: #f2f2f2;">
+            <nav class="navbar navbar-expand sticky-top px-4 py-0"  style="background-color: rgba(165, 204, 247, 0.786);">
                 <a href="index.html" class="navbar-brand d-flex d-lg-none me-2">
                     <h2 class=" mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0" style="color: rgb(16, 133, 16);">
-                    <i class="fa fa-bars" style="font-size: 25px;"></i>
+                <a href="#" class="sidebar-toggler flex-shrink-0" >
+                    <i class="fa fa-bars" style="font-size: 25px; color: rgb(10, 10, 105);"></i>
                 </a>
                 <form class="d-none d-md-flex ms-2">
-                    <input class="form-control  border-1 " type="search" placeholder="Search" style="background-color: #f2f2f2;">
+                    <input class="form-control mt-2 border-1 " type="search" placeholder="Search" style="background-color: white; border: 1px solid rgb(10, 10, 105) ; border-radius: 10px;">
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-envelope me-lg-0" style="font-size: 20px;"></i>
-                            <span class="d-none d-lg-inline-flex">Message</span>
+                            <i class="fa fa-envelope me-lg-0" style="font-size: 20px; color: rgb(10, 10, 105);"></i>
+                            <span class="d-none d-lg-inline-flex" style="color: rgb(10, 10, 105);">Message</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle" src="images/sereen.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0 text-dark">Sereen send you a message</h6>
+                                        <h6 class="fw-normal mb-0 ">Sereen send you a message</h6>
                                         <small style="font-size: smaller;">1 hour ago</small>
                                     </div>
                                 </div>
@@ -134,7 +131,7 @@
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle" src="images/sohieb.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0 text-dark">Sohieb send you a message</h6>
+                                        <h6 class="fw-normal mb-0 ">Sohieb send you a message</h6>
                                         <small style="font-size: smaller;">30 minutes ago</small>
                                     </div>
                                 </div>
@@ -144,7 +141,7 @@
                                 <div class="d-flex align-items-center">
                                     <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
-                                        <h6 class="fw-normal mb-0 text-dark">Jhon send you a message</h6>
+                                        <h6 class="fw-normal mb-0 ">Jhon send you a message</h6>
                                         <small style="font-size: smaller;">50 minutes ago</small>
                                     </div>
                                 </div>
@@ -155,22 +152,22 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-0" style="font-size: 20px;"></i>
-                            <span class="d-none d-lg-inline-flex">Notificatin</span>
+                            <i class="fa fa-bell me-lg-0" style="font-size: 20px; color: rgb(10, 10, 105); "></i>
+                            <span class="d-none d-lg-inline-flex" style="color: rgb(10, 10, 105);">Notificatin</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0 text-dark">Profile updated</h6>
+                                <h6 class="fw-normal mb-0 ">Profile updated</h6>
                                 <small style="font-size: smaller;">1 hour ago</small>
                             </a>
                           
                             <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0 text-dark">New user added</h6>
+                                <h6 class="fw-normal mb-0 ">New user added</h6>
                                 <small style="font-size: smaller;">40 minutes ago</small>
                             </a>
                           
                             <a href="#" class="dropdown-item">
-                                <h6 class="fw-normal mb-0 text-dark">Password changed</h6>
+                                <h6 class="fw-normal mb-0 ">Password changed</h6>
                                 <small style="font-size: smaller;">15 minutes ago</small>
                             </a>
                             <hr class="dropdown-divider">
@@ -192,19 +189,22 @@
             </nav>
             <!-- Navbar End -->
 
+
+
  
 
           @yield('content'); 
 
 
+          @yield('footer')
             <!-- Footer Start -->
             <div class="container-fluid  pt-4 px-4">
                 <div class=" rounded-top p-4" >
                     <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-success text-sm-start">
-                            &copy; <a href="#" class="text-dark">PRO company</a>, All Right Reserved. 
+                        <div class="col-12 col-sm-6 text-center text-success text-sm-start" style="color: rgb(10, 10, 105);">
+                            &copy; <a href="#" class="" style="color: rgb(10, 10, 105);">helpzcompany</a>, All Right Reserved. 
                         </div>
-                   
+
                     </div>
                 </div>
             </div>

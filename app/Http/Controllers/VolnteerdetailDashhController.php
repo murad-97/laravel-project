@@ -18,7 +18,7 @@ class VolnteerdetailDashhController extends Controller
      
             //  dd($users1);  
 
-            return view("Dash.item")->with("users",$users);
+            return view("Dash.detail")->with("users",$users);
     }
 
     /**
