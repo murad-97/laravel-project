@@ -117,10 +117,17 @@
                                                     class="ml-2 text-sm text-gray-600 dark:text-gray-400">{{ __('Remember me') }}</span>
                                             </label>
 
-                                           
+                                            <div class="pt-1 mb-4">
+                                                <button class="btn btn-dark btn-lg btn-block" type="submit">Login</button>
+                                                
+                                              
+                                            </div>
+    
                                         </div>
                                     </form>
-
+                                    <p class="mb-1 pb-lg-1" style="color: #393f81;margin-left:100px">Don't have an account? <a
+                                        href="{{ route('register') }}" style="color: #393f81;">Register here</a>
+                                </p>
                                 </div>
                             </div>
                         </div>
