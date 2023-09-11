@@ -1,4 +1,4 @@
-@extends('Dash.Master');
+@extends('Dash.Master')
 
  @section('Title')
     category
@@ -8,38 +8,62 @@
 
  <div class="content">
 
-    <form  style="padding-top: 50px;" method="post" action="{{route('category.store')}}">
-        @csrf
-        @method('post')
-        <h3 style="color: black">Add volunteer</h3>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="inputname4">name</label>
-                    <input type="name" name="name" class="form-control white-input" id="inputname4" placeholder="name">
+    <div class="main">
+
+        <section class="signup">
+            <!-- <img src="images/signup-bg.jpg" alt=""> -->
+            <div class="container" style="margin:auto">
+                <div class="signup-content">
+                    <form method="post" action="{{route('category.store')}}" enctype="multipart/form-data" id="signup-form" class="signup-form">
+                        @csrf
+                        @method('post')
+                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Create Services</h2>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="id" id="name" placeholder="Id"/>
+                        </div>
+                        {{-- <div class="form-group">
+                            <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
+                        </div> --}}
+                        <div class="form-group">	
+                            <input type="text" class="form-input" name="description" id="password" placeholder="Description"/>
+                            <span style="color:red">@error('description'){{ $message }} @enderror</span><br><br>
+                          
+                        </div>
+                        {{-- <div class="form-group">	
+                            <input type="text" class="form-input" name="password" id="password" placeholder="price"/>
+                           
+                        </div> --}}
+                        {{-- <div class="form-group">
+                            <input type="file" class="form-input" name="image" id="image" accept="image/*">
+                        </div> --}}
+                        <div class="form-group">
+                        
+                            <input  name="image" type="file" class="form-control white-input" id="inputPrice">
+                            <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br>
+                         </div>
+                     
+                        <div class="form-group">
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                        </div>
+                        
+                          
+                        
+                    </form>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label for="inputPicture">picture</label>
-                    <input  name="image" type="file" class="form-control white-input" id="inputPrice">
+        </section>
+    </div>
 
-                     </div>
-            </div>
-        </div>
-        <div class="form-group">
-            <label for="description">description</label>
-             <textarea name="description"  class="form-control white-input" id="" cols="30" rows="3"></textarea>
-            {{-- <input type="text" class="form-control white-input" id="description" placeholder="Description"> --}}
-        </div>
-        
-        
-        <div style="padding-top: 10px;">
-        <button type="submit" class="btn  btn-success" >Add Category</button>
-        </div>
-    </form>
+
+
+
+  
     
 </div>
 
 
 @endsection
+
