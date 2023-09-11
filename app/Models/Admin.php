@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Admin extends Authenticatable
 {
+
     use HasApiTokens, HasFactory, Notifiable;
     protected $guard = 'admin';
     /**
@@ -17,11 +18,15 @@ class Admin extends Authenticatable
      *
      * @var array<int, string>
      */
+
+    use HasFactory;
+
     protected $fillable = [
         'name',
         'email',
         'password',
     ];
+
 
     /**
      * The attributes that should be hidden for serialization.
@@ -43,3 +48,5 @@ class Admin extends Authenticatable
         'password' => 'hashed',
     ];
 }
+
+

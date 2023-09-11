@@ -120,18 +120,20 @@ Route::get('/addcat', function () {
 //     return view('Dash.volunteers');
 // })->name('volunteers');
 
-Route::get('/deletevolunteers/{id}',[VolunteerDashController::class,'destroy'])->name('delete_volunteer');
+// Route::get('/deletevolunteers/{id}',[VolunteerDashController::class,'destroy'])->name('delete_volunteer');
 
 Route::get('/user',[UserDashhController::class,'index'])->name('allusers');
-Route::get('/deleteuser/{id}',[UserDashhController::class,'destroy'])->name('del');
-Route::get('/volunteers',[VolunteerDashController::class,'index'])->name('all_volunteers');
-Route::get('/category',[CategoryDashController::class,'index'])->name('all_categories');
-Route::get('/delete/{id}',[CategoryDashController::class,'destroy'])->name('delete_category');
-Route::get('/edit_category/{id}',[CategoryDashController::class,'edit'])->name('edit_category');
+// Route::post('/useradd',[UserDashhController::class,'goToAddUser'])->name('adduser');
+// Route::get('/useradd',[UserDashhController::class,'store'])->name('storeuser');
+// Route::get('/deleteuser/{id}',[UserDashhController::class,'destroy'])->name('del');
+// Route::get('/volunteers',[VolunteerDashController::class,'index'])->name('all_volunteers');
+// Route::get('/category',[CategoryDashController::class,'index'])->name('all_categories');
+// Route::get('/delete/{id}',[CategoryDashController::class,'destroy'])->name('delete_category');
+// Route::get('/edit_category/{id}',[CategoryDashController::class,'edit'])->name('edit_category');
 
-Route::post('/edite_category',[CategoryDashController::class,'update'])->name('edite_category');
+// Route::post('/edite_category',[CategoryDashController::class,'update'])->name('edite_category');
 
-Route::POST('/addcat',[CategoryDashController::class,'store'])->name('Add_category');
+// Route::POST('/addcat',[CategoryDashController::class,'store'])->name('Add_category');
 
 
 
@@ -140,13 +142,12 @@ Route::POST('/addcat',[CategoryDashController::class,'store'])->name('Add_catego
 
 
 // Route::get('/delete/{id}',[VolunteerDashController::class,'destroy'])->name('delete_volunteer');
-Route::POST('/add',[VolunteerDashController::class,'store'])->name('Add_volunteer');
+// Route::POST('/add',[VolunteerDashController::class,'store'])->name('Add_volunteer');
 
 // .....................................................admin>>>>>>>>>>>>>>>>>>>>>>>>
 
 
 Route::resource('admin', AdminDashhController::class);
-
 
 Route::resource('services', ServicesDashController::class);
 
@@ -163,5 +164,8 @@ Route::resource('category', CategoryDashController::class);
 Route::get('/dash', function () {
     return view('admin.dashboard');
 })->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+Route::resource('user', UserDashhController::class);
+
+
 
 

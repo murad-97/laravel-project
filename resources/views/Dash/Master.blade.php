@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <a href="admin" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Admin</a>
-                    <a href="{{ route('allusers') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Users</a>
+                    <a href="user" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Users</a>
                     <a href="{{ asset('/detail') }}"  class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-dollar-sign me-2"></i>Monetaryvolunteer</a>
                     <a href="{{ asset('/item') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-handshake me-2"></i>volunteeritems</a>
                     <a href="signin.html" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fa fa-sign-out me-2"></i>LogOut</a>
