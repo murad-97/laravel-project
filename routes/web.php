@@ -17,13 +17,20 @@ use App\Http\Controllers\VolnteeritemController;
 use App\Http\Controllers\PaypalController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ValController;
+// use App\Http\Controllers\SentSmsController;
+
+use App\Http\Controllers\SentSmsController;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
 |
-| Here is where you can register web routes for your application. These
+| Here is where you can register web routes for your appl
+
+ication. These
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
@@ -34,6 +41,7 @@ Route::get('paypal/cancel',[PaypalController::class, 'cancel'])->name("paypal_ca
 
 Route::get('/', [CategoryController::class, 'index']);
 Route::post('/send-message', [ContactController::class, 'sendEmail'])->name('contact.send');
+Route::post('/send-message1', [ValController::class, 'sendEmail'])->name('Val.send');
 
 Route::get('/categories/{id}',[VolnteerController::class, 'show']);
 Route::get('/volunteering/{id}',[VolnteerdetailController::class, 'index']);

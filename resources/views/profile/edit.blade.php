@@ -53,7 +53,7 @@
                                     <td> </td>
                                     <td> {{$user->volunteer_name}}</td>
                                     <td> {{$user->name}}</td>
-                                    <td> </td>
+                                    <td> NONE</td>
                                     
                                     <td> {{$user->qty}}</td>
                                     
@@ -72,6 +72,7 @@
                                     <td> {{$user->name}}</td>
                                     
                                     <td> {{$user->price}}</td>
+                                    <td> NONE</td>
                                     <td></td>
                                     
                                   

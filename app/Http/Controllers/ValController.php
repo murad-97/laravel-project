@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\ContactMail;
+use App\Mail\ValMail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
-class ContactController extends Controller
+class ValController extends Controller
 {
-    public function contact()
+    public function Val()
     {
         return view('pages.index');
     }
@@ -22,10 +22,10 @@ class ContactController extends Controller
 
         ];
 
-        Mail::to($request->email)->send(new ContactMail($details));
-        return back()->with('message_sent','Your message has been sent successfully');
+        Mail::to($request->email)->send(new ValMail($details));
+        return back()->with('message_sent1','Your message has been sent successfully');
 
-        // Mail::to('husam-odat@outlook.com')->send(new ContactMail($details));
+        // Mail::to('husam-odat@outlook.com')->send(new ValMail($details));
         // return back()->with('message_sent','Your message has been sent successfully');
 
 
