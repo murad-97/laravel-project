@@ -6,6 +6,7 @@
     ],
     "content-hash": "2183efbf759f540993cbffb0362d62a1",
     "content-hash": "640abfffde7a0336edbe66ce27078182",
+
     "packages": [
         {
             "name": "brick/math",

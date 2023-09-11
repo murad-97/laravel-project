@@ -19,7 +19,7 @@
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=G--MJNbi_-7oHN0Q" data-target="#videoModal">Watch
+                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch
                                 Video</a>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=G--MJNbi_-7oHN0Q" data-target="#videoModal">Watch
+                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch
                                 Video</a>
                         </div>
                     </div>
@@ -71,7 +71,7 @@
 
     <!-- About Start -->
     <div class="about">
-        <div class="container" id="about">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="about-img" data-parallax="scroll"
@@ -97,7 +97,7 @@
 
                         <div class="tab-content">
                             <div id="tab-content-1" class="container tab-pane active">
-                                Helpz is more than just a website, it's a compassionate community dedicated to creating
+                                Helpz is more than just a website; it's a compassionate community dedicated to creating
                                 positive change in healthcare. If you have gently used medical equipment that could make a
                                 difference in someone's life, we provide a seamless platform for you to donate and help
                                 those in need. For those who wish to contribute financially to healthcare initiatives, Helpz
@@ -218,8 +218,7 @@
 
 
     <!-- Facts Start -->
-    <div class="facts" id="ach" data-parallax="scroll"
-        data-image-src="img/istockphoto-1016780008-1024x1024-transformed.jpeg">
+    <div class="facts" data-parallax="scroll" data-image-src="img/istockphoto-1016780008-1024x1024-transformed.jpeg">
         <div class="container">
             <div class="section-header text-center">
                 <p>Our Achievements </p>
@@ -274,9 +273,9 @@
 
     <!-- Causes Start -->
     <div class="causes">
-        <div class="container" id="off">
+        <div class="container">
             <div class="section-header text-center">
-                <p>Our offerings</p>
+                <p>Our Services</p>
                 <h2>Let's know how we can get the offerings and services</h2>
             </div>
             <div class="row">
@@ -306,7 +305,7 @@
                                 </p>
                             </div>
                             <div class="causes-btn">
-                                <a href="pages.causes/{{ $item->id }}" class="btn btn-custom">Get Donations
+                                <a href="{{ $item->id }}" class="btn btn-custom">Get Donations
                                 </a>
                             </div>
                         </div>
@@ -432,15 +431,23 @@
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="volunteer-form">
-                        <form>
+                        @if (Session::get('message_sent1'))
+                            <div class="alert alert-success" role="alert">
+                                {{ Session::get('message_sent1') }}
+                            </div>
+                        @endif
+                        <form method="POST" action='{{ route('Val.send') }}'>
+                            @csrf
                             <div class="control-group">
-                                <input type="text" class="form-control" placeholder="Name" required="required" />
+                                <input type="text" class="form-control" placeholder="Name" name="name"
+                                    required="required" />
                             </div>
                             <div class="control-group">
-                                <input type="email" class="form-control" placeholder="Email" required="required" />
+                                <input type="email" class="form-control" placeholder="Email" name="email"
+                                    required="required" />
                             </div>
                             <div class="control-group">
-                                <textarea class="form-control" placeholder="Why you want to become a volunteer?" required="required"></textarea>
+                                <textarea class="form-control" placeholder="Why you want to become a volunteer?" name="msg" required="required"></textarea>
                             </div>
                             <div>
                                 <button class="btn btn-custom" type="submit">Become a volunteer</button>
@@ -594,7 +601,7 @@
 
     <!-- Volunteer Start -->
     <div class="volunteer" data-parallax="scroll" data-image-src="./img/woww2.PNG">
-        <div class="container" id="contact">
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="volunteer-content">
