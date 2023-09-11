@@ -22,19 +22,25 @@
                         <div class="tab-content">
                             <div class="p-list">
                                 <span> DONATIONS: <i class="fa fa-inr"></i> </span>
-
+                                @php
+                                if ($price != 0) {
+                                    $result = intval(($price / $volnteer->price) * 100);
+                                } else {
+                                    $result = 0;
+                                }
+                                @endphp
                             </div>
                             <div class="causes p-0">
                                 <div class="causes-progress m-0">
                                     <div class="progress">
-                                        <div class="progress-bar" role="progressbar"
-                                            aria-valuenow="{{ intval(($price / $volnteer->price) * 100) }}"
+                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}"
                                             aria-valuemin="0" aria-valuemax="100">
-                                            <span>{{ intval(($price / $volnteer->price) * 100) }}%</span>
+                                           
+                                            <span>{{ $result }}%</span>
                                         </div>
                                     </div>
                                     <div class="progress-text" style="display: flex;justify-content:space-between">
-                                        <p><strong>Raised:</strong> JOD{{ $price }}</p>
+                                        <p ><strong>Raised:</strong> JOD{{ $price }}</p>
                                         <p><strong>Goal:</strong> JOD{{ $volnteer->price }}</p>
                                     </div>
                                 </div>
