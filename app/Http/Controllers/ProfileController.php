@@ -80,28 +80,41 @@ class ProfileController extends Controller
      */
     public function edit(Request $request): View
     {
-        $users = DB::select('SELECT 
-        users.id,
-        volnteers.volunteer_name,
-        categories.name,
-        volnteeritems.qty,
-        volnteerdetails.price,
-        volnteers.main_picture
-        FROM volnteers
-        JOIN volnteeritems 
-                    ON volnteers.id = volnteeritems.volunteer_id
-        JOIN volnteerdetails 
-                     ON volnteers.id = volnteerdetails.volunteer_id
-        JOIN categories 
-                     ON volnteers.category_id = categories.id
-        JOIN users 
-                    ON volnteerdetails.user_id = users.id
-                   AND volnteeritems.user_id = users.id 
-                   where users.id = ?', [Auth::user()->id]);
+        $users = DB::table('volnteers')
+    ->select([
+        'users.id',
+        'volnteers.volunteer_name',
+        'categories.name',
+        'volnteeritems.qty',
+        'volnteers.main_picture'
+    ])
+    ->join('volnteeritems', 'volnteers.id', '=', 'volnteeritems.volunteer_id')
+    ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+    ->join('users', function ($join) {
+        $join->on('volnteeritems.user_id', '=', 'users.id')
+            ->where('users.id', '=', Auth::user()->id);
+    })
+    ->get();
+        $usersdetail = DB::table('volnteers')
+    ->select([
+        'users.id',
+        'volnteers.volunteer_name',
+        'categories.name',
+        'volnteerdetails.price',
+        'volnteers.main_picture'
+    ])
+    ->join('volnteerdetails', 'volnteers.id', '=', 'volnteerdetails.volunteer_id')
+    ->join('categories', 'volnteers.category_id', '=', 'categories.id')
+    ->join('users', function ($join) {
+        $join->on('volnteerdetails.user_id', '=', 'users.id')
+            ->where('users.id', '=', Auth::user()->id);
+    })
+    ->get();
         // dd($users);
         return view('profile.edit', [
             'user' => $request->user(),
-            "users" => $users
+            "users" => $users,
+            "userdetails" =>$usersdetail
         ]);
     }
 

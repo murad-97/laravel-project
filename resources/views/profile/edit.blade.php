@@ -40,7 +40,7 @@
                                     <th scope="col">volunteer_name</th>
                                     <th scope="col">category</th>
                                     <th scope="col">price</th>
-                                    <th scope="col">main_picture</th>
+                                
                                     <th scope="col">qty</th>
                                 </tr>
                             </thead>
@@ -50,12 +50,32 @@
                                 
                                 <tr>
                                     {{-- <th scope="row">{{$i++}}</th> --}}
+                                    <td> </td>
                                     <td> {{$user->volunteer_name}}</td>
                                     <td> {{$user->name}}</td>
+                                    <td> </td>
+                                    
                                     <td> {{$user->qty}}</td>
+                                    
+                                    
+                                    
+                                   
+                                </tr>
+                                @endforeach
+                                @foreach ( $userdetails as $user )
+                                    
+                                
+                                <tr>
+                                    {{-- <th scope="row">{{$i++}}</th> --}}
+                                    <td> </td>
+                                    <td> {{$user->volunteer_name}}</td>
+                                    <td> {{$user->name}}</td>
+                                    
                                     <td> {{$user->price}}</td>
-                                    <td> {{$user->main_picture}}</td>
-                                    <td> {{$user->price}}</td>
+                                    <td></td>
+                                    
+                                  
+                                    
                                    
                                 </tr>
                                 @endforeach
