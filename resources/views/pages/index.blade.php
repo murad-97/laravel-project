@@ -4,7 +4,7 @@
 @section('content')
     <!-- Carousel Start -->
     <div class="carousel ">
-        <div class="container-fluid">
+        <div class="m-0">
             <div class="owl-carousel">
                 <div class="carousel-item">
                     <div class="carousel-img">

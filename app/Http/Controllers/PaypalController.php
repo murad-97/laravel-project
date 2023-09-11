@@ -38,7 +38,7 @@ class PaypalController extends Controller
                     $volnteer->volunteer_id = $request->id;
                     $volnteer->price = $request->price;
                     $volnteer->save();
-
+                    session(['reques' => $request->price]);;
                     return redirect()->away($link["href"]);
                 }
             }
@@ -61,7 +61,7 @@ class PaypalController extends Controller
 
 
 
-            return "paypal_complete";
+            return view("pages.billdetail");
         } else {
             return redirect()->route("paypal_cancel");
 

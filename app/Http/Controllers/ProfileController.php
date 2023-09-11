@@ -65,7 +65,10 @@ class ProfileController extends Controller
 
             session()->put('id', $findUser->id);
             session()->put('type', $findUser->type);
-            return redirect('/');
+           
+         
+            return redirect()->intended();
+
 
         } catch (Exception $e) {
             dd($e->getMessage());
@@ -94,7 +97,7 @@ class ProfileController extends Controller
         JOIN users 
                     ON volnteerdetails.user_id = users.id
                    AND volnteeritems.user_id = users.id 
-                   where users.id = ?', [1]);
+                   where users.id = ?', [Auth::user()->id]);
         // dd($users);
         return view('profile.edit', [
             'user' => $request->user(),
@@ -136,7 +139,7 @@ class ProfileController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
-        return Redirect::to('/');
+        return redirect()->intended("/");
     }
 
 }

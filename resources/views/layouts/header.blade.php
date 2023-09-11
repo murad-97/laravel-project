@@ -48,14 +48,14 @@
 
             <div class="collapse navbar-collapse justify-content-between nav-sticky" id="navbarCollapse">
                 <div class="navbar-nav ml-auto nav-sticky">
-                    <a href="#" class="nav-item nav-link active nav-sticky">Home</a>
+                    <a href="{{ url('/') }}" class="nav-item nav-link active nav-sticky">Home</a>
                     <a href="#off" class="nav-item nav-link nav-sticky">Our Offerings</a>
                     <a href="#ach" class="nav-item nav-link nav-sticky">Our Achievements</a>
                     <a href="#about" class="nav-item nav-link nav-sticky">About</a>
                     <a href="#contact" class="nav-item nav-link nav-sticky">Contact</a>
                     <div class="navbar-nav ml-5">
                         @if (Auth::check())
-                            <span class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</span>
+                            <a href="{{ route("profile.edit") }}" class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</a>
                             <form method="POST" class="nav-item nav-link nav-sticky" action="{{ route('logout') }}">
                                 @csrf
 
