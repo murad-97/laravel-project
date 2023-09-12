@@ -452,9 +452,8 @@
                         </div>
                         <div class="volunteer-text">
                             <p>
-                                Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit
-                                non. Aliquam metus tortor, auctor id gravida, viverra quis sem. Curabitur non nisl nec nisi
-                                maximus. Aenean convallis porttitor. Aliquam interdum at lacus non blandit.
+                                
+A "Become A Volunteer" form is a document for people to express their interest in volunteering. It gathers their contact info, availability, skills, and interests, aiding organizations in finding suitable volunteer roles.
                             </p>
                         </div>
                     </div>
@@ -532,7 +531,7 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="img/husam.jfif" alt="Team Image" class="img-fluid">
+                            <img src="img/husam.jpeg" alt="Team Image" class="img-fluid">
                         </div>
                         <div class="team-text">
                             <h2>Husam Al-odat</h2>
@@ -568,11 +567,11 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="img/shatha.jpg" class="img-fluid" alt="Team Image">
+                            <img src="img/default-avatar-profile-icon-vector-18942370.jpg" class="img-fluid" alt="Team Image">
                         </div>
                         <div class="team-text">
-                            <h2>Shatha Rababah</h2>
-                            <p>Telecom Engineering</p>
+                            <h2>Sawsan Dagamseh</h2>
+                            <p>Full stuck developer</p>
                             <div class="team-social">
                                 <a href=""><i class="fab fa-github"></i></a>
                                 <a href=""><i class="fab fa-facebook-f"></i></a>
