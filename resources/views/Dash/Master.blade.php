@@ -88,7 +88,7 @@
                     <a href="user" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Users</a>
                     <a href="{{ asset('/detail') }}"  class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-dollar-sign me-2"></i>Monetaryvolunteer</a>
                     <a href="{{ asset('/item') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-handshake me-2"></i>volunteeritems</a>
-                    <a href="signin.html" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fa fa-sign-out me-2"></i>LogOut</a>
+                    <a href="{{ route("admin.logout") }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fa fa-sign-out me-2"></i>LogOut</a>
               
                 </div>
             </nav>
@@ -182,7 +182,7 @@
                         <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
                             <a href="#" class="dropdown-item">Settings</a>
-                            <a href="signin.html" class="dropdown-item">Log Out</a>
+                            <a href="{{ route("admin.logout") }}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
                 </div>

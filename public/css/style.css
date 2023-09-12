@@ -1065,6 +1065,10 @@ a:focus {
     color: #20212B;
     background: rgb(141, 174, 234);
 }
+.causes .causes-btn .btn{
+    color: #20212B;
+    background: rgb(141, 174, 234);
+}
 
 .causes .causes-btn .btn:last-child:hover {
     color: #ffffff;
