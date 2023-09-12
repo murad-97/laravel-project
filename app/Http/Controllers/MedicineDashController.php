@@ -47,8 +47,8 @@ class MedicineDashController extends Controller
             'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'category_id' => 'required',
-            'price' => 'required|numeric',
+            'category_id' => 'required',
+            'price' =>  'required|numeric',
 
         ]);
 
@@ -119,8 +119,8 @@ class MedicineDashController extends Controller
         $request->validate([
             'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
-            'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            // 'category_id' => 'required',
+            // 'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required',
             'price' => 'required|numeric',
 
         ]);
