@@ -19,7 +19,7 @@
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch
+                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT" data-target="#videoModal">Watch
                                 Video</a>
                         </div>
                     </div>
@@ -37,7 +37,7 @@
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/DWRcNpR6Kdc" data-target="#videoModal">Watch
+                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT" data-target="#videoModal">Watch
                                 Video</a>
                         </div>
                     </div>
