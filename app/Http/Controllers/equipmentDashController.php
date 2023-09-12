@@ -42,9 +42,12 @@ class equipmentDashController extends Controller
     {
            
         $request->validate([
-            'volunteer_name' => 'required',
+            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'category_id' => 'required',
+            'price' => 'required|numeric',
+
         ]);
 
         $input = $request->all();
@@ -109,12 +112,14 @@ class equipmentDashController extends Controller
      */
     public function update(Request $request, Volnteer $equipment)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'description' =>'required |max:300',
-        //     'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
+        $request->validate([
+            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
+            'description' => 'required',
+            'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'category_id' => 'required',
+            'price' => 'required|numeric',
 
+        ]);
         $input = $request->all();
 
         if ($image = $request->file('main_picture')) {
