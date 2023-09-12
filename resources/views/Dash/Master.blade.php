@@ -8,7 +8,7 @@
     <meta content="" name="keywords">
     <meta content="" name="description">
     <!-- Favicon -->
-    <link href="img-dash/favicon.ico" rel="icon">
+    <link href="{{ asset("images/20230911095137.PNG") }}" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -58,7 +58,7 @@
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
-                        <img class="rounded-circle" src="images/shatha.jpg" alt="" style="width: 40px; height: 40px;">
+                        <img class="rounded-circle" src="{{ asset("images/20230911095137.PNG") }}" alt="" style="width: 40px; height: 40px;">
                         <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
                     </div>
                     <div class="ms-2 mb-2">
@@ -119,7 +119,7 @@
                         <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="images/sereen.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="{{ asset("images/20230911095137.PNG") }}" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0 ">Sereen send you a message</h6>
                                         <small style="font-size: smaller;">1 hour ago</small>
@@ -129,7 +129,7 @@
                
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="images/sohieb.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="{{ asset("images/20230911095137.PNG") }}" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0 ">Sohieb send you a message</h6>
                                         <small style="font-size: smaller;">30 minutes ago</small>
@@ -139,7 +139,7 @@
                            
                             <a href="#" class="dropdown-item">
                                 <div class="d-flex align-items-center">
-                                    <img class="rounded-circle" src="img/user.jpg" alt="" style="width: 40px; height: 40px;">
+                                    <img class="rounded-circle" src="{{ asset("images/20230911095137.PNG") }}" alt="" style="width: 40px; height: 40px;">
                                     <div class="ms-2">
                                         <h6 class="fw-normal mb-0 ">Jhon send you a message</h6>
                                         <small style="font-size: smaller;">50 minutes ago</small>
@@ -176,7 +176,7 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="images/shatha.jpg" alt="" style="width: 40px; height: 40px;">
+                            <img class="rounded-circle me-lg-2" src="{{ asset("images/20230911095137.PNG") }}" alt="" style="width: 40px; height: 40px;">
                             
                         </a>
                         <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
