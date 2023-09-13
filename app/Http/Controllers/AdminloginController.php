@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rules\Password;
 
 class AdminLoginController extends Controller
 {
@@ -21,6 +22,14 @@ class AdminLoginController extends Controller
     // Handle the login request
     public function login(Request $request)
     {
+        $request->validate([
+            'email' => 'required|email',
+            'password' => [
+                'required',
+                'confirmed',
+                Password::min(8)->mixedCase()->numbers()->symbols(),
+            ], // Adjust the password requirements as needed.
+        ]);
         $admin = Admin::where('email', $request->email)->first();
 
         if ($admin) {

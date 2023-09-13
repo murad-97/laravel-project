@@ -16,18 +16,22 @@ console.log(inpt);
     loader();
     
     // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 200) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({scrollTop: 0}, 1500, 'easeInOutExpo');
-        return false;
-    });
+    $(document).ready(function () {
+        // Show/hide back-to-top button on scroll
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 200) {
+                $('.back-to-top').fadeIn('fast');
+            } else {
+                $('.back-to-top').fadeOut('fast');
+            }
+        });
     
+        // Scroll to top on back-to-top button click using event delegation
+        $(document).on('click', '.back-to-top', function () {
+            $('html, body').animate({ scrollTop: 0 }, 100, 'linear');
+            return false;
+        });
+    });
     
     // Sticky Navbar
     $(window).scroll(function () {

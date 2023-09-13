@@ -72,20 +72,28 @@
                                     </div>
                                     <div class="causes-progress" >
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="0"
+                                            @php
+                                    if ($product->donate  != 0) {
+                                        $result = intval(($product->donate / $product->price) * 100);
+                                    } else {
+                                        $result = 0;
+                                    }
+                                    @endphp
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}"
                                                 aria-valuemin="0" aria-valuemax="100">
-                                                <span>0%</span>
+                                                
+                                                <span>{{ $result }}%</span>
                                             </div>
                                         </div>
                                         <div class="progress-text">
-                                            <p><strong>Raised:</strong> $0</p>
+                                            <p><strong>Raised:</strong> ${{ $product->donate }}</p>
                                             <p><strong>Goal:</strong> ${{ $product->price }}</p>
                                         </div>
                                     </div>
                                     <div class="causes-text">
-                                        <h3>{{ $product->volunteer_name }}</h3>
+                                        <h3>{{ $product->shortname }}</h3>
                                         <p>
-                                            {{ $product->description }}
+                                            {{ $product->truncated_description }}
                                         </p>
                                     </div>
                                     <div class="causes-btn">
