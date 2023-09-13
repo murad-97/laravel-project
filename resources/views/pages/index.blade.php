@@ -17,7 +17,7 @@
                             improving lives, and enhancing healthcare worldwide."
                         </p>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="">Donate Now</a>
+                            <a class="btn btn-custom" href="pages.causes">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
                                 data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT" data-target="#videoModal">Watch
                                 Video</a>
@@ -35,7 +35,7 @@
                         <p>"Healthcare heroes consistently make a positive impact, bringing smiles to millions through their
                             dedication and compassion in delivering quality healthcare."</p>
                         <div class="carousel-btn">
-                            <a class="btn btn-custom" href="">Donate Now</a>
+                            <a class="btn btn-custom" href="pages.causes">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
                                 data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT" data-target="#videoModal">Watch
                                 Video</a>
@@ -70,7 +70,7 @@
 
 
     <!-- About Start -->
-    <div class="about">
+    <div class="about" id="about">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-6">
@@ -206,7 +206,7 @@
 
     <!-- Facts Start -->
     <div class="facts" data-parallax="scroll" data-image-src="img/istockphoto-1016780008-1024x1024-transformed.jpeg">
-        <div class="container">
+        <div class="container" id="ach">
             <div class="section-header text-center">
                 <h2>Our Achievements </h2>
                 {{-- <h2>Let's know how we can get the offerings and services</h2> --}}
@@ -260,7 +260,7 @@
 
     <!-- Causes Start -->
     <div class="causes">
-        <div class="container">
+        <div class="container" id="off">
             <div class="section-header text-center">
                 <h2>Our Services</h2>
                 <p>Let's know how we can get the offerings and services</p>
@@ -309,13 +309,13 @@
   
     <!-- Event End -->
     <!-- Volunteer Start -->
-    <div class="container">
-        <div class="section-header text-center">
+    <div class="container " >
+        <div class="section-header text-center mt-5 ">
             <h2>Become a Valounteer</h2>
             <p>Let’s make a difference in the lives of others</p>
         </div>
 
-        <div class="volunteer" data-parallax="scroll" data-image-src="img/volunteer.jpg">
+        <div class="volunteer " data-parallax="scroll" data-image-src="img/volunteer.jpg">
             <div class="row align-items-center">
                 <div class="col-lg-5">
                     <div class="volunteer-form">
@@ -492,7 +492,7 @@ A "Become A Volunteer" form is a document for people to express their interest i
 
     <!-- Volunteer Start -->
     <div class="volunteer" data-parallax="scroll" data-image-src="./img/woww2.PNG">
-        <div class="container">
+        <div class="container" id="contact">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="volunteer-content">
