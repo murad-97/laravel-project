@@ -7,6 +7,7 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rules;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
@@ -37,7 +38,7 @@ class AuthenticatedSessionController extends Controller
             'email' => 'required|email',
             'password' => [
                 'required',
-                'regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+                Rules\Password::min(8)->mixedCase()->numbers()->symbols(),
             ],
         ]);
 

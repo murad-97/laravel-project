@@ -39,8 +39,8 @@ class RegisteredUserController extends Controller
             'password' => [
                 'required',
                 'confirmed',
-                Rules\Password::defaults(),
-                'regex:/^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/',
+                Rules\Password::min(8)->mixedCase()->numbers()->symbols(),
+                
             ],
         ]);
 
