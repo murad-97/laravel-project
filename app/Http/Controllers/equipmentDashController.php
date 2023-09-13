@@ -42,9 +42,12 @@ class equipmentDashController extends Controller
     {
            
         $request->validate([
-            'volunteer_name' => 'required',
+            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required',
+            'price' => 'required|numeric',
+
         ]);
 
         $input = $request->all();
@@ -58,7 +61,7 @@ class equipmentDashController extends Controller
 
         Volnteer::create($input);
 
-        return redirect()->route('equipment.index')->with('success','Category created successfully.');
+        return redirect()->route('equipment.index')->with('success','Equipment added successfully.');
 
 
 
@@ -80,11 +83,9 @@ class equipmentDashController extends Controller
      * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteer $volnteer,$id )
+    public function show(Volnteer $volnteer)
     {
-        $volnteer = Volnteer::findOrFail($id);
-
-    return view('Dash.equipshow')->with('volnteer', $volnteer);
+        //
     }
 
     /**
@@ -111,12 +112,14 @@ class equipmentDashController extends Controller
      */
     public function update(Request $request, Volnteer $equipment)
     {
-        // $request->validate([
-        //     'name' => 'required',
-        //     'description' =>'required |max:300',
-        //     'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        // ]);
+        $request->validate([
+            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
+            'description' => 'required',
+            // 'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required',
+            'price' => 'required|numeric',
 
+        ]);
         $input = $request->all();
 
         if ($image = $request->file('main_picture')) {
@@ -132,7 +135,7 @@ class equipmentDashController extends Controller
         $equipment->update($input);
 
         return redirect()->route('equipment.index')
-                        ->with('success','Category updated successfully');
+                        ->with('success','Equipment updated successfully');
        
     }
 
@@ -145,7 +148,7 @@ class equipmentDashController extends Controller
     public function destroy($id)
     {
         Volnteer::destroy($id);
-        return redirect()->route('equipment.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('equipment.index')->with(['deleted' => 'Equipment deleted successfully
         ']);
         
     }

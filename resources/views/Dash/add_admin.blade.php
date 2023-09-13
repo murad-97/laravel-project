@@ -17,15 +17,18 @@
                     <form method="post" action="{{route('admin.store')}}" enctype="multipart/form-data" id="signup-form" class="signup-form">
                         @csrf
                         @method('post')
-                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Add admin</h2>
+                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Add user</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
+                            <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br>
                         </div>
                         <div class="form-group">
                             <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
+                            <span style="color:red">@error('email'){{ $message }} @enderror</span><br><br>
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-input" name="password" id="email" placeholder="Password"/>
+                            <input type="email" class="form-input" name="password" id="email" placeholder="Password"/>
+                            <span style="color:red">@error('password'){{ $message }} @enderror</span><br><br>
                         </div>
                         {{-- <div class="form-group">
                             <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>

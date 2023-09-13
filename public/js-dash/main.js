@@ -31,7 +31,6 @@
         $('.sidebar, .content').toggleClass("open");
         return false;
     });
-    
 
 
     // Progress Bar
@@ -45,7 +44,7 @@
     // Calender
     $('#calender').datetimepicker({
         inline: true,
-        format: 'l'
+        format: 'L'
     });
 
 

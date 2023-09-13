@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
-
 class CategoryDashController extends Controller
 {
     /**
@@ -16,7 +15,7 @@ class CategoryDashController extends Controller
     public function index()
     {
 
-        $allcat =Category::all();
+        $allcat = Category::all();
         return view('Dash.category', compact('allcat')); 
     }
 
@@ -76,14 +75,10 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-
-    public function show(Category $category1,$id)
+    public function show(Category $category)
     {
-        $category1  =Category::findOrFail($id);
-        return view('Dash.showcat')->with('category', $category1);
-
+        //
     }
-
 
     /**
      * Show the form for editing the specified resource.
@@ -106,12 +101,12 @@ class CategoryDashController extends Controller
      */
     public function update(Request $request,Category $category)
     {
-        // $request->validate([
-        //     'name' => 'required |max:30',
-        //     'description' => 'required |max:300',
-        //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $request->validate([
+            'name' => 'required |max:30',
+            'description' => 'required |max:300',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        
-        // ]);
+        ]);
 
         $input = $request->all();
 

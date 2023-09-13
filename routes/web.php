@@ -9,7 +9,6 @@ use App\Http\Controllers\CategoryController;
 // use App\Http\Controllers\VolnteeritemDashhhController;
 // use App\Http\Controllers\VolnteerdetailDashhController;
 use App\Http\Controllers\AdminDashhController;
-use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\VolnteeritemDashhhController;
 use App\Http\Controllers\VolnteerdetailDashhController;
 use App\Http\Controllers\ServicesDashController;
@@ -72,8 +71,6 @@ require __DIR__.'/auth.php';
 Route::get('/dash', function () {
     return view('Dash.Home');
 });
-
-
 Route::get('/bill', function () {
     return view('pages.bill');
 });
@@ -160,7 +157,6 @@ Route::resource('medicine', MedicineDashController::class);
 Route::get('/item',[VolnteeritemDashhhController::class,'index'])->name('all_items');
 
 Route::get('/detail',[VolnteerdetailDashhController::class,'index'])->name('all_details');
-Route::resource('profile', PhotoController::class);
 
 Route::resource('category', CategoryDashController::class);
 
@@ -170,6 +166,7 @@ Route::get('/dash', [AdminloginController::class,'showLoginForm']);
 Route::post('/dash', [AdminloginController::class,'login'])->name("admin.login");
 Route::get('/adminlogout', [AdminloginController::class,'logout'])->name("admin.logout");
 Route::resource('user', UserDashhController::class);
+
 
 
 

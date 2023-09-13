@@ -44,10 +44,14 @@ class MedicineDashController extends Controller
 
 
         $request->validate([
-            'volunteer_name' => 'required',
+            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required',
+            'price' =>  'required|numeric',
+
         ]);
+
 
         $input = $request->all();
 
@@ -61,7 +65,7 @@ class MedicineDashController extends Controller
         Volnteer::create($input);
 
         return redirect()->route('medicine.index')
-                        ->with('success','Category created successfully.');
+                        ->with('success','Medicin Added successfully.');
 
         // Volnteer::create([
         //     'volunteer_name' => $request->volunteer_name,
@@ -81,11 +85,9 @@ class MedicineDashController extends Controller
      * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteer $volnteer ,$id)
+    public function show(Volnteer $volnteer)
     {
-        $volnteer = Volnteer::findOrFail($id);
-
-    return view('Dash.midshow')->with('volnteer', $volnteer);
+        //
     }
 
     /**
@@ -101,7 +103,6 @@ class MedicineDashController extends Controller
         // return redirect()->route('services.editserv',['data'=>$ser]);
         $data =Volnteer::find($id);
         return view('Dash.editmid', compact('data'));
-
     }
 
     /**
@@ -115,11 +116,16 @@ class MedicineDashController extends Controller
     {
 
 
-        // $request->validate([
-        //     'name' => 'required',
-        //     'description' => 'required'
-        // ]);
-// dd($medicine);
+        $request->validate([
+            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
+            'description' => 'required',
+            // 'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'category_id' => 'required',
+            'price' => 'required|numeric',
+
+        ]);
+
+
         $input = $request->all();
 
         if ($image = $request->file('main_picture')) {
@@ -134,9 +140,7 @@ class MedicineDashController extends Controller
         $medicine->update($input);
 
         return redirect()->route('medicine.index')
-                        ->with('success','Category updated successfully');
-
-                       
+                        ->with('success','medecin updated successfully');
        
         // $data['volunteer_name'] = $request->name;
         // $data['description'] = $request->description;
@@ -156,7 +160,7 @@ class MedicineDashController extends Controller
     public function destroy($id)
     {
         Volnteer::destroy($id);
-        return redirect()->route('medicine.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('medicine.index')->with(['deleted' => 'Medicin deleted successfully
         ']);
     }
     
