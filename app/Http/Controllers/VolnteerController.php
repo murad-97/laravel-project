@@ -142,6 +142,7 @@ class VolnteerController extends Controller
         $query = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description'), DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'));
         if (isset($request->title) && $request->title != null) {
 
+
             $query->where('volunteer_name', 'LIKE', '%' . $request->title . '%');
 
         }
