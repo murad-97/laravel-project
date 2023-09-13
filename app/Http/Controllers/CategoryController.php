@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Volnteer;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
+use App\Models\Volnteerdetail;
 
 use Illuminate\Support\Facades\DB;
 
@@ -19,9 +21,36 @@ class CategoryController extends Controller
     {
         //   if(auth()->user()x)
         $category = Category::select('*', DB::raw('concat(LEFT(description, 100),"...") as shorter_description'))->get();
+        foreach ($category as $cat) {
+            // Use get() to retrieve the records after applying the where filter
+            $products = Volnteer::select('*')
+                ->where('category_id', $cat->id)
+                ->get();
+        
+            $price = 0;
+            $donate = 0;
+        
+            foreach ($products as $value) {
+                $price += $value->price;
+                $volnteerDetails = Volnteerdetail::where('volunteer_id', $value->id)->get();
+                foreach ($volnteerDetails as $sara) {
+                    $donate += $sara->price;
+
+                }
+            }
+            
+            print_r($donate);
+            echo "<br>";
+            // Assign the total price to the category object
+            $cat->price = $price;
+            $cat->donate = $donate;
+        }
+        
+
+
 
         // $category = Category::all();
-        return view('pages.index')->with('category',$category);
+        return view('pages.index')->with('category', $category);
     }
 
     /**
@@ -105,12 +134,12 @@ class CategoryController extends Controller
         if (isset($request->filltercategory) && $request->filltercategory != null) {
             $query->where('name', $request->filltercategory);
         }
-       
+
         $categories = $query->get();
         return view('pages.causes', ['categories' => $categories]);
     }
 
 
 
-   
+
 }
