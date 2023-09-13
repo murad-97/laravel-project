@@ -18,8 +18,10 @@ use App\Http\Controllers\MedicineDashController;
 use App\Http\Controllers\VolnteerdetailController;
 use App\Http\Controllers\VolnteeritemController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\AdminloginController;
 use App\Http\Controllers\AdminAuth\AuthenticatedSessionController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ContactController;
@@ -166,6 +168,7 @@ Route::get('/dash', [AdminloginController::class,'showLoginForm']);
 Route::post('/dash', [AdminloginController::class,'login'])->name("admin.login");
 Route::get('/adminlogout', [AdminloginController::class,'logout'])->name("admin.logout");
 Route::resource('user', UserDashhController::class);
+Route::get('adminprofile', [PhotoController::class,"index"]);
 
 
 

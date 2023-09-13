@@ -7,6 +7,7 @@ use App\Models\Admin;
 use App\Models\User;
 use App\Models\Volnteer;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
 
 class AdminLoginController extends Controller
@@ -56,14 +57,14 @@ class AdminLoginController extends Controller
             'email' => 'required|email',
             'password' => [
                 'required',
-                'confirmed',
                 Password::min(8)->mixedCase()->numbers()->symbols(),
             ], // Adjust the password requirements as needed.
         ]);
         $admin = Admin::where('email', $request->email)->first();
+    
 
         if ($admin) {
-            if ($request->password == $admin->password) {
+            if (Hash::check($request->password, $admin->password)) {
                 $request->session()->put('adminid', $admin->id);
             
                 return redirect('/dash');
