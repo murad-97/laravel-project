@@ -307,6 +307,7 @@
 
    
     <!-- Volunteer Start -->
+    
     <div class="container " >
         <div class="section-header text-center mt-5 ">
             <h2>Become a Valounteer</h2>
@@ -485,8 +486,12 @@ A "Become A Volunteer" form is a document for people to express their interest i
 
 
     <!-- Volunteer Start -->
+    <div class="section-header text-center" id="contact">
+                <h2>Contact Us</p>
+                <p>Contact For Any Query</p>
+            </div>
     <div class="volunteer" data-parallax="scroll" data-image-src="./img/woww2.PNG">
-        <div class="container" id="contact">
+        <div class="container" >
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="volunteer-content">
