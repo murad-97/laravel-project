@@ -11,7 +11,7 @@
                         <img src="img/slider2.jpeg" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        {{-- <h1>Bringing smiles to millions</h1> --}}
+                        <h1>Bringing smiles to millions</h1>
                         <p>
                             "Through medical equipment donations, we're dedicated to 'Bringing Smiles to Millions,'
                             improving lives, and enhancing healthcare worldwide."
@@ -209,7 +209,7 @@
         <div class="container" id="ach">
             <div class="section-header text-center">
                 <h2>Our Achievements </h2>
-                <h2>Let's know how we can get the offerings and services</h2>
+                {{-- <h2>Let's know how we can get the offerings and services</h2> --}}
             </div>
             <div class="row">
                 <div class="col-lg-3 col-md-6">
