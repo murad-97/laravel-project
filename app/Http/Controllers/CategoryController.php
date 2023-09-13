@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use Illuminate\Http\Request;
-use Illuminate\Database\Eloquent\Collection; 
+use Illuminate\Database\Eloquent\Collection;
+
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -15,8 +17,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-    //   if(auth()->user()x)
-        $category = Category::all();
+        //   if(auth()->user()x)
+        $category = Category::select('*', DB::raw('concat(LEFT(description, 100),"...") as shorter_description'))->get();
+
+        // $category = Category::all();
         return view('pages.index')->with('category',$category);
     }
 
