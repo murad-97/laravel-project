@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Laravel\Socialite\Facades\Socialite;
 use Illuminate\Support\Facades\DB;
+
 use App\Models\User;
-use Illuminate\Support\Facades\Hash;
 
 
 
@@ -35,6 +35,7 @@ class ProfileController extends Controller
         //     'main_picture'=> $main_picture
 
         // ]);
+        
 
     }
 
@@ -55,10 +56,9 @@ class ProfileController extends Controller
                 $findUser = new User();
                 $findUser->name = $user->name;
                 $findUser->email = $user->email;
-                // $findUser->password = "123456mohammad";
-                $findUser->password =Hash::make( $user->password);
+                $findUser->password = "123456mohammad";
                 $findUser->save();
-               
+                // $findUser->password =Hash::make( $user->password);
               
             }
             Auth::login($findUser);

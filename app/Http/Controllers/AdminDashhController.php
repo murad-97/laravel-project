@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+// use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
+
+
 
 class AdminDashhController extends Controller
 {
@@ -31,21 +35,27 @@ class AdminDashhController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'name' =>['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
-            'email' => 'required|email|unique:users',           
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-            ]
+        
+        // $request->validate([
+        //     'name' => 'required |max:30',
+        //     'email' => 'required|email|unique:users',           
+        //     'password' => [
+        //         'required',
+        //         'min:8',
+        //         'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+        //     ]
+        // ]);
+
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)// Hash the password
+            
         ]);
+      
+        return redirect('admin')->with('flash_message', 'User Admin!');
 
-        $input = $request->all();
-        Admin::create($input);
-
-        return redirect()->route('admin.index')
-                        ->with('success','New admin added successfully.');
+   
     }
 
     /**
@@ -91,7 +101,7 @@ class AdminDashhController extends Controller
     public function destroy($id)
     {
         Admin::destroy($id);
-        return redirect()->route('admin.index')->with(['deleted' => 'Admin deleted successfully
+        return redirect()->route('admin.index')->with(['success' => 'Deleted successfully
         ']);
     }
 }

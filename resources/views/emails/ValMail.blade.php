@@ -12,7 +12,6 @@
     </h1>
     <p>Name : {{ $details ['name'] }}</p>
     <p>Email : {{ $details ['email'] }}</p>
-    <p>Email : {{ $details ['number'] }}</p>
     <p>Message: {{ $details ['msg'] }}</p>
 </body>
 </html>

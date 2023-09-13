@@ -3,14 +3,20 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 class UserDashhController extends Controller
 {
+
     public function index()
     {
         //
         $user = User::all();
         return view('Dash.user_dash', compact('user'));
     }
+
+
+  
+    
 
     // public function goToAddUser()
     // {
@@ -25,6 +31,7 @@ class UserDashhController extends Controller
      */
     public function create()
     {
+
         return view('Dash.add_user_dash');
     }
 
@@ -38,23 +45,30 @@ class UserDashhController extends Controller
     {
        
 
-        $request->validate([
-            'name' =>['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
-            'email' => 'required|email|unique:users',           
-            'password' => [
-                'required',
-                'min:8',
-                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-            ]
+        // $request->validate([
+        //     'name' => 'required |max:30',
+        //     'email' => 'required|email|unique:users',           
+        //     'password' => [
+        //         'required',
+        //         'min:8',
+        //         'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+        //     ]
+        // ]);
+
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)// Hash the password
+            
         ]);
 
+        return redirect('user')->with('flash_message', 'User Added!');
 
+        // $input = $request->all();
+        // User::create($input);
 
-        $input = $request->all();
-        User::create($input);
-
-        return redirect()->route('user.index')
-                        ->with('sucsess','User created successfully.');
+        // return redirect()->route('user.index')
+        //                 ->with('success','Category created successfully.');
 
 
     }
@@ -102,7 +116,7 @@ class UserDashhController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return redirect()->route('user.index')->with(['deleted' => 'user deleted successfully
+        return redirect()->route('user.index')->with(['success' => 'Deleted successfully
         ']);
 }
 }

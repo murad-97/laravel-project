@@ -1,15 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
-
-use Vonage\Client\Credentials\Basic;
-use Vonage\Client;
-use Vonage\SMS\Message\SMS;
-use App\Models\SentSms;
 use Illuminate\Http\Request;
 
-class SentSmsController extends Controller
+class ToDoController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,24 +14,6 @@ class SentSmsController extends Controller
     {
         //
     }
-public function Sent() {
-        $basic  = new Basic("6d4ecd4c", "IdmEAmF3HTQl1XHP");
-        $client = new Client($basic);
-
-        $response = $client->sms()->send(
-            new SMS("962789776587", 'HELPZ', 'A text message sent using the Nexmo SMS API')
-        );
-
-        $message = $response->current();
-
-        if ($message->getStatus() == 0) {
-            echo "The message was sent successfully\n";
-        } else {
-            echo "The message failed with status: " . $message->getStatus() . "\n";
-        }
-        return response()->json('SMS massage has been delevered',200);
-   }
-
 
     /**
      * Show the form for creating a new resource.
@@ -63,10 +39,10 @@ public function Sent() {
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\SentSms  $sentSms
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(SentSms $sentSms)
+    public function show($id)
     {
         //
     }
@@ -74,10 +50,10 @@ public function Sent() {
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\SentSms  $sentSms
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(SentSms $sentSms)
+    public function edit($id)
     {
         //
     }
@@ -86,10 +62,10 @@ public function Sent() {
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SentSms  $sentSms
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, SentSms $sentSms)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -97,10 +73,10 @@ public function Sent() {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\SentSms  $sentSms
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(SentSms $sentSms)
+    public function destroy($id)
     {
         //
     }

@@ -1,12 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Volnteer;
 
 
 use Illuminate\Http\Request;
-use Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver;
 
 class ServicesDashController extends Controller
 {
@@ -43,12 +41,9 @@ class ServicesDashController extends Controller
     {
 
         $request->validate([
-            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
+            'volunteer_name' => 'required',
             'description' => 'required',
             'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category_id' => 'required',
-            'price' => 'required|numeric',
-
         ]);
 
         $input = $request->all();
@@ -63,7 +58,7 @@ class ServicesDashController extends Controller
         Volnteer::create($input);
 
         return redirect()->route('services.index')
-                        ->with('success','Services added successfully.');
+                        ->with('success','Category created successfully.');
 
       
 
@@ -85,9 +80,11 @@ class ServicesDashController extends Controller
      * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteer $volnteer)
+    public function show(Volnteer $volnteer,$id)
     {
-        //
+        $volnteer = Volnteer::findOrFail($id);
+
+    return view('Dash.showser')->with('volnteer', $volnteer);
     }
 
     /**
@@ -115,14 +112,11 @@ class ServicesDashController extends Controller
     public function update(Request $request, Volnteer $service)
     {
 
-        $request->validate([
-            'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
-            'description' => 'required',
-            // 'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category_id' => 'required',
-            'price' => 'required|numeric',
 
-        ]);
+        // $request->validate([
+        //     'name' => 'required',
+        //     'description' => 'required'
+        // ]);
 
         $input = $request->all();
 
@@ -139,7 +133,7 @@ class ServicesDashController extends Controller
         $service->update($input);
 
         return redirect()->route('services.index')
-                        ->with('success','Service updated successfully');
+                        ->with('success','Category updated successfully');
         // $data['volunteer_name'] = $request->name;
         // $data['description'] = $request->description;
         // $data['price'] = $request->price;
@@ -158,7 +152,7 @@ class ServicesDashController extends Controller
     public function destroy($id)
     {
         Volnteer::destroy($id);
-        return redirect()->route('services.index')->with(['deleted' => 'service eleted successfully
+        return redirect()->route('services.index')->with(['success' => 'Deleted successfully
         ']);
     }
 }

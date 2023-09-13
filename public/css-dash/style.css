@@ -663,6 +663,7 @@ table.table th i {
 table.table th  {
   background-color:rgba(165, 204, 247, 0.786);
   color: rgb(10, 10, 105); 
+ 
   
 }
 table.table tr  {
@@ -751,19 +752,4 @@ table.table .avatar {
     float: left;
     margin-top: 10px;
     font-size: 13px;
-}
-
-.sucesses{
-  background-color: rgb(147, 219, 147);
-   width:50%; height:50px;
-    font-size:100%; 
-    color:white;
-}
-
-.deleted{
-
-  background-color: rgb(241, 107, 107);
-  width:50%; height:50px;
-   font-size:100%; 
-   color:white;
 }

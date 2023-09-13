@@ -14,19 +14,6 @@
             <a href="" style="color: darkolivegreen;">Show All</a>
         </div>
         <div class="table-responsive">
-            @if(Session::has('deleted'))
-            <div class="d-flex justify-content-start deleted"  role="alert">
-        
-                {{Session::get('deleted')}}
-            </div>
-
-            @elseif(Session::has('sucsess'))
-
-            <div class="d-flex justify-content-start sucesses"  role="alert">
-        
-                {{Session::get('sucsess')}}
-            </div>
-            @endif
             <table class="table text-start align-middle  table-hover mb-0">
                 <thead>
                     <tr class="text-white">

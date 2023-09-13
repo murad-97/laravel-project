@@ -12,9 +12,9 @@
                  <div class=" rounded d-flex align-items-center justify-content-between p-4"
                      style="background-color: rgba(169, 169, 169, 0.064);">
                      <i class="fa fa-chart-line fa-3x " style="color:rgb(10, 10, 105);"></i>
-                     <div class="ms-2">
-                         <p class="mb-2">Today Sale</p>
-                         <h6 class="mb-0 text-dark">JOD 200</h6>
+                     <div class="ms-3">
+                         <p class="mb-2">Volunteer</p>
+                         <h6 class="mb-0 text-dark">{{ $recordCount }}</h6>
                      </div>
                  </div>
              </div>
@@ -23,8 +23,8 @@
                      style="background-color: rgba(169, 169, 169, 0.064);">
                      <i class="fa fa-chart-bar fa-3x " style="color:rgb(10, 10, 105);"></i>
                      <div class="ms-3">
-                         <p class="mb-2">Total Sale</p>
-                         <h6 class="mb-0 text-dark">JOD 9000</h6>
+                         <p class="mb-2">Items</p>
+                         <h6 class="mb-0 text-dark">{{ $count }} items</h6>
                      </div>
                  </div>
              </div>
@@ -33,8 +33,9 @@
                      style="background-color: rgba(169, 169, 169, 0.064);">
                      <i class="fa fa-chart-area fa-3x " style="color:rgb(10, 10, 105);"></i>
                      <div class="ms-3">
-                         <p class="mb-2">Today Revenue</p>
-                         <h6 class="mb-0 text-dark">JOD 500</h6>
+                         <p class="mb-2">Donation</p>
+                         <h6 class="mb-0 text-dark">JOD {{ $totalPrice}}</h6>
+                        
                      </div>
                  </div>
              </div>
@@ -43,8 +44,8 @@
                      style="background-color: rgba(169, 169, 169,0.064);">
                      <i class="fa fa-chart-pie fa-3x " style="color:rgb(10, 10, 105);"></i>
                      <div class="ms-3">
-                         <p class="mb-2">Total Revenue</p>
-                         <h6 class="mb-0 text-dark">JOD 7000</h6>
+                         <p class="mb-2">Our offerings</p>
+                         <h6 class="mb-0 text-dark"> {{$volunteercount}}</h6>
                      </div>
                  </div>
              </div>
@@ -59,10 +60,10 @@
              <div class="col-sm-12 col-xl-12">
                  <div class=" text-center rounded p-4 ">
                      <div class="d-flex align-items-center justify-content-between mb-4">
-                         <h6 class="mb-0 ">Jordan Donations</h6>
+                         <h6 class="mb-0 " href="" style="color: rgb(10, 10, 105);" >Jordan Donations</h6>
                          <a href="" style="color: rgb(10, 10, 105);">Show All</a>
                      </div>
-                     <canvas id="worldwide-sales" </canvas>
+                     <canvas id="worldwide-sales"</canvas>
                  </div>
              </div>
 
@@ -75,9 +76,9 @@
 
 
      <!-- Widgets Start -->
-     <div class="container-fluid pt-4 px-4">
-         <div class="row g-4">
-             <div class="col-sm-12 col-md-6 col-xl-4">
+     <div class="container-fluid pt-4 px-4 mx-auto">
+        <div class="row g-4 justify-content-center"> <!-- Add justify-content-center class to center the columns horizontally -->
+            <div class="col-sm-12 col-md-6 col-xl-4">
                  <div class="h-100  rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
                      <div class="d-flex align-items-center justify-content-between mb-2">
                          <h6 class="mb-0 " style="color: rgb(10, 10, 105);">Messages</h6>
@@ -139,18 +140,16 @@
                 <div id="calender"></div>
             </div>
         </div> --}}
-
-             <div class="col-sm-12 col-md-6 col-xl-4">
-                 <div class="h-100  rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
-                     <div class="d-flex align-items-center justify-content-between mb-4">
-                         <h6 class="mb-0 " style="color: rgb(10, 10, 105);">To Do List</h6>
-                         <a href="" style="color: rgb(10, 10, 105);">Show All</a>
-                     </div>
-                     <div class="d-flex mb-2">
-                         <input class="form-control bg-transparent  border-1" type="text" placeholder="Enter task">
-                         <button type="button" class="btn  ms-2"
-                             style="background-color: rgba(216, 233, 251, 0.786); color: rgb(10, 10, 105);">Add</button>
-                     </div>
+        <div class="col-sm-12 col-md-6 col-xl-4">
+            <div class="h-100 rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
+                <div class="d-flex align-items-center justify-content-between mb-4">
+                    <h6 class="mb-0" style="color: rgb(10, 10, 105);">To Do List</h6>
+                    <a href="" style="color: rgb(10, 10, 105);">Show All</a>
+                </div>
+                <div class="d-flex mb-2">
+                    <input class="form-control bg-transparent border-1" type="text" placeholder="Enter task">
+                    <button type="button" class="btn ms-2" style="background-color: rgba(216, 233, 251, 0.786); color: rgb(10, 10, 105);">Add</button>
+                </div>
                      <div class="d-flex align-items-center border-bottom py-2">
                          <input class="form-check-input m-0 bg-transparent" type="checkbox">
                          <div class="w-100 ms-3">
