@@ -11,7 +11,7 @@
                         <img src="img/slider2.jpeg" alt="Image">
                     </div>
                     <div class="carousel-text">
-                        <h1>Bringing smiles to millions</h1>
+                        {{-- <h1>Bringing smiles to millions</h1> --}}
                         <p>
                             "Through medical equipment donations, we're dedicated to 'Bringing Smiles to Millions,'
                             improving lives, and enhancing healthcare worldwide."
