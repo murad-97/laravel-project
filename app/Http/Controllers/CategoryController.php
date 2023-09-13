@@ -39,8 +39,7 @@ class CategoryController extends Controller
                 }
             }
             
-            print_r($donate);
-            echo "<br>";
+         
             // Assign the total price to the category object
             $cat->price = $price;
             $cat->donate = $donate;
