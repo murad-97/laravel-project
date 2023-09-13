@@ -1317,7 +1317,7 @@ a:focus {
 .volunteer {
     position: relative;
     width: 100%;
-    margin: 45px 0;
+  
     background: rgba(0, 0, 0, .5);
 }
 
@@ -1325,9 +1325,7 @@ a:focus {
     padding: 30px 0 45px 0;
 }
 
-.container .volunteer {
-    margin: 90px 0;
-}
+
 
 .container .volunteer .volunteer-content {
     padding: 45px 30px 15px 30px;
