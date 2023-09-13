@@ -18,6 +18,8 @@ use App\Http\Controllers\MedicineDashController;
 use App\Http\Controllers\VolnteerdetailController;
 use App\Http\Controllers\VolnteeritemController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\AdminloginController;
+use App\Http\Controllers\AdminAuth\AuthenticatedSessionController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ContactController;
@@ -63,7 +65,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
-require __DIR__.'/adminauth.php';
+
 
 
 Route::get('/dash', function () {
@@ -102,12 +104,9 @@ Route::get('/pages.causes', [VolnteerController::class, 'search'])->name('pages.
 
 
 Route::get('/sent-sms',[SentSmsController::class,'Sent']);
-require __DIR__.'/auth.php';
 
 
-Route::get('/dash', function () {
-    return view('Dash.Home');
-});
+
 
 Route::get('/master', function () {
     return view('Dash.Master');
@@ -161,9 +160,11 @@ Route::get('/detail',[VolnteerdetailDashhController::class,'index'])->name('all_
 
 Route::resource('category', CategoryDashController::class);
 
-Route::get('/dash', function () {
-    return view('admin.dashboard');
-})->middleware(['auth:admin', 'verified'])->name('admin.dashboard');
+Route::get('/adminlogin', [AuthenticatedSessionController::class,"create"]);
+
+Route::get('/dash', [AdminloginController::class,'showLoginForm']);
+Route::post('/dash', [AdminloginController::class,'login'])->name("admin.login");
+Route::get('/adminlogout', [AdminloginController::class,'logout'])->name("admin.logout");
 Route::resource('user', UserDashhController::class);
 
 

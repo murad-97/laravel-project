@@ -1,9 +1,9 @@
-A medical supply donations website connects donors with our web , facilitating the contribution of essential medical equipment and supplies to improve healthcare access and offer care for the poor people.
+A medical supply donations website connects donors with our web, facilitating the contribution of essential medical equipment and supplies to improve healthcare access and offer care for the poor people.
 
-technologies we used are HTMI, CSS, JS, Laravel and SQL
+technologies we used are HTML, CSS, JS, Laravel, and SQL
 
 Our team:
-Qasem ALzoubi(SM)
+Qasem AL- Zou'bi(SM)
 Sawsan_Dagamseh(PO)
 Mohammad Alghzawi
 Murad Alshorman

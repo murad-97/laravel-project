@@ -68,18 +68,18 @@
                             <div class="col-lg-4  " style="padding: 10px 0px !important">
                                 <div class="causes-item" style="margin: 0px 10px !important">
                                     <div class="causes-img">
-                                        <img src="img/causes-1.jpg" alt="Image" />
+                                        <img src="{{ asset("images/$product->main_picture") }}" alt="Image" />
                                     </div>
                                     <div class="causes-progress" >
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="85"
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="0"
                                                 aria-valuemin="0" aria-valuemax="100">
-                                                <span>85%</span>
+                                                <span>0%</span>
                                             </div>
                                         </div>
                                         <div class="progress-text">
-                                            <p><strong>Raised:</strong> $100000</p>
-                                            <p><strong>Goal:</strong> {{ $product->price }}</p>
+                                            <p><strong>Raised:</strong> $0</p>
+                                            <p><strong>Goal:</strong> ${{ $product->price }}</p>
                                         </div>
                                     </div>
                                     <div class="causes-text">

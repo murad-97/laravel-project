@@ -18,8 +18,13 @@ class AuthenticatedSessionController extends Controller
      */
     public function create(): View
     {
-        Redirect::setIntendedUrl(url()->previous());
-        return view('auth.login');
+        if (auth()->guard('admin')->check()) {
+            return view("Admin.auth.adminlodin"); // Display admin login view if an admin is authenticated.
+        } else {
+             // Display user login view otherwise.
+            Redirect::setIntendedUrl(url()->previous());
+            return view('auth.login');
+        }
     }
 
     /**

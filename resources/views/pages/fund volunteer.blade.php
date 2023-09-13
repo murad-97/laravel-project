@@ -7,7 +7,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 ">
                     <div class="about-img align-items-center"><img class=" col-12 "
-                            src="{{ asset('img/People holding charity medicine box flat vector illustration.jpg') }}"
+                            src="{{ asset("images/$volnteer->main_picture") }}"
                             alt=""></div>
                 </div>
                 <div class="col-lg-6">
