@@ -83,9 +83,9 @@
                                         </div>
                                     </div>
                                     <div class="causes-text">
-                                        <h3>{{ $product->volunteer_name }}</h3>
+                                        <h3>{{ $product->shortname }}</h3>
                                         <p>
-                                            {{ $product->description }}
+                                            {{ $product->truncated_description }}
                                         </p>
                                     </div>
                                     <div class="causes-btn">

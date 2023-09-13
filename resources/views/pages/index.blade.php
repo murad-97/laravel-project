@@ -290,7 +290,7 @@
                             </div>
                             <div class="causes-text">
                                 <h3>{{ $item->name }}</h3>
-                                <p>{{ $item->description }}
+                                <p>{{ $item->shorter_description }}
                                 </p>
                             </div>
                             <div class="causes-btn">
