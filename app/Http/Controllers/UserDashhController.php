@@ -38,15 +38,15 @@ class UserDashhController extends Controller
     {
        
 
-        // $request->validate([
-        //     'name' => 'required |max:30',
-        //     'email' => 'required|email|unique:users',           
-        //     'password' => [
-        //         'required',
-        //         'min:8',
-        //         'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
-        //     ]
-        // ]);
+        $request->validate([
+            'name' =>['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
+            'email' => 'required|email|unique:users',           
+            'password' => [
+                'required',
+                'min:8',
+                'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
+            ]
+        ]);
 
 
 
