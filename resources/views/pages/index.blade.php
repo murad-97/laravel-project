@@ -306,108 +306,7 @@
     <!-- Causes End -->
 
     <!-- Donate Start -->
-    {{-- <div class="donate" data-parallax="scroll" data-image-src="img/imp2.PNG">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-5">
-                        <div class="donate-form">
-                            <form>
-                                <div class="control-group">
-                                    <input type="text" class="form-control" placeholder="Name" required="required" />
-                                </div>
-                                <div class="control-group">
-                                    <input type="email" class="form-control" placeholder="Email" required="required" />
-                                </div>
-                                <div class="btn-group btn-group-toggle" data-toggle="buttons">
-                                    <label class="btn btn-custom active">
-                                        <input type="radio" name="options" checked> JOD10
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> JOD20
-                                    </label>
-                                    <label class="btn btn-custom">
-                                        <input type="radio" name="options"> JOD30
-                                    </label>
-                                </div>
-                                <div>
-                                    <button class="btn btn-custom" type="submit">Donate Now</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-lg-7">
-                        <div class="donate-content">
-                            <div class="section-header">
-                                <p>Donate Now</p>
-                                <h2>Let's donate to needy people for better lives</h2>
-                            </div>
-                         
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-        </div> --}}
-    <!-- Donate End -->
-
-
-
-    <!-- Event Start -->
-    {{-- <div class="event">
-    <div class="container">
-        <div class="section-header text-center">
-            <p>Upcoming Events</p>
-            <h2>Be ready for our upcoming charity events</h2>
-        </div>
-        <div class="row">
-            <div class="col-lg-6">
-                <div class="event-item">
-                    <div class="event-img">
-                        <img src="img/event22-transformed.jpeg" alt="Image"  class="img-fluid">
-                       
-                    </div>
-                    <div class="event-content">
-                        <div class="event-meta">
-                            <p><i class="fa fa-calendar-alt"></i>27-Sep-23</p>
-                            <p><i class="far fa-clock"></i>6:00 - 10:00</p>
-                            <p><i class="fa fa-map-marker-alt"></i>Irbid-Jordan</p>
-                        </div>
-                        <div class="event-text">
-                            <h3>Helpz Healthcare Consultation Day</h3>
-                            <p>
-                                Join us at Irbid Mall for a day dedicated to healthcare and community support! 
-                                At Helpz Healthcare Consultation Day, we're here to provide guidance, answer your questions, and introduce
-                                 you to the transformative world of Helpz, where healthcare assistance is just.
-                            </p>
-                            <a class="btn btn-custom" href="">Join Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="event-item">
-                    <div class="event-img">
-                        <img src="img/l1.jfif" alt="Image" class="img-fluid">
-                    </div>
-                    <div class="event-content">
-                        <div class="event-meta">
-                            <p><i class="fa fa-calendar-alt"></i>10-Oct-23</p>
-                            <p><i class="far fa-clock"></i>7:00 - 10:00</p>
-                            <p><i class="fa fa-map-marker-alt"></i>Carfour-Irbid</p>
-                        </div>
-                        <div class="event-text">
-                            <h3>Helpz Community Health Awareness Day</h3>
-                            <p>
-                                Join us at Carfour Mall for a day of healthcare information and community support. At Helpz Community Health Awareness Day, we're here to share valuable insights about healthcare access and introduce you to Helpz's mission of making healthcare accessible to all.
-                            </p>
-                            <a class="btn btn-custom" href="">Join Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
+  
     <!-- Event End -->
     <!-- Volunteer Start -->
     <div class="container">
@@ -433,6 +332,10 @@
                             </div>
                             <div class="control-group">
                                 <input type="email" class="form-control" placeholder="Email" name="email"
+                                    required="required" />
+                            </div>
+                            <div class="control-group">
+                                <input type="number" class="form-control no-spinner"   placeholder="Number : 962789776587" name="number"
                                     required="required" />
                             </div>
                             <div class="control-group">

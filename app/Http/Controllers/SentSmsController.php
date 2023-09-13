@@ -20,23 +20,23 @@ class SentSmsController extends Controller
     {
         //
     }
-public function Sent() {
-        $basic  = new Basic("6d4ecd4c", "IdmEAmF3HTQl1XHP");
-        $client = new Client($basic);
+// public function Sent() {
+//         $basic  = new Basic("6d4ecd4c", "IdmEAmF3HTQl1XHP");
+//         $client = new Client($basic);
 
-        $response = $client->sms()->send(
-            new SMS("962789776587", 'HELPZ', 'A text message sent using the Nexmo SMS API')
-        );
+//         $response = $client->sms()->send(
+//             new SMS("962789776587", 'HELPZ', 'A text message sent using the Nexmo SMS API')
+//         );
 
-        $message = $response->current();
+//         $message = $response->current();
 
-        if ($message->getStatus() == 0) {
-            echo "The message was sent successfully\n";
-        } else {
-            echo "The message failed with status: " . $message->getStatus() . "\n";
-        }
-        return response()->json('SMS massage has been delevered',200);
-   }
+//         if ($message->getStatus() == 0) {
+//             echo "The message was sent successfully\n";
+//         } else {
+//             echo "The message failed with status: " . $message->getStatus() . "\n";
+//         }
+//         return response()->json('SMS massage has been delevered',200);
+//    }
 
 
     /**

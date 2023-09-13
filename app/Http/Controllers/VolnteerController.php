@@ -18,10 +18,10 @@ class VolnteerController extends Controller
      */
     public function index($id)
     {
-         
+             //    $products = Volnteer::where('category_id', $id)
+
          $products = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description') , DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'))
         ->where('category_id', $id)
-    //    $products = Volnteer::where('category_id', $id)
             ->orderBy('volunteer_name')
             ->paginate(6);
       
@@ -126,11 +126,13 @@ $price+=$volnteerDetail->price;
      */
     public function search(Request $request)
     {
-   
+        //  $products = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description') , DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'))
+
         $categories = Category::all();
-        $query = Volnteer::query();
+        // $query = Volnteer::query();
+        $query = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description'), DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'));
         if (isset($request->title) && $request->title != null) {
-            
+
             $query->where('volunteer_name', 'LIKE', '%' . $request->title . '%');
 
         }
