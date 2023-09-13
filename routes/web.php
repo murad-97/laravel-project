@@ -84,7 +84,7 @@ Route::get('/auth/google/callback', [ProfileController::class, 'googleHandle']);
 
 
 
-Route::get('/pages.profile.edit', [ProfileController::class, 'index']);
+// Route::get('/pages.profile.edit', [ProfileController::class, 'index']);
 
 Route::get('/causes', function () {
     return view('pages.causes');

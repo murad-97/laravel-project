@@ -53,7 +53,7 @@ class AdminLoginController extends Controller
         if ($admin) {
             if ($request->password == $admin->password) {
                 $request->session()->put('adminid', $admin->id);
-                // dd($admin->id);
+            
                 return redirect('/dash');
               
             } else {
