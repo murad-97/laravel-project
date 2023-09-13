@@ -2,6 +2,9 @@ html{
     scroll-behavior: smooth;
 }
 
+#navbarCollapse{
+    font-weight: bold;
+}
 
 
  input[type=number].no-spinner::-webkit-inner-spin-button, 
