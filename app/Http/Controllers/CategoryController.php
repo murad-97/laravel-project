@@ -7,6 +7,7 @@ use App\Models\Volnteer;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
 use App\Models\Volnteerdetail;
+use App\Models\Volnteeritem;
 
 use Illuminate\Support\Facades\DB;
 
@@ -21,6 +22,18 @@ class CategoryController extends Controller
     {
         //   if(auth()->user()x)
         $category = Category::select('*', DB::raw('concat(LEFT(description, 100),"...") as shorter_description'))->get();
+// 
+$allitem =0;
+$items = Volnteeritem::all();
+foreach($items as $item){
+    $allitem += $item->qty;
+}
+
+
+
+
+        // 
+        $alldonation =0;
         foreach ($category as $cat) {
             // Use get() to retrieve the records after applying the where filter
             $products = Volnteer::select('*')
@@ -43,7 +56,10 @@ class CategoryController extends Controller
             // Assign the total price to the category object
             $cat->price = $price;
             $cat->donate = $donate;
+            $alldonation += $donate;
         }
+        $category->alldonation = $alldonation;
+        $category->it = $allitem;
         
 
 

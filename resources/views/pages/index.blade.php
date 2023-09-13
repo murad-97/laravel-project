@@ -217,7 +217,7 @@
                         <i class="fas fa-cube"></i>
 
                         <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">4000</h3>
+                            <h3 class="facts-plus" data-toggle="counter-up">{{ $category->it }}</h3>
                             <p>Items Donatedd</p>
                         </div>
                     </div>
@@ -244,7 +244,7 @@
                     <div class="facts-item">
                         <i class="flaticon-donation"></i>
                         <div class="facts-text">
-                            <h3 class="facts-dollar" data-toggle="counter-up">30,000</h3>
+                            <h3 class="facts-dollar" data-toggle="counter-up">{{ $category->alldonation }}</h3>
                             <p>Total Donations</p>
                         </div>
                     </div>
