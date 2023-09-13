@@ -36,6 +36,7 @@
     <!-- Template Stylesheet -->
     <link href="{{asset('css-dash/style.css')}}" rel="stylesheet">
     <link href="{{asset('css-dash/user_dash.css')}}" rel="stylesheet">
+    <link href="{{asset('css-dash/profile.css')}}" rel="stylesheet">
     
 </head>
 
@@ -68,14 +69,9 @@
                 </div>
                 <div class="navbar-nav w-100">
                     <a href="{{ asset('/dash') }}" class="nav-item nav-link active"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-id-badge me-2"></i>Profile</a>
-                        <div class="dropdown-menu bg-transparent border-0">
-                            <a href="signin.html" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fa fa-gear me-2"></i>Settings</a>
-                            <a href="signup.html" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fa fa-sign-out me-2"></i>Logout</a>
-                        </div>
+                    <a href="category" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-table me-2"></i>Category</a>
 
-                    </div>
+       
                     <div class="nav-item dropdown">
                         <a href="category" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i class="fas fa-dollar-sign me-2"></i>Our offerings</a>
                         <div class="dropdown-menu bg-transparent border-0">
@@ -84,7 +80,7 @@
                             <a href="medicine" class="dropdown-item" style="color: rgb(10, 10, 105);"><i class="fas fa-medkit me-2"></i>Medicine</a>
                         </div>
                     </div>
-                    <a href="{{ asset('/admin') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Admin</a>
+                    <a href="admin" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user-tie me-2"></i>Admin</a>
                     <a href="user" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-user me-2"></i>Users</a>
                     <a href="{{ asset('/detail') }}"  class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-dollar-sign me-2"></i>Monetaryvolunteer</a>
                     <a href="{{ asset('/item') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i class="fas fa-handshake me-2"></i>volunteeritems</a>
@@ -181,7 +177,7 @@
                         </a>
                         <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">My Profile</a>
-                            <a href="#" class="dropdown-item">Settings</a>
+                            <a href="profile" class="dropdown-item">Settings</a>
                             <a href="{{ route("admin.logout") }}" class="dropdown-item">Log Out</a>
                         </div>
                     </div>
@@ -224,9 +220,9 @@
     <script src="{{asset('lib-dash/chart/chart.min.js')}}"></script>
   
     <script src="{{asset('lib-dash/easing/easing.min.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
-    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <script src="{{asset('lib-dash/waypoints/waypoints.min.js')}}"></script>
     <script src="{{asset('lib-dash/owlcarousel/owl.carousel.min.js')}}"></script>
@@ -236,10 +232,8 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('js-dash/main.js')}}"></script>
-
-    {{-- sweet alert  --}}
-    {{-- <script src="{{asset('js-dash/sweet-alert.js')}}"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11%22%3E</script> --}}
+    {{-- <script src="{{ asset('js-dash/sweetalert2.all.min.js') }}"></script> --}}
+    {{-- <script src="{{ asset('js-dash/sweetalert.js') }}"></script> <!-- Include your custom script --> --}}
+    {{-- @stack('scripts') --}}
 </body>
 </html>

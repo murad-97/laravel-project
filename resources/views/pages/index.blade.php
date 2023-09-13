@@ -279,10 +279,13 @@
                             <div class="causes-progress">
                                 <div class="progress">
                                     @php
-                                    if ($item->donate  != 0) {
+                                    if ($item->price != 0) {
                                         $result = intval(($item->donate / $item->price) * 100);
                                     } else {
                                         $result = 0;
+                                    }
+                                    if ($result > 100) {
+                                        $result = 100; // Ensure the result does not exceed 100%
                                     }
                                     @endphp
                                     <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}" aria-valuemin="0"
@@ -291,8 +294,8 @@
                                     </div>
                                 </div>
                                 <div class="progress-text">
-                                    <p><strong>Raised:</strong>JOD{{ $item->donate }}</p>
-                                    <p><strong>Goal:</strong> JOD{{ $item->price }}</p>
+                                    <p><strong>Raised:</strong>${{ $item->donate }}</p>
+                                    <p><strong>Goal:</strong>${{ $item->price }}</p>
                                 </div>
                             </div>
                             <div class="causes-text">

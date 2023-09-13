@@ -83,9 +83,11 @@ class equipmentDashController extends Controller
      * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteer $volnteer)
+    public function show(Volnteer $volnteer,$id )
     {
-        //
+        $volnteer = Volnteer::findOrFail($id);
+
+    return view('Dash.equipshow')->with('volnteer', $volnteer);
     }
 
     /**

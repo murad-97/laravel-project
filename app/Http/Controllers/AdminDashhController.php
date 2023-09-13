@@ -42,7 +42,12 @@ class AdminDashhController extends Controller
         ]);
 
         $input = $request->all();
-        Admin::create($input);
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)// Hash the password
+            
+        ]);
 
         return redirect()->route('admin.index')
                         ->with('success','New admin added successfully.');

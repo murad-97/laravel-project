@@ -51,7 +51,12 @@ class UserDashhController extends Controller
 
 
         $input = $request->all();
-        User::create($input);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)// Hash the password
+            
+        ]);
 
         return redirect()->route('user.index')
                         ->with('sucsess','User created successfully.');
