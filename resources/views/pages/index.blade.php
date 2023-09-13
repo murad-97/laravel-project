@@ -3,7 +3,7 @@
 
 @section('content')
     <!-- Carousel Start -->
-    <div class="carousel ">
+    <div id="slid" class="carousel ">
         <div class="m-0">
             <div class="owl-carousel">
                 <div class="carousel-item">
