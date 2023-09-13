@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class AdminDashhController extends Controller
@@ -45,7 +46,7 @@ class AdminDashhController extends Controller
         Admin::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password)// Hash the password
+            'password' => Hash::make($request->password)// Hash the password
             
         ]);
 
