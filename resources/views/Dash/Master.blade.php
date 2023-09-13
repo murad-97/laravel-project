@@ -224,6 +224,7 @@
     <script src="{{asset('lib-dash/chart/chart.min.js')}}"></script>
   
     <script src="{{asset('lib-dash/easing/easing.min.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   
     
 
@@ -235,5 +236,10 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('js-dash/main.js')}}"></script>
+
+    {{-- sweet alert  --}}
+    {{-- <script src="{{asset('js-dash/sweet-alert.js')}}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11%22%3E</script> --}}
 </body>
 </html>

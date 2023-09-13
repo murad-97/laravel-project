@@ -45,7 +45,7 @@ class AdminDashhController extends Controller
         Admin::create($input);
 
         return redirect()->route('admin.index')
-                        ->with('success','Category created successfully.');
+                        ->with('success','New admin added successfully.');
     }
 
     /**
@@ -91,7 +91,7 @@ class AdminDashhController extends Controller
     public function destroy($id)
     {
         Admin::destroy($id);
-        return redirect()->route('admin.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('admin.index')->with(['deleted' => 'Admin deleted successfully
         ']);
     }
 }

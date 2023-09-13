@@ -61,7 +61,7 @@ class equipmentDashController extends Controller
 
         Volnteer::create($input);
 
-        return redirect()->route('equipment.index')->with('success','Category created successfully.');
+        return redirect()->route('equipment.index')->with('success','Equipment added successfully.');
 
 
 
@@ -135,7 +135,7 @@ class equipmentDashController extends Controller
         $equipment->update($input);
 
         return redirect()->route('equipment.index')
-                        ->with('success','Category updated successfully');
+                        ->with('success','Equipment updated successfully');
        
     }
 
@@ -148,7 +148,7 @@ class equipmentDashController extends Controller
     public function destroy($id)
     {
         Volnteer::destroy($id);
-        return redirect()->route('equipment.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('equipment.index')->with(['deleted' => 'Equipment deleted successfully
         ']);
         
     }

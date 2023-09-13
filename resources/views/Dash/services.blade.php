@@ -11,6 +11,20 @@
  <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
+            @if(Session::has('deleted'))
+            <div class="d-flex justify-content-start deleted"  role="alert">
+        
+                {{Session::get('deleted')}}
+            </div>
+
+            @elseif(Session::has('success'))
+
+            <div class="d-flex justify-content-start sucesses"  role="alert">
+        
+                {{Session::get('success')}}
+            </div>
+            @endif
+
             <div class="d-flex justify-content-end ">
                 <a href="{{route('services.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
             </div>

@@ -30,7 +30,7 @@
                             <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
                         </div> --}}
                         <div class="form-group">	
-                            <input type="text" class="form-input" name="description" id="password" placeholder="Description"/>
+                            <input type="text" class="form-input" name="description" id="description" placeholder="Description"/>
                           
                         </div>
                         {{-- <div class="form-group">	

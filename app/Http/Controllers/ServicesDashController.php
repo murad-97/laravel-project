@@ -63,7 +63,7 @@ class ServicesDashController extends Controller
         Volnteer::create($input);
 
         return redirect()->route('services.index')
-                        ->with('success','Category created successfully.');
+                        ->with('success','Services added successfully.');
 
       
 
@@ -139,7 +139,7 @@ class ServicesDashController extends Controller
         $service->update($input);
 
         return redirect()->route('services.index')
-                        ->with('success','Category updated successfully');
+                        ->with('success','Service updated successfully');
         // $data['volunteer_name'] = $request->name;
         // $data['description'] = $request->description;
         // $data['price'] = $request->price;
@@ -158,7 +158,7 @@ class ServicesDashController extends Controller
     public function destroy($id)
     {
         Volnteer::destroy($id);
-        return redirect()->route('services.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('services.index')->with(['deleted' => 'service eleted successfully
         ']);
     }
 }
