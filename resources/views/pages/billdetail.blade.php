@@ -8,7 +8,7 @@
             <div class="flex">
                 <p>You have donated :</p>
 
-                <p>{{ session()->get('reques') }} JOD</p>
+                <p>{{ session()->get('reques') }} $</p>
             </div>
             
             <hr>

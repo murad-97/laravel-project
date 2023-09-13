@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class AdminDashhController extends Controller
@@ -42,10 +43,15 @@ class AdminDashhController extends Controller
         ]);
 
         $input = $request->all();
-        Admin::create($input);
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)// Hash the password
+            
+        ]);
 
         return redirect()->route('admin.index')
-                        ->with('success','Category created successfully.');
+                        ->with('success','New admin added successfully.');
     }
 
     /**
@@ -91,7 +97,7 @@ class AdminDashhController extends Controller
     public function destroy($id)
     {
         Admin::destroy($id);
-        return redirect()->route('admin.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('admin.index')->with(['deleted' => 'Admin deleted successfully
         ']);
     }
 }

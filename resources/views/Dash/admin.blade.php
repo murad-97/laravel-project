@@ -11,6 +11,20 @@
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
+            @if(Session::has('deleted'))
+            <div class="d-flex justify-content-center align-items-center deleted" role="alert">
+        
+                {{Session::get('deleted')}}
+            </div>
+
+            @elseif(Session::has('success'))
+
+
+            <div class="d-flex justify-content-center align-items-center sucesses"  role="alert">
+        
+                {{Session::get('success')}}
+            </div>
+            @endif
             <div class="d-flex justify-content-end ">
                 <a href="{{route('admin.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
             </div>
@@ -36,7 +50,7 @@
                         <td>{{ $item->email}}</td>
                         <td>
                            
-                            <form  method="POST" action="{{ route('services.destroy', $item->id) }}">
+                            <form  method="POST" action="{{ route('admin.destroy', $item->id) }}">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure to delete this product?')">

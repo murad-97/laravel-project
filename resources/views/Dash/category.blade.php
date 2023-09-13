@@ -36,10 +36,19 @@
                                         <td>{{ $allcat->id}}</td>
                                         <td><a href="#"><img src="/images/{{ $allcat->image }}" width="100px" height="100px" alt="Avatar"></a></td>              
                                         <td>{{ $allcat->name}}</td>
-                                        <td>{{ $allcat->description}}</td>
+                                        <td>
+                                            <div class="description-preview">
+                                                {{ substr($allcat->description, 0, 100) }} <!-- Display first 50 characters -->
+                                                @if (strlen($allcat->description) > 100)
+                                                <span class="show-more" onclick="showFullDescription(this)"><a href="{{ route('category.show', $allcat->id) }}" class="show-more">...Show more</a>
+                                                </span>
+                                                <span class="full-description">{{ substr($allcat->description, 100) }}</span> <!-- Hidden by default -->
+                                                @endif
+                                            </div>
+                                        </td>
                                         <td>
                                             <div style="display: grid; grid-template-columns: auto auto;">
-                                          <button class="btn" style="width: 51px; height:39px; margin:auto; background-color:rgba(165, 204, 247, 0.786); "><a href="{{ route('category.edit',$allcat->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
+                                          <button class="btn me-2" style="width: 51px; height:39px; margin:auto; background-color:rgba(165, 204, 247, 0.786); "><a href="{{ route('category.edit',$allcat->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
                                             <form  method="POST" action="{{ route('category.destroy', $allcat->id) }}">
                                                 @csrf
                                                 @method('DELETE')
@@ -64,5 +73,27 @@
                 </div>
 
 
+                <script>
+                    function showFullDescription(element) {
+                        // Toggle visibility of full description
+                        const descriptionPreview = element.parentElement.querySelector('.description-preview');
+                        const fullDescription = descriptionPreview.querySelector('.full-description');
+                        fullDescription.style.display = 'block';
+                
+                        // Hide "Show more" button
+                        element.style.display = 'none';
+                    }
+                </script>
+                
+                <style>
+                    .full-description {
+                        display: none; /* Hide full description by default */
+                    }
+                
+                    .show-more {
+                        color: blue;
+                        cursor: pointer;
+                    }
+                </style>         
                 
  @endsection

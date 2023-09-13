@@ -51,10 +51,15 @@ class UserDashhController extends Controller
 
 
         $input = $request->all();
-        User::create($input);
+        User::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => bcrypt($request->password)// Hash the password
+            
+        ]);
 
         return redirect()->route('user.index')
-                        ->with('success','Category created successfully.');
+                        ->with('sucsess','User created successfully.');
 
 
     }
@@ -102,7 +107,7 @@ class UserDashhController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
-        return redirect()->route('user.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('user.index')->with(['deleted' => 'user deleted successfully
         ']);
 }
 }

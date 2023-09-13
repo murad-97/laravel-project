@@ -65,7 +65,7 @@ class MedicineDashController extends Controller
         Volnteer::create($input);
 
         return redirect()->route('medicine.index')
-                        ->with('success','Category created successfully.');
+                        ->with('success','Medicin Added successfully.');
 
         // Volnteer::create([
         //     'volunteer_name' => $request->volunteer_name,
@@ -85,9 +85,11 @@ class MedicineDashController extends Controller
      * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteer $volnteer)
+    public function show(Volnteer $volnteer ,$id)
     {
-        //
+        $volnteer = Volnteer::findOrFail($id);
+
+    return view('Dash.midshow')->with('volnteer', $volnteer);
     }
 
     /**
@@ -140,7 +142,7 @@ class MedicineDashController extends Controller
         $medicine->update($input);
 
         return redirect()->route('medicine.index')
-                        ->with('success','Category updated successfully');
+                        ->with('success','medecin updated successfully');
        
         // $data['volunteer_name'] = $request->name;
         // $data['description'] = $request->description;
@@ -160,7 +162,7 @@ class MedicineDashController extends Controller
     public function destroy($id)
     {
         Volnteer::destroy($id);
-        return redirect()->route('medicine.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('medicine.index')->with(['deleted' => 'Medicin deleted successfully
         ']);
     }
     

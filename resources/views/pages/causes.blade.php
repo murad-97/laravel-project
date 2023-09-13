@@ -78,6 +78,9 @@
                                     } else {
                                         $result = 0;
                                     }
+                                    if ($result > 100) {
+                                        $result = 100; // Ensure the result does not exceed 100%
+                                    }
                                     @endphp
                                             <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}"
                                                 aria-valuemin="0" aria-valuemax="100">
