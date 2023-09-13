@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\User;
 use App\Models\Volnteer;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Collection;
@@ -24,6 +25,9 @@ class CategoryController extends Controller
         $category = Category::select('*', DB::raw('concat(LEFT(description, 100),"...") as shorter_description'))->get();
 // 
 $allitem =0;
+
+$usersCount = User::count();
+
 $items = Volnteeritem::all();
 foreach($items as $item){
     $allitem += $item->qty;
@@ -60,6 +64,8 @@ foreach($items as $item){
         }
         $category->alldonation = $alldonation;
         $category->it = $allitem;
+        $category->usersCount = $usersCount;
+        $category->life = $allitem+(intval($alldonation/15));
         
 
 

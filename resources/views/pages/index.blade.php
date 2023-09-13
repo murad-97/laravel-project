@@ -226,7 +226,7 @@
                     <div class="facts-item">
                         <i class="flaticon-charity"></i>
                         <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">1000</h3>
+                            <h3 class="facts-plus" data-toggle="counter-up">{{ $category->usersCount }}</h3>
                             <p>Healthcare Partners</p>
                         </div>
                     </div>
@@ -235,7 +235,7 @@
                     <div class="facts-item">
                         <i class="flaticon-kindness"></i>
                         <div class="facts-text">
-                            <h3 class="facts-plus" data-toggle="counter-up">7000</h3>
+                            <h3 class="facts-plus" data-toggle="counter-up">{{ $category->life }}</h3>
                             <p>Lives Impacted</p>
                         </div>
                     </div>
