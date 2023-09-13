@@ -31,9 +31,8 @@ class AdminDashhController extends Controller
      */
     public function store(Request $request)
     {
-        
         $request->validate([
-            'name' => 'required |max:30',
+            'name' =>['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'email' => 'required|email|unique:users',           
             'password' => [
                 'required',
@@ -41,8 +40,6 @@ class AdminDashhController extends Controller
                 'regex:/^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/'
             ]
         ]);
-
-
 
         $input = $request->all();
         Admin::create($input);

@@ -13,5 +13,5 @@ Shatha Rababah
 
 Links:
 https://trello.com/b/Qz74m4KK/laravel-project
-https://miro.com/app/board/uXjVMBIj190=/?share_link_id=888853319594
+https://miro.com/app/board/uXjVMmM3YNg=/?share_link_id=246160163097
 https://drawsql.app/teams/sql-210/diagrams/my-sql
