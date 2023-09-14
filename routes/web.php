@@ -14,6 +14,7 @@ use App\Http\Controllers\VolnteerdetailDashhController;
 use App\Http\Controllers\ServicesDashController;
 use App\Http\Controllers\VolnteerController;
 use App\Http\Controllers\equipmentDashController;
+use App\Http\Controllers\TodoController;
 use App\Http\Controllers\MedicineDashController;
 use App\Http\Controllers\VolnteerdetailController;
 use App\Http\Controllers\VolnteeritemController;
@@ -171,6 +172,11 @@ Route::resource('user', UserDashhController::class);
 Route::get('adminprofile', [PhotoController::class,"index"]);
 
 
+
+
+Route::get('/dash', [TodoController::class,'index'])->name('todos.index');
+Route::post('/dash',[TodoController::class,'store'])->name('todos.store');
+Route::delete('/dash/{todo1}',[TodoController::class,'destroy'])->name('todos.destroy');
 
 
 

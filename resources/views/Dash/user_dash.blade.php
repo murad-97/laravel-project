@@ -55,7 +55,7 @@
                                 <form  method="POST" action="{{ route('user.destroy', $item->id) }}">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure to delete this product?')">
+                                    <button type="submit" class="btn btn-danger">
                                         <i class="fa fa-trash text-white" style="font-size: 17px"></i>
                                     </button> 
                                 </form>
