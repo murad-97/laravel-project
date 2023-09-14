@@ -28,6 +28,9 @@
                                 } else {
                                     $result = 0;
                                 }
+                                if ($result > 100) {
+                                        $result = 100; // Ensure the result does not exceed 100%
+                                    }
                                 @endphp
                             </div>
                             <div class="causes p-0">
@@ -40,8 +43,8 @@
                                         </div>
                                     </div>
                                     <div class="progress-text" style="display: flex;justify-content:space-between">
-                                        <p ><strong>Raised:</strong> JOD{{ $price }}</p>
-                                        <p><strong>Goal:</strong> JOD{{ $volnteer->price }}</p>
+                                        <p ><strong>Raised:</strong> ${{ $price }}</p>
+                                        <p><strong>Goal:</strong> ${{ $volnteer->price }}</p>
                                     </div>
                                 </div>
                             </div>

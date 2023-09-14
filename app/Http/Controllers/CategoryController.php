@@ -56,7 +56,7 @@ foreach($items as $item){
                 }
             }
             
-         
+        
             // Assign the total price to the category object
             $cat->price = $price;
             $cat->donate = $donate;

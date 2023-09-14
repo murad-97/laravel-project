@@ -75,9 +75,10 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category1,$id)
     {
-        //
+        $category1  =Category::findOrFail($id);
+        return view('Dash.showcat')->with('category', $category1);
     }
 
     /**
@@ -140,7 +141,7 @@ class CategoryDashController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect()->route('category.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('category.index')->with(['deleted' => 'Deleted successfully
         ']);
     }
 }

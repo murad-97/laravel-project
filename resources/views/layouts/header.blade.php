@@ -56,7 +56,7 @@
                     <a href="#contact" class="nav-item nav-link nav-sticky">Contact</a>
                     <div class="navbar-nav ml-5">
                         @if (Auth::check())
-                            <a href="{{ route("profile.edit") }}" class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</a>
+                        <a href="{{ route("profile.edit",[(Auth::user())]) }}" class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</a>
                             <form method="POST" class="nav-item nav-link nav-sticky" action="{{ route('logout') }}">
                                 @csrf
 

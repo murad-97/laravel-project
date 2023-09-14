@@ -112,7 +112,7 @@ class ProfileController extends Controller
             ->where('users.id', '=', Auth::user()->id);
     })
     ->get();
-        // dd($users);
+       
         return view('profile.edit', [
             'user' => $request->user(),
             "users" => $users,

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Admin;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class AdminDashhController extends Controller
@@ -42,7 +43,12 @@ class AdminDashhController extends Controller
         ]);
 
         $input = $request->all();
-        Admin::create($input);
+        Admin::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password)// Hash the password
+            
+        ]);
 
         return redirect()->route('admin.index')
                         ->with('success','New admin added successfully.');
