@@ -104,7 +104,7 @@ class CategoryDashController extends Controller
         $request->validate([
             'name' => 'required |max:30',
             'description' => 'required |max:300',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        
         ]);
 
