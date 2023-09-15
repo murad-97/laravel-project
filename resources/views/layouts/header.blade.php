@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
-
+    <link rel="icon" type="image/x-icon" href="{{ asset("images/HELPZ icon.png")}}">
     <!-- Favicon -->
     <link href={{ asset('img/favicon.ico') }} rel="icon">
 
@@ -30,8 +30,8 @@
     <link href={{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }} rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="{{ asset('css/volunteer.css') }}" rel="stylesheet">
     <link href={{ asset('css/style.css') }} rel="stylesheet">
+    <link href="{{ asset('css/volunteer.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -42,7 +42,7 @@
     <!-- Nav Bar Start -->
     <div class="navbar navbar-expand-lg bg-dark navbar-dark nav-sticky ">
         <div class="container-fluid ">
-            <a href="#" class="navbar-brand nav-sticky">Helpz </a>
+            <img src="{{ asset("images/HELPZ LOGO.png") }}" style="width:15%" alt="">
             <button type="button" class="navbar-toggler nav-sticky" data-toggle="collapse" data-target="#home">
                 <span class="navbar-toggler-icon nav-sticky"></span>
             </button>

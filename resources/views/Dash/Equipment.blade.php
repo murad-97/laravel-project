@@ -7,8 +7,6 @@
  @section('content')
 
 
- 
-
  <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
@@ -24,6 +22,7 @@
             <div class="d-flex justify-content-start sucesses "  role="alert">
         
                 {{Session::get('success')}}
+                
             </div>
             @endif
             <div class="d-flex justify-content-end ">
@@ -65,7 +64,7 @@
                             <form  method="POST" action="{{ route('equipment.destroy', $equipment->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure to delete this product?')">
+                                <button type="submit" class="btn btn-danger" id="showAlert">
                                     <i class="fa fa-trash text-white" style="font-size: 17px"></i>
                                 </button> 
                             </form>

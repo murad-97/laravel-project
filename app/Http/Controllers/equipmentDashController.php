@@ -45,12 +45,18 @@ class equipmentDashController extends Controller
             'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category_id' => 'required',
+         
             'price' => 'required|numeric',
 
         ]);
 
-        $input = $request->all();
+        $input = [
+            'volunteer_name' => $request->input('volunteer_name'),
+            'description' => $request->input('description'),
+            'category_id' => '2', // Setting category_id to the default value '1'
+            'price' => $request->input('price'), // Assuming 'price' is the correct key
+        ];
+        
 
         if ($image = $request->file('main_picture')) {
             $destinationPath = 'images/';
@@ -118,12 +124,18 @@ class equipmentDashController extends Controller
             'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             // 'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category_id' => 'required',
+           
             'price' => 'required|numeric',
 
         ]);
-        $input = $request->all();
-
+        $input = [
+            'volunteer_name' => $request->input('volunteer_name'),
+            'description' => $request->input('description'),
+            'category_id' => '2', // Setting category_id to the default value '1'
+            'price' => $request->input('price'), // Assuming 'price' is the correct key
+        ];
+        
+       
         if ($image = $request->file('main_picture')) {
             $destinationPath = 'images/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();

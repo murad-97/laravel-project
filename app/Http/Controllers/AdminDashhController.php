@@ -34,7 +34,7 @@ class AdminDashhController extends Controller
     {
         $request->validate([
             'name' =>['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
-            'email' => 'required|email|unique:users',           
+            'email' => 'required|email|unique:admins',           
             'password' => [
                 'required',
                 'min:8',

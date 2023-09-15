@@ -7,8 +7,13 @@
  @section('content')
 
 
+{{-- 
+ @if (Session::has('success'))
+ <div class="alert alert-success" role="alert">
 
-
+     {{ Session::get('success') }}
+ </div>
+@endif --}}
 
 <div class="content">
 
@@ -27,11 +32,11 @@
                             <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br>
                         </div>
                        
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <input type="text" class="form-input" name="category_id" id="name" placeholder="category_id"/>
                             <span style="color:red">@error('category_id'){{ $message }} @enderror</span><br><br>
 
-                        </div>
+                        </div> --}}
                       
                         <div class="form-group">	
                             <input type="text" class="form-input" name="description" value="{{ $data['description'] }}" placeholder="Description"/>
@@ -54,7 +59,7 @@
                         </div> --}}
                         <div class="form-group">
                             <input  name="main_picture" type="file" class="form-control white-input" id="inputPrice">
-                            <img src="/images/{{ $data->main_picture }}" width="300px">
+                            <img  src="/images/{{ $data->main_picture }}" width="200px" class="mt-4">
                             {{-- <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br> --}}
 
                              </div>
@@ -62,7 +67,7 @@
                          
                      
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update" style="color: rgb(10, 10, 105);"/>
                         </div>
                         
                           

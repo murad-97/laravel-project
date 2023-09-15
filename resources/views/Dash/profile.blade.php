@@ -11,9 +11,9 @@ Profile
 
  <div class="container bootstrap  snippets bootdey" >
     <div class="panel-body inf-content">
-        <div class="row">
+        <div class="row" style="height: 300px">
             <div class="col-md-4">
-                <img alt="" style="width: 400px;" title="" class="img-circle img-thumbnail isTooltip mt-4" src="{{ asset("img-dash/shatha.jpg") }}" data-original-title="Usuario"> 
+                <img alt="" style="width: 450px;" title="" class="img-circle img-thumbnail isTooltip mt-4" src="{{ asset("img-dash/sohieb.jpg") }}" data-original-title="Usuario"> 
                 <ul title="Ratings" class="list-inline ratings text-center">
                     <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-star"></span></a></li>
@@ -25,7 +25,7 @@ Profile
             <div class="col-md-6 mt-4">
                 <h4 style="color: rgb(10, 10, 105);">Personal information</h4><br>
                 <div >
-                <table class="table table-user-information">
+                <table class=" table-user-information">
                     <tbody>
                 
                         <tr>        
@@ -35,8 +35,8 @@ Profile
                                     Number of admin                                                
                                 </strong>
                             </td>
-                            <td style="color: rgb(10, 10, 105);">
-                                {{ $admin->id}}    <a href="{{ route('profile.edit',$admin->id) }}" style="float: right;"><i class="fas fa-edit" ></i></a>
+                            <td style="color: rgb(10, 10, 105);text-align: center;" >
+                                {{ $admin->id}}    
                             </td>
                         </tr>
                         <tr>    
@@ -47,23 +47,10 @@ Profile
                                 </strong>
                             </td>
                             <td style="color: rgb(10, 10, 105);">
-                                {{ $admin->name}}     <a href="{{ route('profile.edit',$admin->id) }}" style="float: right;"><i class="fas fa-edit" ></i></a>
+                            
+                                {{ $admin->name}}     
                             </td>
                         </tr>
-    
-                        {{-- <tr>        
-                            <td>
-                                <strong>
-                                    <span class="glyphicon glyphicon-bookmark text-success"></span> 
-                                    Username                                                
-                                </strong>
-                            </td>
-                            <td style="color: rgb(10, 10, 105);">
-                                Shatha18 <i class="fas fa-edit" style="float: right;"></i>
-                            </td>
-                        </tr> --}}
-    
-    
                         <tr>        
                             <td>
                                 <strong>
@@ -71,8 +58,9 @@ Profile
                                     Role                                                
                                 </strong>
                             </td>
-                            <td style="color: rgb(10, 10, 105);">
-                                Admin <i class="fas fa-edit" style="float: right;"></i>
+                            <td style="color: rgb(10, 10, 105); ">
+
+                                Admin 
                             </td>
                         </tr>
                         <tr>        
@@ -82,8 +70,8 @@ Profile
                                     Email                                                
                                 </strong>
                             </td>
-                            <td style="color: rgb(10, 10, 105);">
-                                {{ $admin->email}}   <a href="{{ route('profile.edit',$admin->id) }}" style="float: right;"><i class="fas fa-edit" ></i></a>
+                            <td clas="ms-2" style="color: rgb(10, 10, 105);">
+                                {{ $admin->email}}   
                             </td>
                         </tr>
                         {{-- <tr>        
@@ -108,12 +96,17 @@ Profile
                                  2020   <i class="fas fa-edit" style="float: right;"></i>
                             </td>
                         </tr>     --}}
-                                               
+                                             
                     </tbody>
+                    
                 </table>
-                </div>
+                <div class="d-flex justify-content-end mt-4">
+                    <a href="{{ route('adminprofile.edit',$admin->id) }}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105); ">Edit<i class="fa fa-edit  ms-2" ></i></a>
+                </div>             
+              </div>
             </div>
         </div>
+
     </div>
 
 

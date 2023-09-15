@@ -18,23 +18,23 @@
                        @csrf
                         <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update Equipment</h2>
                         <div class="form-group">
-                            <input type="text" class="form-input" name="volunteer_name" value="{{ $data['volunteer_name'] }}" id="name" placeholder="volunteer name"/>
+                            <input type="text" class="form-input" name="volunteer_name" value='{{ old('volunteer_name', $data['volunteer_name']) }}' id="name" placeholder="volunteer name"/>
                             <span style="color:red">@error('volunteer_name'){{ $message }} @enderror</span><br><br>
                         </div>
                        
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <input type="text" class="form-input" name="category_id" id="name" placeholder="category_id"/>
                             <span style="color:red">@error('category_id'){{ $message }} @enderror</span><br><br>
 
-                        </div>
+                        </div> --}}
                         
                         <div class="form-group">	
-                            <input type="text" class="form-input" name="description" value="{{ $data['description'] }}" placeholder="Description"/>
+                            <input type="text" class="form-input" name="description" value='{{ old('description', $data['description']) }}'  placeholder="Description"/>
                             <span style="color:red">@error('description'){{ $message }} @enderror</span><br><br>
 
                         </div>
                         <div class="form-group">	
-                            <input  class="form-input" name="price" type="number" value="{{ $data['price'] }}" placeholder="price"/>
+                            <input  class="form-input" name="price" type="number" value='{{ old('price', $data['price']) }}'  placeholder="price"/>
                             <span style="color:red">@error('price'){{ $message }} @enderror</span><br><br>
 
                         </div>
@@ -49,7 +49,7 @@
                         </div> --}}
                         <div class="form-group">
                             <input  name="main_picture" type="file" class="form-control white-input" id="inputPrice">
-                            <img src="/images/{{ $data->main_picture }}" width="300px">
+                            <img src="/images/{{ $data->main_picture }}" width="200px" class="mt-4">
                             {{-- <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br> --}}
 
                              </div>
@@ -57,7 +57,7 @@
                          
                      
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update" style="color: rgb(10, 10, 105);"/>
                         </div>
                         
                           

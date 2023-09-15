@@ -105,7 +105,7 @@ class CategoryDashController extends Controller
         $request->validate([
             'name' => 'required |max:30',
             'description' => 'required |max:300',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        
         ]);
 
@@ -141,7 +141,7 @@ class CategoryDashController extends Controller
     public function destroy($id)
     {
         Category::destroy($id);
-        return redirect()->route('category.index')->with(['success' => 'Deleted successfully
+        return redirect()->route('category.index')->with(['deleted' => 'Deleted successfully
         ']);
     }
 }

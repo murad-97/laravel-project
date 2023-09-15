@@ -14,13 +14,14 @@
  <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
-
+        
+       
             @if(Session::has('deleted'))
-            <div class="d-flex justify-content-start " style="background-color: red; width:30%; font-size:100%; color:white;" role="alert">
+            <div class="d-flex justify-content-start "  style="background-color: red; width:30%; font-size:100%; color:white;" role="alert">
         
                 {{Session::get('deleted')}}
             </div>
-
+          
             @elseif(Session::has('success'))
 
             <div class="d-flex justify-content-start " style="background-color: green; width:30%; font-size:100%; color:white;" role="alert">
@@ -67,7 +68,7 @@
                             <form  method="POST" action="{{ route('medicine.destroy', $medicine->id) }}">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure to delete this product?')">
+                                <button type="submit" onclick="togglePopup()" class="btn btn-danger">
                                     <i class="fa fa-trash text-white" style="font-size: 17px"></i>
                                 </button> 
                             </form>
@@ -95,7 +96,12 @@
         // Hide "Show more" button
         element.style.display = 'none';
     }
+
+
+
 </script>
+
+
 
 <style>
     .full-description {

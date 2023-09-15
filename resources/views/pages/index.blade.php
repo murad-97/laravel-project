@@ -303,10 +303,12 @@
                                 <p>{{ $item->shorter_description }}
                                 </p>
                             </div>
-                            <div class="causes-btn">
-                                <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">Get Donations
-                                </a>
-                            </div>
+                          
+                          <div class="causes-btn">
+                            <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">DONATE NOW 
+                            </a>
+                        </div>
+                        
                         </div>
                     </div>
                 @endforeach
@@ -430,11 +432,11 @@ A "Become A Volunteer" form is a document for people to express their interest i
                         </div>
                         <div class="team-text">
                             <h2>Shatha Rababah</h2>
-                            <p>Telecom Engineering</p>
+                            <p>Telecom Engineer</p>
                             <div class="team-social">
-                                <a href=""><i class="fab fa-github"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/shatharababah22"><i class="fab fa-github"></i></a>
+                                <a href="https://web.facebook.com/shatha.rababah.7/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/in/shatha-rababah/"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>

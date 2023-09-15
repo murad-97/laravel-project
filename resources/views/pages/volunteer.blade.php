@@ -57,9 +57,15 @@
                         <a href="/volunteering item/{{ $volnteer->id }}" class="btn btn-custom btn-play" tabindex="0" >
                             <i class="far fa-grin-wink"></i> In-Kind Donations
                         </a>
+                        @if ($result < 100)
                         <a href="/volunteering/{{ $volnteer->id }}" class="btn btn-custom btn-play" tabindex="0" >
                             <i class="fas fa-money-bill"></i> Cash Donations
                         </a>
+                      @else
+                        
+                    
+                        @endif
+                       
                         
                     </div>   
                 </div>
