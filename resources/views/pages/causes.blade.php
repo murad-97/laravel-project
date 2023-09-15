@@ -1,21 +1,21 @@
 @extends('layouts.master')
-@section('title' , 'Home')
+@section('title', 'Home')
 
-@section("content")
+@section('content')
     <!-- Page Header Start -->
-   
+
 
 
     <!-- Service Start -->
-    
+
     <!-- Service End -->
 
 
     <!-- Causes Start -->
     <div class="causes " style="margin-top: 30px">
-        <div class="m-5" >
+        <div class="m-5">
             <div class="section-header text-center">
-                
+
                 <h2>Let's know about charity causes around the world</h2>
             </div>
             <div class="row ">
@@ -33,7 +33,7 @@
                             </div>
                         </div>
 
-                
+
 
                         <div class="sidebar-widget">
                             <h2 class="widget-title">Categories</h2>
@@ -41,11 +41,8 @@
                             <div class="category-widget">
                                 <ul>
                                     @foreach ($categories as $category)
-                                        <li><a
-                                                href="/pages.causes/{{ $category->id }}">{{ $category->name }}</a>
+                                        <li><a href="/pages.causes/{{ $category->id }}">{{ $category->name }}</a>
                                         </li>
-
-                                        
                                     @endforeach
 
 
@@ -56,7 +53,7 @@
                             </form>
                         </div>
 
-                        
+
                     </div>
                 </div>
 
@@ -70,21 +67,21 @@
                                     <div class="causes-img">
                                         <img src="{{ asset("images/$product->main_picture") }}" alt="Image" />
                                     </div>
-                                    <div class="causes-progress" >
+                                    <div class="causes-progress">
                                         <div class="progress">
                                             @php
-                                    if ($product->donate  != 0) {
-                                        $result = intval(($product->donate / $product->price) * 100);
-                                    } else {
-                                        $result = 0;
-                                    }
-                                    if ($result > 100) {
-                                        $result = 100; // Ensure the result does not exceed 100%
-                                    }
-                                    @endphp
+                                                if ($product->donate != 0) {
+                                                    $result = intval(($product->donate / $product->price) * 100);
+                                                } else {
+                                                    $result = 0;
+                                                }
+                                                if ($result > 100) {
+                                                    $result = 100; // Ensure the result does not exceed 100%
+                                                }
+                                            @endphp
                                             <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}"
                                                 aria-valuemin="0" aria-valuemax="100">
-                                                
+
                                                 <span>{{ $result }}%</span>
                                             </div>
                                         </div>
@@ -99,26 +96,21 @@
                                             {{ $product->truncated_description }}
                                         </p>
                                     </div>
-                                    @if ($result < 100)
+
                                     <div class="causes-btn">
-                                      <a href="/categories/{{ $product->id }}" class="btn btn-custom btn-play">DNATE NOW 
-                                      </a>
-                                  </div>
-                                  @else
-                                  <div class="causes-btn">
-                                      <p id="success" class="btn btn-custom  m-0">Completed 
-                                      </p>
-                                  </div>
-                                    @endif
+                                        <a href="/categories/{{ $product->id }}" class="btn btn-custom btn-play">DONATE NOW
+                                        </a>
+                                    </div>
+
                                 </div>
                             </div>
                         @endforeach
-                        
+
                     </div>
                 </div>
             </div>
             <!-- //=================================================================== -->
-            
+
         </div>
     </div>
     <!-- Causes End -->
@@ -127,4 +119,4 @@
     </div>
 
     <!-- Footer Start -->
-   @endsection
+@endsection
