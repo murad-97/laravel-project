@@ -115,7 +115,7 @@ Profile
                     
                 </table>
                 <div class="d-flex justify-content-end mt-4">
-                    <a href="" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105); ">Edit<i class="fa fa-edit  ms-2" ></i></a>
+                    <a href="{{ route('adminprofile.edit',$admin->id) }}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105); ">Edit<i class="fa fa-edit  ms-2" ></i></a>
                 </div>             
               </div>
             </div>
