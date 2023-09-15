@@ -17,7 +17,7 @@
                     <form method="post" action="{{route('category.store')}}" enctype="multipart/form-data" id="signup-form" class="signup-form">
                         @csrf
                         @method('post')
-                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Create Services</h2>
+                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Add category</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
                             <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br>

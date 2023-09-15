@@ -22,11 +22,11 @@
                             <span style="color:red">@error('volunteer_name'){{ $message }} @enderror</span><br><br>
                         </div>
                        
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <input type="text" class="form-input" name="category_id" id="name" placeholder="category_id"/>
                             <span style="color:red">@error('category_id'){{ $message }} @enderror</span><br><br>
 
-                        </div>
+                        </div> --}}
                         
                         <div class="form-group">	
                             <input type="text" class="form-input" name="description" value="{{ $data['description'] }}" placeholder="Description"/>
@@ -57,7 +57,7 @@
                          
                      
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update" style="color: rgb(10, 10, 105);"/>
                         </div>
                         
                           

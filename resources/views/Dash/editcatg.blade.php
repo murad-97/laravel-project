@@ -35,7 +35,7 @@
                           
                         </div>
                         <div class="form-group">	
-                            <input type="text" class="form-input" name="price" placeholder="price"/>
+                            <input type="text" class="form-input" name="price" value="{{ $category->price}}" placeholder="price"/>
                           
                         </div>
                      
@@ -57,7 +57,7 @@
                          
                      
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update" style="color: rgb(10, 10, 105);"/>
                         </div>
                         
                           

@@ -36,7 +36,7 @@ Profile
                                 </strong>
                             </td>
                             <td style="color: rgb(10, 10, 105);">
-                                {{ $admin->id}}    <a href="{{ route('profile.edit',$admin->id) }}" style="float: right;"><i class="fas fa-edit" ></i></a>
+                                {{ $admin->id}}    
                             </td>
                         </tr>
                         <tr>    
@@ -47,7 +47,7 @@ Profile
                                 </strong>
                             </td>
                             <td style="color: rgb(10, 10, 105);">
-                                {{ $admin->name}}     <a href="{{ route('profile.edit',$admin->id) }}" style="float: right;"><i class="fas fa-edit" ></i></a>
+                                {{ $admin->name}}     
                             </td>
                         </tr>
     
@@ -72,7 +72,7 @@ Profile
                                 </strong>
                             </td>
                             <td style="color: rgb(10, 10, 105);">
-                                Admin <i class="fas fa-edit" style="float: right;"></i>
+                                Admin
                             </td>
                         </tr>
                         <tr>        
@@ -83,7 +83,7 @@ Profile
                                 </strong>
                             </td>
                             <td style="color: rgb(10, 10, 105);">
-                                {{ $admin->email}}   <a href="{{ route('profile.edit',$admin->id) }}" style="float: right;"><i class="fas fa-edit" ></i></a>
+                                {{ $admin->email}}   
                             </td>
                         </tr>
                         {{-- <tr>        
@@ -111,6 +111,9 @@ Profile
                                                
                     </tbody>
                 </table>
+                <div class="d-flex justify-content-end ">
+                    <a href="{{ route('adminprofile.edit',$admin->id) }}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Edit<i class="fa fa-edit  ms-2" ></i></a>
+                </div>
                 </div>
             </div>
         </div>

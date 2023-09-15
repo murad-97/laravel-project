@@ -5,8 +5,9 @@
 @endsection
 
 @section('content')
+
     <!-- Sale & Revenue Start -->
-    {{-- <div class="container-fluid pt-4 px-4 ">
+   <div class="container-fluid pt-4 px-4 ">
         <div class="row g-4 mt-4">
             <div class="col-sm-6 col-xl-3">
                 <div class=" rounded d-flex align-items-center justify-content-between p-4"
@@ -50,7 +51,7 @@
                 </div>
             </div>
         </div>
-    </div> --}}
+    </div> 
     <!-- Sale & Revenue End -->
 
 
