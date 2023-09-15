@@ -40,7 +40,7 @@ class equipmentDashController extends Controller
      */
     public function store(Request $request )
     {
-           
+        
         $request->validate([
             'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',

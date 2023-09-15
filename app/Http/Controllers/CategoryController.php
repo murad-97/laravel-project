@@ -37,8 +37,8 @@ foreach($items as $item){
 
 
         // 
-        $alldonation =0;
-        foreach ($category as $cat) {
+            $alldonation =0;
+            foreach ($category as $cat) {
             // Use get() to retrieve the records after applying the where filter
             $products = Volnteer::select('*')
                 ->where('category_id', $cat->id)
@@ -47,7 +47,7 @@ foreach($items as $item){
             $price = 0;
             $donate = 0;
         
-            foreach ($products as $value) {
+                foreach ($products as $value) {
                 $price += $value->price;
                 $volnteerDetails = Volnteerdetail::where('volunteer_id', $value->id)->get();
                 foreach ($volnteerDetails as $sara) {
