@@ -758,15 +758,17 @@ table.table .avatar {
    width:50%; height:50px;
     font-size:100%; 
     color:white;
+    
 }
 
 .deleted{
 
-  background-color: rgb(241, 107, 107);
+  background-color: rgb(245, 61, 61);
   width:50%; height:50px;
    font-size:100%; 
    color:white;
 }
+
 
 
 

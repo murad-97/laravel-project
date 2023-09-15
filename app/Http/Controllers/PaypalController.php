@@ -11,6 +11,10 @@ class PaypalController extends Controller
 {
     public function payment(Request $request)
     {
+        $donate = $request->max-$request->donate;
+        $request->validate([
+"price"=>"required|numeric|lte:$donate"
+        ]);
         $provider = new PayPalClient;
         $provider->setApiCredentials(config("paypal"));
         $paypalToken = $provider->getAccessToken();

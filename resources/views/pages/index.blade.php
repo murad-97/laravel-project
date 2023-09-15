@@ -303,10 +303,12 @@
                                 <p>{{ $item->shorter_description }}
                                 </p>
                             </div>
-                            <div class="causes-btn">
-                                <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">Get Donations
-                                </a>
-                            </div>
+                          
+                          <div class="causes-btn">
+                            <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">DNATE NOW 
+                            </a>
+                        </div>
+                        
                         </div>
                     </div>
                 @endforeach
