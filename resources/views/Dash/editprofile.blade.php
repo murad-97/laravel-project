@@ -11,17 +11,6 @@
 
 
 
- {{-- @if (session('success'))
- <div class="sweetalert-success" style="display: none;">
-     {{ session('success') }}
- </div>
-@endif
-
-@if (session('error'))
- <div class="sweetalert-error" style="display: none;">
-     {{ session('error') }}
- </div>
-@endif --}}
 
 <div class="content">
 

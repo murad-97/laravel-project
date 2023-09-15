@@ -16,6 +16,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
         rel="stylesheet">
 
+        
+
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
@@ -78,8 +80,8 @@
                     </div> --}}
                 </div>
                 <div class="navbar-nav w-100">
-                    <a src="{{ asset("img-dash/sohieb.jpg") }}" class="nav-item nav-link active"><i
-                            class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
+                    <a src="{{ asset("img-dash/sohieb.jpg") }}" href="{{ route('todos.index') }}" class="nav-item nav-link active"><i
+                            class="fa fa-tachometer-alt me-2"  ></i>Dashboard</a>
                     <a href="category" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i
                             class="fas fa-table me-2"></i>Category</a>
 
@@ -203,7 +205,7 @@
 
                         </a>
                         <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
-                            <a href="#" class="dropdown-item">My Profile</a>
+                            <a href="adminprofile" class="dropdown-item">My Profile</a>
                             <a href="adminprofile" class="dropdown-item">Settings</a>
                             <a href="{{ route('admin.logout') }}" class="dropdown-item">Log Out</a>
                         </div>
@@ -219,20 +221,7 @@
             @yield('content');
 
 
-            @yield('footer')
-            <!-- Footer Start -->
-            <div class="container-fluid  pt-4 px-4">
-                <div class=" rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-success text-sm-start"
-                            style="color: rgb(10, 10, 105);">
-                            &copy; <a href="#" class=""
-                                style="color: rgb(10, 10, 105);">helpzcompany</a>, All Right Reserved.
-                        </div>
-
-                    </div>
-                </div>
-            </div>
+    
             <!-- Footer End -->
         </div>
         <!-- Content End -->
@@ -244,7 +233,9 @@
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    
 
     <script src="{{ asset('lib-dash/chart/chart.min.js') }}"></script>
 

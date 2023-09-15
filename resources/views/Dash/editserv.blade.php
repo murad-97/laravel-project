@@ -49,7 +49,7 @@
                         </div> --}}
                         <div class="form-group">
                             <input  name="main_picture" type="file" class="form-control white-input" id="inputPrice">
-                            <img src="/images/{{ $data->main_picture }}" width="300px">
+                            <img src="/images/{{ $data->main_picture }}" width="200px" class="mt-4">
                             {{-- <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br> --}}
 
                              </div>

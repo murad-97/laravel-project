@@ -47,24 +47,10 @@ Profile
                                 </strong>
                             </td>
                             <td style="color: rgb(10, 10, 105);">
-                                {{ $admin->name}}     
+                            
                                 {{ $admin->name}}     
                             </td>
                         </tr>
-    
-                        {{-- <tr>        
-                            <td>
-                                <strong>
-                                    <span class="glyphicon glyphicon-bookmark text-success"></span> 
-                                    Username                                                
-                                </strong>
-                            </td>
-                            <td style="color: rgb(10, 10, 105);">
-                                Shatha18 <i class="fas fa-edit" style="float: right;"></i>
-                            </td>
-                        </tr> --}}
-    
-    
                         <tr>        
                             <td>
                                 <strong>
@@ -120,7 +106,7 @@ Profile
               </div>
             </div>
         </div>
-        
+
     </div>
 
 

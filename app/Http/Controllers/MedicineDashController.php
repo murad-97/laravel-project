@@ -142,6 +142,10 @@ class MedicineDashController extends Controller
         ];
         
 
+        
+        
+        
+
         if ($image = $request->file('main_picture')) {
             $destinationPath = 'images/';
             $profileImage = date('YmdHis') . "." . $image->getClientOriginalExtension();
