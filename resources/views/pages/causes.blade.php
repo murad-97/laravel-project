@@ -99,10 +99,17 @@
                                             {{ $product->truncated_description }}
                                         </p>
                                     </div>
+                                    @if ($result < 100)
                                     <div class="causes-btn">
-                                        
-                                        <a href="/categories/{{ $product->id }}" class="btn btn-custom btn-play">Donate Now</a>
-                                    </div>
+                                      <a href="/categories/{{ $product->id }}" class="btn btn-custom btn-play">DNATE NOW 
+                                      </a>
+                                  </div>
+                                  @else
+                                  <div class="causes-btn">
+                                      <p id="success" class="btn btn-custom  m-0">Completed 
+                                      </p>
+                                  </div>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach

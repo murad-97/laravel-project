@@ -70,8 +70,14 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/dash', function () {
-    return view('Dash.Home');
+Route::middleware('admin')->group(function () {
+
+
+    Route::get('/dash', function () {
+        return view('Dash.Home');
+    });
+    
+
 });
 Route::get('/bill', function () {
     return view('pages.bill');
@@ -110,12 +116,8 @@ Route::get('/sent-sms',[SentSmsController::class,'Sent']);
 
 
 
-Route::get('/master', function () {
-    return view('Dash.Master');
-});
-Route::get('/addcat', function () {
-    return view('Dash.addCategory');
-})->name('add_cat');
+
+
 
 // Route::get('/volunteers', function () {
 //     return view('Dash.volunteers');
