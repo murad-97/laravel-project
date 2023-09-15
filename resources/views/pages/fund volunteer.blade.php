@@ -59,7 +59,7 @@
                                         <input id="don" name="id" type="number" class="form-control" placeholder="USD" required="required" value="{{ $volnteer->id }}"  hidden/>
                                         <input id="don" name="donate" type="number" class="form-control" placeholder="USD" required="required" value="{{ $price }}"  hidden/>
                                         <input id="don" name="max" type="number" class="form-control" placeholder="USD" required="required" value="{{ $volnteer->price }}"  hidden/>
-                                        <input id="don" name="price" type="number" class="form-control" placeholder="USD" required="required" value="20" />
+                                        <input id="don" name="price" type="number" class="form-control" placeholder="USD" required="required" value="{{$volnteer->price-$price}}" />
                                         <x-input-error :messages="$errors->get('price')" class="mt-2" style="color: red" />
                                         
                                         <button class="btn btn-custom m-3" type="submit"> pay with paypal</button>

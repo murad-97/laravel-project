@@ -305,7 +305,7 @@
                             </div>
                           
                           <div class="causes-btn">
-                            <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">DNATE NOW 
+                            <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">DONATE NOW 
                             </a>
                         </div>
                         
