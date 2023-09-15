@@ -346,7 +346,7 @@
                                     required="required" />
                             </div>
                             <div class="control-group">
-                                <input type="number" class="form-control no-spinner"   placeholder="Number : 962789776587" name="number"
+                                <input type="number" class="form-control no-spinner"   placeholder="Number : +962XXXXXXXXX" name="number"
                                     required="required" />
                             </div>
                             <div class="control-group">
