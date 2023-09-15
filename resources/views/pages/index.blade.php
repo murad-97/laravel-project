@@ -353,7 +353,7 @@
                                     required="required" />
                             </div>
                             <div class="control-group">
-                                <input type="number" class="form-control no-spinner"   placeholder="Number : 962789776587" name="number"
+                                <input type="number" class="form-control no-spinner"   placeholder="Number : +962XXXXXXXXX" name="number"
                                     required="required" />
                             </div>
                             <div class="control-group">
@@ -437,11 +437,11 @@ A "Become A Volunteer" form is a document for people to express their interest i
                         </div>
                         <div class="team-text">
                             <h2>Shatha Rababah</h2>
-                            <p>Telecom Engineering</p>
+                            <p>Telecom Engineer</p>
                             <div class="team-social">
-                                <a href=""><i class="fab fa-github"></i></a>
-                                <a href=""><i class="fab fa-facebook-f"></i></a>
-                                <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://github.com/shatharababah22"><i class="fab fa-github"></i></a>
+                                <a href="https://web.facebook.com/shatha.rababah.7/"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.linkedin.com/in/shatha-rababah/"><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>

@@ -80,6 +80,7 @@ class PhotoController extends Controller
     public function update(Request $request,admin $admin)
     {
         $input = $request->all();
+        // dd($request->all());
 
         // if ($image = $request->file('main_picture')) {
         //     $destinationPath = 'images/';
@@ -93,7 +94,7 @@ class PhotoController extends Controller
 
         $admin->update($input);
 
-        return redirect()->route('profile.index')
+        return redirect()->route('adminprofile.index')
                         ->with('success','Category updated successfully');
     }
 

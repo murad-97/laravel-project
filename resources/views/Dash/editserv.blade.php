@@ -17,17 +17,17 @@
                     <form method="post" action="{{route('services.update',$data['id'])}}" enctype="multipart/form-data"  id="signup-form"  class="signup-form">
                         @method('PUT')
                        @csrf
-                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update Category</h2>
+                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Update services</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="volunteer_name" value="{{ $data['volunteer_name'] }}" id="name" placeholder="volunteer name"/>
                             <span style="color:red">@error('volunteer_name'){{ $message }} @enderror</span><br><br>
                         </div>
                        
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <input type="text" class="form-input" name="category_id" id="name" placeholder="category_id"/>
                             <span style="color:red">@error('category_id'){{ $message }} @enderror</span><br><br>
 
-                        </div>
+                        </div> --}}
                         <div class="form-group">	
                             <input type="text" class="form-input" name="description" value="{{ $data['description'] }}" placeholder="Description"/>
                             <span style="color:red">@error('description'){{ $message }} @enderror</span><br><br>
@@ -57,7 +57,7 @@
                          
                      
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update" style="color: rgb(10, 10, 105);"/>
                         </div>
                         
                           

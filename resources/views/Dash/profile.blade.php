@@ -48,6 +48,7 @@ Profile
                             </td>
                             <td style="color: rgb(10, 10, 105);">
                                 {{ $admin->name}}     
+                                {{ $admin->name}}     
                             </td>
                         </tr>
     

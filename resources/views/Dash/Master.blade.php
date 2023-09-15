@@ -68,14 +68,14 @@
                             class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1">
                         </div>
                     </div>
-                    <div class="ms-2 mb-2">
+                    {{-- <div class="ms-2 mb-2">
                         @php
                             
                             $admin = \App\Models\Admin::find(session()->get("adminid"))
                    
                         @endphp
                         <span>{{ $admin->name }}</span>
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="navbar-nav w-100">
                     <a src="{{ asset("img-dash/sohieb.jpg") }}" class="nav-item nav-link active"><i
