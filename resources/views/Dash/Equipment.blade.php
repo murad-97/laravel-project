@@ -22,6 +22,7 @@
             <div class="d-flex justify-content-start sucesses "  role="alert">
         
                 {{Session::get('success')}}
+                
             </div>
             @endif
             <div class="d-flex justify-content-end ">
