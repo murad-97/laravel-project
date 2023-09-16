@@ -25,7 +25,7 @@
                     <i class="fa fa-chart-bar fa-3x " style="color:rgb(10, 10, 105);"></i>
                     <div class="ms-3">
                         <p class="mb-2">Items</p>
-                        <h6 class="mb-0 text-dark">{{ $count }} items</h6>
+                        <h6 class="mb-0 text-dark">{{ $items }} items</h6>
                     </div>
                 </div>
             </div>
