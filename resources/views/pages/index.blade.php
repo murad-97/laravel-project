@@ -310,7 +310,7 @@
     <!-- Event End -->
     <!-- Volunteer Start -->
     <div class="container " >
-        <div class="section-header text-center mt-5 ">
+        <div class="section-header text-center mt-5 " style="padding-bottom: 0px">
             <h2>Become a Valounteer</h2>
             <p>Let’s make a difference in the lives of others</p>
         </div>

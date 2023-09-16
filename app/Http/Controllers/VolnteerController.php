@@ -18,13 +18,14 @@ class VolnteerController extends Controller
      */
     public function index($id)
     {
-             //    $products = Volnteer::where('category_id', $id)
+        //    $products = Volnteer::where('category_id', $id)
 
-         $products = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description') , DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'))
-        ->where('category_id', $id)
+        $products = Volnteer::select('*', DB::raw('LEFT(description, 50) as truncated_description'), DB::raw('SUBSTRING(description, 50, 1000) as showmore_description'), DB::raw('LEFT(volunteer_name, 30) as shortname'))
+
+            ->where('category_id', $id)
             ->orderBy('volunteer_name')
             ->paginate(6);
-      
+
 
         $categories = Category::all();
         return view('pages.causes', [
@@ -33,14 +34,14 @@ class VolnteerController extends Controller
 
         ]);
     }
-// $categories = Category::all();
-// $products = Product::select('id', 'name', 'description', \DB::raw('LEFT(description, 500) as truncated_description'))
-//     ->get();
+    // $categories = Category::all();
+    // $products = Product::select('id', 'name', 'description', \DB::raw('LEFT(description, 500) as truncated_description'))
+    //     ->get();
 
-// return view('pages.causes', [
-//     'categories' => $categories,
-//     'products' => $products
-// ]);
+    // return view('pages.causes', [
+    //     'categories' => $categories,
+    //     'products' => $products
+    // ]);
     /**
      * Show the form for creating a new resource.
      *
@@ -70,18 +71,15 @@ class VolnteerController extends Controller
      */
     public function show($id)
     {
-        
-             $volnteer = Volnteer::find($id);
+
+        $volnteer = Volnteer::find($id);
         $volnteerDetails = Volnteerdetail::where('volunteer_id', $id)->get();
         $price = 0;
-        foreach($volnteerDetails as $volnteerDetail){
-$price+=$volnteerDetail->price;
+        foreach ($volnteerDetails as $volnteerDetail) {
+            $price += $volnteerDetail->price;
         }
 
-        return view('pages.volunteer')->with("price",$price)->with("volnteer",$volnteer);
-  
-       
-        
+        return view('pages.volunteer')->with("price", $price)->with("volnteer", $volnteer);
     }
 
     /**
@@ -134,7 +132,6 @@ $price+=$volnteerDetail->price;
         if (isset($request->title) && $request->title != null) {
 
             $query->where('volunteer_name', 'LIKE', '%' . $request->title . '%');
-
         }
         $products = $query->paginate(6);
 
@@ -142,20 +139,17 @@ $price+=$volnteerDetail->price;
 
 
         return view('pages.causes', ['products' => $products, 'categories' => $categories,]);
-    // }
+        // }
     }
 
-    
+
 
     public function orderbyname($id)
     {
         $categories = Category::all();
-         $products = Volnteer::select(['*'])
+        $products = Volnteer::select(['*'])
             ->orderBy('volunteer_name')
             ->paginate(6);
         return view('pages.causes', ['products' => $products, 'categories' => $categories]);
     }
-    
-   
-    
 }
