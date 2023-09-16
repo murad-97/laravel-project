@@ -32,8 +32,8 @@
 
     <!-- Template Stylesheet -->
     <link href={{ asset('css/style.css') }} rel="stylesheet">
+    {{-- <link href={{ asset('css/style.css') }} rel="stylesheet"> --}}
     <link href="{{ asset('css/volunteer.css') }}" rel="stylesheet">
-    <link href={{ asset('css/style.css') }} rel="stylesheet">
 
     <style>
         .read-more-container{
