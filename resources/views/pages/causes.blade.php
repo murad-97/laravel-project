@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'Categories')
 
 @section('content')
     <!-- Page Header Start -->
@@ -65,17 +65,28 @@
                             <div class="col-lg-4  " style="padding: 10px 0px !important">
                                 <div class="causes-item" style="margin: 0px 10px !important">
                                     <div class="causes-img">
-                                        <img src="{{ asset("images/$product->main_picture") }}" alt="Image" />
+                                        <a href="/categories/{{ $product->id }}"><img src="{{ asset("images/$product->main_picture") }}" alt="Image" /></a>
                                     </div>
                                     <div class="causes-progress">
                                         <div class="progress">
-                                            <div class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
-                                                aria-valuemax="100">
-                                                <span>0%</span>
+                                            @php
+                                                if ($product->donate != 0) {
+                                                    $result = intval(($product->donate / $product->price) * 100);
+                                                } else {
+                                                    $result = 0;
+                                                }
+                                                if ($result > 100) {
+                                                    $result = 100; // Ensure the result does not exceed 100%
+                                                }
+                                            @endphp
+                                            <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}"
+                                                aria-valuemin="0" aria-valuemax="100">
+
+                                                <span>{{ $result }}%</span>
                                             </div>
                                         </div>
                                         <div class="progress-text">
-                                            <p><strong>Raised:</strong> $0</p>
+                                            <p><strong>Raised:</strong> ${{ $product->donate }}</p>
                                             <p><strong>Goal:</strong> ${{ $product->price }}</p>
                                         </div>
                                     </div>
@@ -87,11 +98,12 @@
                                         </p>
                                         <span class="read-more-btn">Read More...</span>
                                     </div>
-                                    <div class="causes-btn">
 
-                                        <a href="/categories/{{ $product->id }}" class="btn btn-custom btn-play">Donate
-                                            Now</a>
+                                    <div class="causes-btn">
+                                        <a href="/categories/{{ $product->id }}" class="btn btn-custom btn-play">DONATE NOW
+                                        </a>
                                     </div>
+
                                 </div>
                             </div>
                         @endforeach
@@ -107,37 +119,5 @@
     <div style="margin-left:50% ;">
         <div class="row ">{{ $products->links() }} </div>
     </div>
-    <script>
-        //         const parentContainer =  document.querySelector('.read-more-container');
 
-        // parentContainer.addEventListener('click', event=>{
-
-        //     const current = event.target;
-
-        //     const isReadMoreBtn = current.className.includes('read-more-btn');
-
-        //     if(!isReadMoreBtn) return;
-
-        //     const currentText = event.target.parentNode.querySelector('.read-more-text');
-
-        //     currentText.classList.toggle('read-more-text--show');
-
-        //     current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
-
-        // })
-
-        const readMoreButtons = document.querySelectorAll('.read-more-btn');
-
-        readMoreButtons.forEach(button => {
-            button.addEventListener('click', event => {
-                const current = event.target;
-                const currentText = current.parentNode.querySelector('.read-more-text');
-                currentText.classList.toggle('read-more-text--show');
-                current.textContent = current.textContent.includes('Read More') ? "Read Less..." :
-                    "Read More...";
-            });
-        });
-    </script>
-
-    <!-- Footer Start -->
 @endsection

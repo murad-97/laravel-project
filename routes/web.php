@@ -14,12 +14,15 @@ use App\Http\Controllers\VolnteerdetailDashhController;
 use App\Http\Controllers\ServicesDashController;
 use App\Http\Controllers\VolnteerController;
 use App\Http\Controllers\equipmentDashController;
+// use App\Http\Controllers\TodoController;
 use App\Http\Controllers\MedicineDashController;
 use App\Http\Controllers\VolnteerdetailController;
 use App\Http\Controllers\VolnteeritemController;
 use App\Http\Controllers\PaypalController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\AdminloginController;
 use App\Http\Controllers\AdminAuth\AuthenticatedSessionController;
+
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\ContactController;
@@ -68,8 +71,14 @@ require __DIR__.'/auth.php';
 
 
 
-Route::get('/dash', function () {
-    return view('Dash.Home');
+Route::middleware('admin')->group(function () {
+
+
+    Route::get('/dash', function () {
+        return view('Dash.Home');
+    });
+    
+
 });
 Route::get('/bill', function () {
     return view('pages.bill');
@@ -81,7 +90,7 @@ Route::get('/auth/google/callback', [ProfileController::class, 'googleHandle']);
 
 
 
-Route::get('/pages.profile.edit', [ProfileController::class, 'index']);
+// Route::get('/pages.profile.edit', [ProfileController::class, 'index']);
 
 Route::get('/causes', function () {
     return view('pages.causes');
@@ -108,12 +117,8 @@ Route::get('/sent-sms',[SentSmsController::class,'Sent']);
 
 
 
-Route::get('/master', function () {
-    return view('Dash.Master');
-});
-Route::get('/addcat', function () {
-    return view('Dash.addCategory');
-})->name('add_cat');
+
+
 
 // Route::get('/volunteers', function () {
 //     return view('Dash.volunteers');
@@ -162,11 +167,25 @@ Route::resource('category', CategoryDashController::class);
 
 Route::get('/adminlogin', [AuthenticatedSessionController::class,"create"]);
 
-Route::get('/dash', [AdminloginController::class,'showLoginForm']);
-Route::post('/dash', [AdminloginController::class,'login'])->name("admin.login");
-Route::get('/adminlogout', [AdminloginController::class,'logout'])->name("admin.logout");
 Route::resource('user', UserDashhController::class);
 
+Route::resource('adminprofile', PhotoController::class);
 
 
+
+
+
+
+
+
+
+
+Route::get('/dash', [AdminLoginController::class, 'showLoginForm'])->name('todos.index');
+// Route::post('/dash', [AdminLoginController::class, 'store'])->name('todos.store'); // Add this line
+Route::delete('/dash/{todo1}', [AdminLoginController::class, 'destroy'])->name('todos.destroy');
+// Route::post('/dash', [AdminLoginController::class, 'login'])->name("admin.login");
+Route::get('/adminlogout', [AdminLoginController::class, 'logout'])->name("admin.logout");
+
+Route::post('/dash/store', [AdminLoginController::class, 'store'])->name('todos.store');
+Route::post('/dash/login', [AdminLoginController::class, 'login'])->name("admin.login");
 

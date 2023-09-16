@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Volnteer;
 
-
+use App\Models\Volnteerdetail;
+use App\Models\Volnteeritem;
 use Illuminate\Http\Request;
 
 class MedicineDashController extends Controller
@@ -47,13 +48,19 @@ class MedicineDashController extends Controller
             'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category_id' => 'required',
+    
             'price' =>  'required|numeric',
 
         ]);
 
 
-        $input = $request->all();
+        $input = [
+            'volunteer_name' => $request->input('volunteer_name'),
+            'description' => $request->input('description'),
+            'category_id' => '3', // Setting category_id to the default value '1'
+            'price' => $request->input('price'), // Assuming 'price' is the correct key
+        ];
+        
 
         if ($image = $request->file('main_picture')) {
             $destinationPath = 'images/';
@@ -65,7 +72,7 @@ class MedicineDashController extends Controller
         Volnteer::create($input);
 
         return redirect()->route('medicine.index')
-                        ->with('success','Category created successfully.');
+                        ->with('success','Medicin Added successfully.');
 
         // Volnteer::create([
         //     'volunteer_name' => $request->volunteer_name,
@@ -85,9 +92,11 @@ class MedicineDashController extends Controller
      * @param  \App\Models\Volnteer  $volnteer
      * @return \Illuminate\Http\Response
      */
-    public function show(Volnteer $volnteer)
+    public function show(Volnteer $volnteer ,$id)
     {
-        //
+        $volnteer = Volnteer::findOrFail($id);
+
+    return view('Dash.midshow')->with('volnteer', $volnteer);
     }
 
     /**
@@ -120,13 +129,23 @@ class MedicineDashController extends Controller
             'volunteer_name' => ['required', 'max:30', 'regex:/^[a-zA-Z\s]+$/'],
             'description' => 'required',
             // 'main_picture' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'category_id' => 'required',
+         
             'price' => 'required|numeric',
 
         ]);
 
 
-        $input = $request->all();
+        $input = [
+            'volunteer_name' => $request->input('volunteer_name'),
+            'description' => $request->input('description'),
+            'category_id' => '3', // Setting category_id to the default value '1'
+            'price' => $request->input('price'), // Assuming 'price' is the correct key
+        ];
+        
+
+        
+        
+        
 
         if ($image = $request->file('main_picture')) {
             $destinationPath = 'images/';
@@ -140,7 +159,7 @@ class MedicineDashController extends Controller
         $medicine->update($input);
 
         return redirect()->route('medicine.index')
-                        ->with('success','Category updated successfully');
+                        ->with('success','medecin updated successfully');
        
         // $data['volunteer_name'] = $request->name;
         // $data['description'] = $request->description;
@@ -159,9 +178,25 @@ class MedicineDashController extends Controller
      */
     public function destroy($id)
     {
-        Volnteer::destroy($id);
-        return redirect()->route('medicine.index')->with(['success' => 'Deleted successfully
+        $details = Volnteerdetail::select('*')
+        ->where('volunteer_id', $id)
+        ->get();
+        $items = Volnteeritem::select('*')
+        ->where('volunteer_id', $id)
+        ->get();
+        if ($details->count()== 0 && $items->count()==0) {
+          ;
+
+            // Redirect to the 'category.index' route
+            Volnteer::destroy($id);
+        return redirect()->route('medicine.index')->with(['deleted' => 'Medicin deleted successfully
         ']);
+            
+        }else{
+
+            return redirect()->route('medicine.index')->with(['cancel' => "This item has donations you can not delete it"]);
+        }
+        
     }
     
 }

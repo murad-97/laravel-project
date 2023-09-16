@@ -752,3 +752,26 @@ table.table .avatar {
     margin-top: 10px;
     font-size: 13px;
 }
+
+.sucesses{
+  background-color: rgb(147, 219, 147);
+   width:50%; height:50px;
+    font-size:100%; 
+    color:white;
+    
+}
+
+.deleted{
+
+  background-color: rgb(245, 61, 61);
+  width:50%; height:50px;
+   font-size:100%; 
+   color:white;
+}
+/* thanks message */
+
+
+
+
+
+

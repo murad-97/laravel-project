@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title' , 'volunteer')
+@section('title' , 'Cash Donation')
   @section("content") 
     <!-- Top Bar End -->
     <div class="about p-0">
@@ -28,6 +28,9 @@
                                 } else {
                                     $result = 0;
                                 }
+                                if ($result > 100) {
+                                        $result = 100; // Ensure the result does not exceed 100%
+                                    }
                                 @endphp
                             </div>
                             <div class="causes p-0">
@@ -40,8 +43,8 @@
                                         </div>
                                     </div>
                                     <div class="progress-text" style="display: flex;justify-content:space-between">
-                                        <p ><strong>Raised:</strong> JOD{{ $price }}</p>
-                                        <p><strong>Goal:</strong> JOD{{ $volnteer->price }}</p>
+                                        <p ><strong>Raised:</strong> ${{ $price }}</p>
+                                        <p><strong>Goal:</strong> ${{ $volnteer->price }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +57,10 @@
                                 <form method="post" action="{{ route("paypal") }}">
                                     @csrf
                                         <input id="don" name="id" type="number" class="form-control" placeholder="USD" required="required" value="{{ $volnteer->id }}"  hidden/>
-                                        <input id="don" name="price" type="number" class="form-control" placeholder="USD" required="required" value="20" />
+                                        <input id="don" name="donate" type="number" class="form-control" placeholder="USD" required="required" value="{{ $price }}"  hidden/>
+                                        <input id="don" name="max" type="number" class="form-control" placeholder="USD" required="required" value="{{ $volnteer->price }}"  hidden/>
+                                        <input id="don" name="price" type="number" class="form-control" placeholder="USD" required="required" value="{{$volnteer->price-$price}}" />
+                                        <x-input-error :messages="$errors->get('price')" class="mt-2" style="color: red" />
                                         
                                         <button class="btn btn-custom m-3" type="submit"> pay with paypal</button>
                                     

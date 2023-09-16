@@ -29,13 +29,18 @@
                             {{-- <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br> --}}
                         </div>
                        
+                        <div class="form-group">
+                            <input type="text" class="form-input" name="id" value="{{ $category->id }}" id="name" placeholder="category_id"/>
+                            <span style="color:red">@error('id'){{ $message }} @enderror</span><br><br>
+
+                        </div>
                       
                         <div class="form-group">	
                             <input type="text" class="form-input" name="description" value="{{ $category->description}}" placeholder="Description"/>
                           
                         </div>
                         <div class="form-group">	
-                            <input type="text" class="form-input" name="price" placeholder="price"/>
+                            <input type="text" class="form-input" name="price" value="{{ $category->price}}" placeholder="price"/>
                           
                         </div>
                      
@@ -49,15 +54,15 @@
                         </div> --}}
                         <div class="form-group">
                             <input  name="image" type="file" class="form-control white-input" id="inputPrice">
-                            <img src="/images/{{ $category->image }}" width="300px">
+                            <img src="/images/{{ $category->image }}" width="200px" class="mt-4">
                             {{-- <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br> --}}
 
                              </div>
                            
-                         
+                            
                      
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update" style="color: rgb(10, 10, 105);"/>
                         </div>
                         
                           

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Volnteer;
 use Illuminate\Http\Request;
 
 class CategoryDashController extends Controller
@@ -75,9 +76,10 @@ class CategoryDashController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function show(Category $category)
+    public function show(Category $category1,$id)
     {
-        //
+        $category1  =Category::findOrFail($id);
+        return view('Dash.showcat')->with('category', $category1);
     }
 
     /**
@@ -104,7 +106,7 @@ class CategoryDashController extends Controller
         $request->validate([
             'name' => 'required |max:30',
             'description' => 'required |max:300',
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            // 'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
        
         ]);
 
@@ -139,8 +141,18 @@ class CategoryDashController extends Controller
      */
     public function destroy($id)
     {
+        $products = Volnteer::select('*')
+        ->where('category_id', $id)
+        ->get();
+        if ($products->count()!= 0) {
+          ;
+
+            // Redirect to the 'category.index' route
+            return redirect()->route('category.index')->with(['cancel' => 'You have items under this category']);
+           
+        }
         Category::destroy($id);
-        return redirect()->route('category.index')->with(['success' => 'Deleted successfully
-        ']);
+     
+        return redirect()->route('category.index')->with(['deleted' => 'Deleted successfully']);
     }
 }

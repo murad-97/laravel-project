@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title' , 'volunteer')
+@section('title' , 'Donations')
   @section("content")  <!-- Top Bar End -->
 <div class="about p-0">
             <div class="container">
@@ -25,6 +25,9 @@
                                     } else {
                                         $result = 0;
                                     }
+                                    if ($result > 100) {
+                                        $result = 100; // Ensure the result does not exceed 100%
+                                    }
                                     @endphp
                                 </div>
                                 <div class="causes p-0">
@@ -37,8 +40,8 @@
                                             </div>
                                         </div>
                                         <div class="progress-text" style="display: flex;justify-content:space-between">
-                                            <p ><strong>Raised:</strong> JOD{{ $price }}</p>
-                                            <p><strong>Goal:</strong> JOD{{ $volnteer->price }}</p>
+                                            <p ><strong>Raised:</strong>${{ $price }}</p>
+                                            <p><strong>Goal:</strong>${{ $volnteer->price }}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -54,9 +57,15 @@
                         <a href="/volunteering item/{{ $volnteer->id }}" class="btn btn-custom btn-play" tabindex="0" >
                             <i class="far fa-grin-wink"></i> In-Kind Donations
                         </a>
+                        @if ($result < 100)
                         <a href="/volunteering/{{ $volnteer->id }}" class="btn btn-custom btn-play" tabindex="0" >
                             <i class="fas fa-money-bill"></i> Cash Donations
                         </a>
+                  
+                        
+                    
+                        @endif
+                       
                         
                     </div>   
                 </div>

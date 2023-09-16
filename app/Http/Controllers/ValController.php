@@ -21,9 +21,9 @@ class ValController extends Controller
     public function sendEmail(Request $request)
     {
         $details = [
-            'name'=> $request->name,
-            'email'=> $request->email,
-            'number'=> $request->number,
+            'name' => $request->name,
+            'email' => $request->email,
+            'number' => $request->number,
             'msg' => $request->msg
 
         ];
@@ -33,26 +33,24 @@ class ValController extends Controller
 
         // Mail::to('husam-odat@outlook.com')->send(new ValMail($details));
         // return back()->with('message_sent','Your message has been sent successfully');
-        $basic  = new Basic("6d4ecd4c", "IdmEAmF3HTQl1XHP");
-        $client = new Client($basic);
 
-        $response = $client->sms()->send(
-            new SMS($request->number, 'HELPZ', 'Thank you for applying to be a part of our team \n')
-        );
 
-        $message = $response->current();
+        // $basic  = new Basic("6d4ecd4c", "IdmEAmF3HTQl1XHP");
+        // $client = new Client($basic);
 
-        if ($message->getStatus() == 0) {
-            echo "The message was sent successfully\n";
-        } else {
-            echo "The message failed with status: " . $message->getStatus() . "\n";
-        }
-        // return response()->json('SMS massage has been delevered', 200);
-        return back()->with('message_sent1', 'Your message has been sent successfully');
+        // $response = $client->sms()->send(
+        //     new SMS($request->number, 'HELPZ', 'Thank you for applying to be a part of our team \n')
+        // );
+
+        // $message = $response->current();
+
+        // if ($message->getStatus() == 0) {
+        //     echo "The message was sent successfully\n";
+        // } else {
+        //     echo "The message failed with status: " . $message->getStatus() . "\n";
+        // }
+        // // return response()->json('SMS massage has been delevered', 200);
+        return back()->with('message_sent1', 'Your request has been sent successfully');
 
     }
 }
-
-
-
-   
