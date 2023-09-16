@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Volnteerdetail;
+use App\Models\Volnteeritem;
 class UserDashhController extends Controller
 {
     public function index()
@@ -59,7 +61,7 @@ class UserDashhController extends Controller
         ]);
 
         return redirect()->route('user.index')
-                        ->with('sucsess','User created successfully.');
+                        ->with('success','User created successfully.');
 
 
     }
@@ -106,8 +108,22 @@ class UserDashhController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
-        return redirect()->route('user.index')->with(['deleted' => 'user deleted successfully
-        ']);
+        $details = Volnteerdetail::select('*')
+        ->where('user_id', $id)
+        ->get();
+        $items = Volnteeritem::select('*')
+        ->where('user_id', $id)
+        ->get();
+        if ($details->count()== 0 && $details->count()==0) {
+          ;
+
+            // Redirect to the 'category.index' route
+            User::destroy($id);
+            return redirect()->route('user.index')->with(['deleted' => 'user deleted successfully']);
+            
+        }else{
+
+            return redirect()->route('user.index')->with(['cancel' => "This user has donations you can not delete it"]);
+        }
 }
 }

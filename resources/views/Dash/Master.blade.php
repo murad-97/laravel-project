@@ -14,9 +14,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Roboto:wght@500;700&display=swap"
-        rel="stylesheet">
-
-        
+    rel="stylesheet">
+    
+    <!-- sweet alert -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+ 
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -45,7 +47,7 @@
 
 <body>
     <div class="container-fluid position-relative d-flex p-0" style="background-color: white;">
-        <!-- Spinner Start -->
+        {{-- <!-- Spinner Start -->
         <div id="spinner"
             class="show  position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
             style="background-color: #f2f2f2;">
@@ -53,7 +55,7 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- Spinner End -->
+        <!-- Spinner End --> --}}
 
 
         <!-- Sidebar Start -->
@@ -230,12 +232,47 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
+    <script>
+        // Get all delete buttons with the 'delete-button' class
+        const deleteButtons = document.querySelectorAll('.delete-button');
+    
+        // Loop through each delete button and attach a click event listener
+        deleteButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+    
+                const deleteId = button.getAttribute('data-delete-id');
+    
+                // Show SweetAlert confirmation dialog
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If the user confirms, submit the form for deletion
+                        const deleteForm = document.querySelector(`#delete-form-${deleteId}`);
+                        deleteForm.submit();
+                    }
+                });
+            });
+        });
+    </script>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js" integrity="sha512-7VTiy9AhpazBeKQAlhaLRUk+kAMAb8oczljuyJHPsVPWox/QIXDFOnT9DUk1UC8EbnHKRdQowT7sOBe7LAjajQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
+
 
     <script src="{{ asset('lib-dash/chart/chart.min.js') }}"></script>
 
@@ -256,5 +293,8 @@
     {{-- <script src="{{ asset('js-dash/sweetalert.js') }}"></script> <!-- Include your custom script --> --}}
     {{-- @stack('scripts') --}}
 </body>
+
+
+
 
 </html>

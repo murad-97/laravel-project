@@ -19,7 +19,8 @@
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="pages.causes">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT" data-target="#videoModal">Watch
+                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT"
+                                data-target="#videoModal">Watch
                                 Video</a>
                         </div>
                     </div>
@@ -37,7 +38,8 @@
                         <div class="carousel-btn">
                             <a class="btn btn-custom" href="pages.causes">Donate Now</a>
                             <a class="btn btn-custom btn-play" data-toggle="modal"
-                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT" data-target="#videoModal">Watch
+                                data-src="https://www.youtube.com/embed/2szQhR4oZtA?si=XUFiZL431Bp5DxLT"
+                                data-target="#videoModal">Watch
                                 Video</a>
                         </div>
                     </div>
@@ -272,24 +274,24 @@
                             <div class="causes-img">
                                 {{-- <img src={{$item->image}} --}}
                                 {{-- <img src="./images/"{{$item->image}} --}}
-                                <img src="{{ asset('images/' . $item->image) }}"
-                                    alt="Image" height="300px">
+                                <a href="pages.causes/{{ $item->id }}"> <img
+                                        src="{{ asset('images/' . $item->image) }}" alt="Image" height="300px"></a>
 
                             </div>
                             <div class="causes-progress">
                                 <div class="progress">
                                     @php
-                                    if ($item->price != 0) {
-                                        $result = intval(($item->donate / $item->price) * 100);
-                                    } else {
-                                        $result = 0;
-                                    }
-                                    if ($result > 100) {
-                                        $result = 100; // Ensure the result does not exceed 100%
-                                    }
+                                        if ($item->price != 0) {
+                                            $result = intval(($item->donate / $item->price) * 100);
+                                        } else {
+                                            $result = 0;
+                                        }
+                                        if ($result > 100) {
+                                            $result = 100; // Ensure the result does not exceed 100%
+                                        }
                                     @endphp
-                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}" aria-valuemin="0"
-                                        aria-valuemax="100">
+                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ $result }}"
+                                        aria-valuemin="0" aria-valuemax="100">
                                         <span>{{ $result }}%</span>
                                     </div>
                                 </div>
@@ -303,12 +305,12 @@
                                 <p>{{ $item->shorter_description }}
                                 </p>
                             </div>
-                          
-                          <div class="causes-btn">
-                            <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">DONATE NOW 
-                            </a>
-                        </div>
-                        
+
+                            <div class="causes-btn">
+                                <a href="pages.causes/{{ $item->id }}" class="btn btn-custom btn-play">DONATE NOW
+                                </a>
+                            </div>
+
                         </div>
                     </div>
                 @endforeach
@@ -318,11 +320,11 @@
     <!-- Causes End -->
 
     <!-- Donate Start -->
-  
+
     <!-- Event End -->
     <!-- Volunteer Start -->
-    
-    <div class="container " >
+
+    <div class="container ">
         <div class="section-header text-center mt-5 ">
             <h2>Become a Valounteer</h2>
             <p>Let’s make a difference in the lives of others</p>
@@ -333,10 +335,14 @@
                 <div class="col-lg-5">
                     <div class="volunteer-form">
                         @if (Session::get('message_sent1'))
-                            <div class="alert alert-success" role="alert">
-                                {{ Session::get('message_sent1') }}
-                            </div>
+                            <script>
+                                Swal.fire("Message", "{{ Session::get('message_sent1') }}", 'success', {
+                                    showConfirmButton: true,
+                                    confirmButtonText: "OK",
+                                });
+                            </script>
                         @endif
+
                         <form method="POST" action='{{ route('Val.send') }}'>
                             @csrf
                             <div class="control-group">
@@ -348,8 +354,8 @@
                                     required="required" />
                             </div>
                             <div class="control-group">
-                                <input type="number" class="form-control no-spinner"   placeholder="Number : +962XXXXXXXXX" name="number"
-                                    required="required" />
+                                <input type="number" class="form-control no-spinner"
+                                    placeholder="Number : +962XXXXXXXXX" name="number" required="required" />
                             </div>
                             <div class="control-group">
                                 <textarea class="form-control" placeholder="Why you want to become a volunteer?" name="msg" required="required"></textarea>
@@ -368,8 +374,10 @@
                         </div>
                         <div class="volunteer-text">
                             <p>
-                                
-A "Become A Volunteer" form is a document for people to express their interest in volunteering. It gathers their contact info, availability, skills, and interests, aiding organizations in finding suitable volunteer roles.
+
+                                A "Become A Volunteer" form is a document for people to express their interest in
+                                volunteering. It gathers their contact info, availability, skills, and interests, aiding
+                                organizations in finding suitable volunteer roles.
                             </p>
                         </div>
                     </div>
@@ -385,7 +393,7 @@ A "Become A Volunteer" form is a document for people to express their interest i
         <div class="container">
             <div class="section-header text-center">
                 <h2>Meet Our Partners</p>
-                <p>Awesome guys behind our charity activities</p>
+                    <p>Awesome guys behind our charity activities</p>
             </div>
             <div class="row">
                 <div class="col-lg-4 col-md-6">
@@ -436,7 +444,8 @@ A "Become A Volunteer" form is a document for people to express their interest i
                             <div class="team-social">
                                 <a href="https://github.com/shatharababah22"><i class="fab fa-github"></i></a>
                                 <a href="https://web.facebook.com/shatha.rababah.7/"><i class="fab fa-facebook-f"></i></a>
-                                <a href="https://www.linkedin.com/in/shatha-rababah/"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.linkedin.com/in/shatha-rababah/"><i
+                                        class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>
@@ -483,7 +492,8 @@ A "Become A Volunteer" form is a document for people to express their interest i
                 <div class="col-lg-4 col-md-6">
                     <div class="team-item">
                         <div class="team-img">
-                            <img src="img/default-avatar-profile-icon-vector-18942370.jpg" class="img-fluid" alt="Team Image">
+                            <img src="img/default-avatar-profile-icon-vector-18942370.jpg" class="img-fluid"
+                                alt="Team Image">
                         </div>
                         <div class="team-text">
                             <h2>Sawsan Dagamseh</h2>
@@ -505,11 +515,11 @@ A "Become A Volunteer" form is a document for people to express their interest i
 
     <!-- Volunteer Start -->
     <div class="section-header text-center" id="contact">
-                <h2>Contact Us</p>
-                <p>Contact For Any Query</p>
-            </div>
+        <h2>Contact Us</p>
+            <p>Contact For Any Query</p>
+    </div>
     <div class="volunteer" data-parallax="scroll" data-image-src="./img/woww2.PNG">
-        <div class="container" >
+        <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7">
                     <div class="volunteer-content">
@@ -528,32 +538,37 @@ A "Become A Volunteer" form is a document for people to express their interest i
                 <div class="col-lg-5">
                     <div class="volunteer-form">
                         @if (Session::get('message_sent'))
-                            <div class="alert alert-success" role="alert">
-                                {{ Session::get('message_sent') }}
-                            </div>
-                        @endif
-                        <form method="POST" action='{{ route('contact.send') }}'>
-                            @csrf
-                            <div class="control-group">
-                                <input type="text" name="name" class="form-control" placeholder="Name"
-                                    required="required" />
-                            </div>
-                            <div class="control-group">
-                                <input type="email" name="email" class="form-control" placeholder="Email"
-                                    required="required" />
-                            </div>
-                            <div class="control-group">
-                                <textarea class="form-control" name="msg" placeholder="Message" required="required"></textarea>
-                            </div>
-                            <div>
-                                <button class="btn btn-custom" type="submit">Contact</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                            <script>
+                                Swal.fire("Message", "{{ Session::get('message_sent') }}", 'success', {
+                                    showConfirmButton: true,
+                                    confirmButtonText: "OK",
+                                });
+                            </script>
 
+                    </div>
+                    @endif
+                    <form method="POST" action='{{ route('contact.send') }}'>
+                        @csrf
+                        <div class="control-group">
+                            <input type="text" name="name" class="form-control" placeholder="Name"
+                                required="required" />
+                        </div>
+                        <div class="control-group">
+                            <input type="email" name="email" class="form-control" placeholder="Email"
+                                required="required" />
+                        </div>
+                        <div class="control-group">
+                            <textarea class="form-control" name="msg" placeholder="Message" required="required"></textarea>
+                        </div>
+                        <div>
+                            <button class="btn btn-custom" type="submit">Contact</button>
+                        </div>
+                    </form>
+                </div>
             </div>
+
         </div>
+    </div>
     </div>
     <!-- Volunteer End -->
 

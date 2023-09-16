@@ -21,9 +21,9 @@ class ValController extends Controller
     public function sendEmail(Request $request)
     {
         $details = [
-            'name'=> $request->name,
-            'email'=> $request->email,
-            'number'=> $request->number,
+            'name' => $request->name,
+            'email' => $request->email,
+            'number' => $request->number,
             'msg' => $request->msg
 
         ];
@@ -50,11 +50,7 @@ class ValController extends Controller
         //     echo "The message failed with status: " . $message->getStatus() . "\n";
         // }
         // // return response()->json('SMS massage has been delevered', 200);
-        return back()->with('message_sent1', 'Your message has been sent successfully');
+        return back()->with('message_sent1', 'Your request has been sent successfully');
 
     }
 }
-
-
-
-   
