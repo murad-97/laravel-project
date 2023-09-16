@@ -274,7 +274,8 @@
                             <div class="causes-img">
                                 {{-- <img src={{$item->image}} --}}
                                 {{-- <img src="./images/"{{$item->image}} --}}
-                                <img src="{{ asset('images/' . $item->image) }}" alt="Image" height="300px">
+                                <a href="pages.causes/{{ $item->id }}"> <img
+                                        src="{{ asset('images/' . $item->image) }}" alt="Image" height="300px"></a>
 
                             </div>
                             <div class="causes-progress">
