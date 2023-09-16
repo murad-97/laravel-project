@@ -7,7 +7,7 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="Free Website Template" name="keywords">
     <meta content="Free Website Template" name="description">
-    <link rel="icon" type="image/x-icon" href="{{ asset("images/HELPZ icon.png")}}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('images/HELPZ icon.png') }}">
     <!-- Favicon -->
     <link href={{ asset('img/favicon.ico') }} rel="icon">
 
@@ -21,10 +21,12 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
     <link href={{ asset('lib/flaticon/font/flaticon.css') }} rel="stylesheet">
 
-{{-- ================ --}}
+    {{-- ================ --}}
     {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> --}}
-{{-- ========================== --}}
+    {{-- ========================== --}}
 
+    <!-- sweet alert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <link href={{ asset('lib/animate/animate.min.css') }} rel="stylesheet">
     <link href={{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }} rel="stylesheet">
@@ -42,7 +44,7 @@
     <!-- Nav Bar Start -->
     <div class="navbar navbar-expand-lg bg-dark navbar-dark nav-sticky ">
         <div class="container-fluid ">
-            <img src="{{ asset("images/HELPZ LOGO.png") }}" style="width:15%" alt="">
+            <img src="{{ asset('images/HELPZ LOGO.png') }}" style="width:15%" alt="">
             <button type="button" class="navbar-toggler nav-sticky" data-toggle="collapse" data-target="#home">
                 <span class="navbar-toggler-icon nav-sticky"></span>
             </button>
@@ -56,7 +58,8 @@
                     <a href="#contact" class="nav-item nav-link nav-sticky">Contact</a>
                     <div class="navbar-nav ml-5">
                         @if (Auth::check())
-                        <a href="{{ route("profile.edit",[(Auth::user())]) }}" class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</a>
+                            <a href="{{ route('profile.edit', [Auth::user()]) }}"
+                                class="nav-item nav-link nav-sticky">{{ Auth::user()->name }}</a>
                             <form method="POST" class="nav-item nav-link nav-sticky" action="{{ route('logout') }}">
                                 @csrf
 

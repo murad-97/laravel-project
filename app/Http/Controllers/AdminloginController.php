@@ -9,7 +9,7 @@ use App\Models\Volnteer;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules\Password;
-
+use Illuminate\Support\Facades\DB;
 class AdminLoginController extends Controller
 {
     // Show the login form
@@ -20,18 +20,30 @@ class AdminLoginController extends Controller
       
         $recordCount = User::count();
         $volunteercount = Volnteer::count();
-        $items = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name', 'volnteeritems.qty', 'volnteeritems.number', 'volnteeritems.location')
+        $items = Volnteer::select(DB::raw('SUM(volnteeritems.qty) as total_qty'))
         ->join('volnteeritems', 'volnteers.id', '=', 'volnteeritems.volunteer_id')
         ->join('categories', 'volnteers.category_id', '=', 'categories.id')
         ->join('users', 'users.id', '=', 'volnteeritems.user_id')
-        ->get();
+        ->value('total_qty'); // Get the total sum of qty for all records
+    
+    // Now $total_qty contains the total sum of qty for all records as a numeric value
+     // Get a single numeric value
+    
+    // Now $total_qty contains the total_qty as a numeric value
+    // Pluck the 'total_qty' value
+
+// Now $items contains an array of 'total_qty' values
+
+        
+
+
         $mouny = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name',
         'volnteerdetails.price')
        ->join('volnteerdetails', 'volnteers.id', '=', 'volnteerdetails.volunteer_id')
        ->join('categories', 'volnteers.category_id', '=', 'categories.id')
        ->join('users', 'users.id', '=', 'volnteerdetails.user_id')
        ->get();
-        $count = $items->count();
+     
         $totalPrice = $mouny->sum('price');
         $todos = session('todos', []);
         
@@ -39,7 +51,7 @@ class AdminLoginController extends Controller
         view()->share([
             'todos' => $todos,
             'recordCount' => $recordCount,
-            'count' => $count,
+            'items' => $items,
             'totalPrice' => $totalPrice,
             'volunteercount' => $volunteercount
         ]);

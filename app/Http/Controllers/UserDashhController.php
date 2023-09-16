@@ -59,7 +59,7 @@ class UserDashhController extends Controller
         ]);
 
         return redirect()->route('user.index')
-                        ->with('sucsess','User created successfully.');
+                        ->with('success','User created successfully.');
 
 
     }

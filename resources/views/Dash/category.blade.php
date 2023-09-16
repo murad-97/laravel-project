@@ -15,19 +15,25 @@
                     <div class="table-responsive">
                         <div class="table-wrapper">
                             @if(Session::has('deleted'))
-                            <div class="d-flex justify-content-center align-items-center deleted" role="alert">
+                            <script>
+        Swal.fire("Message", "{{ Session::get('deleted') }}", 'warning', {
+        showConfirmButton: true,
+        confirmButtonText: "OK",
+    });
+</script>
                         
-                                {{Session::get('deleted')}}
-                            </div>
-                
+            
                             @elseif(Session::has('success'))
+ <script>
+    Swal.fire("Message", "{{ Session::get('success') }}", 'success', {
+        showConfirmButton: true,
+        confirmButtonText: "OK",
+    });
+</script>
+    @endif
+
                 
-                
-                            <div class="d-flex justify-content-center align-items-center sucesses"  role="alert">
                         
-                                {{Session::get('success')}}
-                            </div>
-                            @endif
                             <div class="d-flex justify-content-end ">
                                 <a href="{{route('category.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
                             </div>
@@ -63,10 +69,10 @@
                                         <td>
                                             <div style="display: grid; grid-template-columns: auto auto;">
                                           <button class="btn me-2" style="width: 51px; height:39px; margin:auto; background-color:rgba(165, 204, 247, 0.786); "><a href="{{ route('category.edit',$allcat->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
-                                            <form  method="POST" action="{{ route('category.destroy', $allcat->id) }}">
+                                            <form id="delete-form-{{ $allcat->id }}" method="POST" action="{{ route('category.destroy', $allcat->id) }}">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-danger"  onclick="return confirm('Are you sure to delete this product?')">
+                                                <button  type="submit" class="btn btn-danger delete-button" data-delete-id="{{ $allcat->id }}">
                                                     <i class="fa fa-trash text-white" style="font-size: 17px"></i>
                                                 </button> 
                                             </form>
