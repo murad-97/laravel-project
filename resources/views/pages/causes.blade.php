@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'Categories')
 
 @section('content')
     <!-- Page Header Start -->
