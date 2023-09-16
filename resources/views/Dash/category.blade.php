@@ -14,6 +14,11 @@
                 <div class="container-xl">
                     <div class="table-responsive">
                         <div class="table-wrapper">
+                        {{-- @if(session('cancel'))
+    <div class="alert alert-danger">
+        {{ session('cancel') }}
+    </div>
+@endif --}}
                             @if(Session::has('deleted'))
                             <script>
         Swal.fire("Message", "{{ Session::get('deleted') }}", 'warning', {

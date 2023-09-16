@@ -11,17 +11,7 @@
 <div class="container-xl">
     <div class="table-responsive">
         <div class="table-wrapper">
-           <script>
-    @if(Session::has('deleted'))
-    Swal.fire("Message", "{{ Session::get('deleted') }}", 'success', {
-        showConfirmButton: true,
-        confirmButtonText: "OK",
-    });
-    @endif
-</script>
-
-
-@if(Session::has('success'))
+            @if(Session::has('success'))
  <script>
     Swal.fire("Message", "{{ Session::get('success') }}", 'success', {
         showConfirmButton: true,
@@ -29,6 +19,17 @@
     });
 </script>
     @endif
+            @if(session('deleted'))
+    <script>
+        Swal.fire("Message", "{{ session('deleted') }}", 'warning', {
+            showConfirmButton: true,
+            confirmButtonText: "OK",
+        });
+    </script>
+@endif
+
+
+
             <div class="d-flex justify-content-end ">
                 <a href="{{route('admin.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
             </div>

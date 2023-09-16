@@ -61,7 +61,7 @@
                         <a href="/volunteering/{{ $volnteer->id }}" class="btn btn-custom btn-play" tabindex="0" >
                             <i class="fas fa-money-bill"></i> Cash Donations
                         </a>
-                      @else
+                  
                         
                     
                         @endif

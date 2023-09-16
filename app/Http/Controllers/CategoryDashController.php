@@ -145,14 +145,14 @@ class CategoryDashController extends Controller
         ->where('category_id', $id)
         ->get();
         if ($products->count()!= 0) {
-            session(['cancel' => 'You have items under this category']);
+          ;
 
             // Redirect to the 'category.index' route
-            return redirect()->route('category.index');
+            return redirect()->route('category.index')->with(['cancel' => 'You have items under this category']);
            
         }
         Category::destroy($id);
-        session(['deleted' => 'Deleted successfully']);
-        return redirect()->route('category.index');
+     
+        return redirect()->route('category.index')->with(['deleted' => 'Deleted successfully']);
     }
 }

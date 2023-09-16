@@ -232,7 +232,36 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
-
+    <script>
+        // Get all delete buttons with the 'delete-button' class
+        const deleteButtons = document.querySelectorAll('.delete-button');
+    
+        // Loop through each delete button and attach a click event listener
+        deleteButtons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+    
+                const deleteId = button.getAttribute('data-delete-id');
+    
+                // Show SweetAlert confirmation dialog
+                Swal.fire({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // If the user confirms, submit the form for deletion
+                        const deleteForm = document.querySelector(`#delete-form-${deleteId}`);
+                        deleteForm.submit();
+                    }
+                });
+            });
+        });
+    </script>
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
@@ -242,36 +271,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.28/dist/sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 
-<script>
-    // Get all delete buttons with the 'delete-button' class
-    const deleteButtons = document.querySelectorAll('.delete-button');
 
-    // Loop through each delete button and attach a click event listener
-    deleteButtons.forEach((button) => {
-        button.addEventListener('click', (e) => {
-            e.preventDefault();
-
-            const deleteId = button.getAttribute('data-delete-id');
-
-            // Show SweetAlert confirmation dialog
-            Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // If the user confirms, submit the form for deletion
-                    const deleteForm = document.querySelector(`#delete-form-${deleteId}`);
-                    deleteForm.submit();
-                }
-            });
-        });
-    });
-</script>
 
 
     <script src="{{ asset('lib-dash/chart/chart.min.js') }}"></script>
