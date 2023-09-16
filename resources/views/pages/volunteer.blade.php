@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title' , 'volunteer')
+@section('title' , 'Donations')
   @section("content")  <!-- Top Bar End -->
 <div class="about p-0">
             <div class="container">

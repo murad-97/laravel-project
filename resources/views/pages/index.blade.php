@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'HELPZ')
 
 @section('content')
     <!-- Carousel Start -->
