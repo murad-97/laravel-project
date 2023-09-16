@@ -77,6 +77,9 @@
     
 </div>
 
+<script>
+    swal("Done", "")
+</script>
 
 @endsection
 
