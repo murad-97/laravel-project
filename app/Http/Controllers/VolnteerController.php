@@ -20,7 +20,7 @@ class VolnteerController extends Controller
     {
              //    $products = Volnteer::where('category_id', $id)
 
-         $products = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description') , DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'))
+         $products = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description') , DB::raw('SUBSTRING(description, 1, 50) as showmore_description'), DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'))
         ->where('category_id', $id)
             ->orderBy('volunteer_name')
             ->paginate(6);
