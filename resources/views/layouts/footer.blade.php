@@ -85,7 +85,19 @@
         <script src= {{ asset("js/main.js") }} ></script>
         <script src= {{ asset("showMore.min.js") }} ></script>
 
+<script>
+    const readMoreButtons = document.querySelectorAll('.read-more-btn');
 
+readMoreButtons.forEach(button => {
+  button.addEventListener('click', event => {
+    const current = event.target;
+    const currentText = current.parentNode.querySelector('.read-more-text');
+    currentText.classList.toggle('read-more-text--show');
+    current.textContent = current.textContent.includes('Read More') ? "Read Less..." : "Read More...";
+  });
+});
+
+</script>
         
     </body>
 </html>
