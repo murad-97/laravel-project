@@ -18,10 +18,11 @@ class VolnteerController extends Controller
      */
     public function index($id)
     {
-             //    $products = Volnteer::where('category_id', $id)
 
-         $products = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description') , DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'))
-        ->where('category_id', $id)
+
+        $products = Volnteer::select('*', DB::raw('concat(LEFT(description, 100),"...") as truncated_description'), DB::raw('concat(LEFT(volunteer_name, 20),"...") as shortname'))
+            ->where('category_id', $id)
+            //    $products = Volnteer::where('category_id', $id)
             ->orderBy('volunteer_name')
             ->paginate(6);
             foreach ($products as $product) {
@@ -43,11 +44,11 @@ class VolnteerController extends Controller
 
         ]);
     }
-// $categories = Category::all();
+    // $categories = Category::all();
 // $products = Product::select('id', 'name', 'description', \DB::raw('LEFT(description, 500) as truncated_description'))
 //     ->get();
 
-// return view('pages.causes', [
+    // return view('pages.causes', [
 //     'categories' => $categories,
 //     'products' => $products
 // ]);
@@ -88,10 +89,10 @@ class VolnteerController extends Controller
             $price += $volnteerDetail->price;
         }
 
-        return view('pages.volunteer')->with("price",$price)->with("volnteer",$volnteer);
-  
-       
-        
+        return view('pages.volunteer')->with("price", $price)->with("volnteer", $volnteer);
+
+
+
     }
 
     /**
@@ -143,6 +144,7 @@ class VolnteerController extends Controller
 
 
             $query->where('volunteer_name', 'LIKE', '%' . $request->title . '%');
+
         }
         $products = $query->paginate(6);
 
@@ -172,7 +174,7 @@ class VolnteerController extends Controller
             ->paginate(6);
         return view('pages.causes', ['products' => $products, 'categories' => $categories]);
     }
-    
-   
-    
+
+
+
 }
