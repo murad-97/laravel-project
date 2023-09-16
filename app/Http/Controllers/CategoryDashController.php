@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Volnteer;
 use Illuminate\Http\Request;
 
 class CategoryDashController extends Controller
@@ -140,8 +141,18 @@ class CategoryDashController extends Controller
      */
     public function destroy($id)
     {
+        $products = Volnteer::select('*')
+        ->where('category_id', $id)
+        ->get();
+        if ($products->count()!= 0) {
+            session(['cancel' => 'You have items under this category']);
+
+            // Redirect to the 'category.index' route
+            return redirect()->route('category.index');
+           
+        }
         Category::destroy($id);
-        return redirect()->route('category.index')->with(['deleted' => 'Deleted successfully
-        ']);
+        session(['deleted' => 'Deleted successfully']);
+        return redirect()->route('category.index');
     }
 }

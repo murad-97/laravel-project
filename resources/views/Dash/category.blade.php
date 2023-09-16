@@ -30,10 +30,20 @@
         confirmButtonText: "OK",
     });
 </script>
-    @endif
 
-                
-                        
+@elseif(session('cancel'))
+
+        <script>
+            // Display a SweetAlert message
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: '{{ session('cancel') }}',
+            });
+        </script>
+
+                        @endif
+
                             <div class="d-flex justify-content-end ">
                                 <a href="{{route('category.create')}}" class="btn py-2 px-lg-4 mb-2 rounded-0 d-none d-lg-block form-submit" style="border-radius: 10px; width: 120px; color: rgb(10, 10, 105);">Add<i class="fa fa-plus  ms-2" ></i></a>
                             </div>

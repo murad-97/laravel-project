@@ -47,7 +47,7 @@
 
 <body>
     <div class="container-fluid position-relative d-flex p-0" style="background-color: white;">
-        <!-- Spinner Start -->
+        {{-- <!-- Spinner Start -->
         <div id="spinner"
             class="show  position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center"
             style="background-color: #f2f2f2;">
@@ -55,7 +55,7 @@
                 <span class="sr-only">Loading...</span>
             </div>
         </div>
-        <!-- Spinner End -->
+        <!-- Spinner End --> --}}
 
 
         <!-- Sidebar Start -->
