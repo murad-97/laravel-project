@@ -100,7 +100,7 @@
                             </form>
                         @else
                             <a href="/login" class="nav-item nav-link nav-sticky">Login</a>
-                            <a href="/register" class="nav-item nav-link nav-sticky">Regester</a>
+                            <a href="/register" class="nav-item nav-link nav-sticky">Register</a>
                         @endif
                     </div>
 

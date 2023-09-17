@@ -88,7 +88,7 @@
 
                                         <div class="d-flex align-items-center mb-3 pb-1">
                                             <i class="fas fa-cubes fa-2x me-3" style="color: #ff6219;"></i>
-                                            <span style="color: #2958B0" class="h1 fw-bold mb-0">HELPZ</span>
+                                            <img src="{{ asset("images/HELPZ LOGO.png") }}" width="40%" alt="">
                                         </div>
 
                                         <h5 class="fw-normal mb-1 pb-1" style="letter-spacing: 1px;">Sign Up Now</h5>
