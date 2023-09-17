@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    edite category
+    Add equipment
  @endsection
 
  @section('content')

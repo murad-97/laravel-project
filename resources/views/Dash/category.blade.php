@@ -12,8 +12,8 @@
 
 
                 <div class="container-xl">
-                    <div class="table-responsive">
-                        <div class="table-wrapper">
+                <div class="table-responsive">
+                <div class="table-wrapper">
                         {{-- @if(session('cancel'))
     <div class="alert alert-danger">
         {{ session('cancel') }}
@@ -83,7 +83,7 @@
                                         </td>
                                         <td>
                                             <div style="display: grid; grid-template-columns: auto auto;">
-                                          <button class="btn me-2" style="width: 51px; height:39px; margin:auto; background-color:rgba(165, 204, 247, 0.786); "><a href="{{ route('category.edit',$allcat->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
+                                          <button class="btn me-2 update-btn"><a href="{{ route('category.edit',$allcat->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
                                             <form id="delete-form-{{ $allcat->id }}" method="POST" action="{{ route('category.destroy', $allcat->id) }}">
                                                 @csrf
                                                 @method('DELETE')

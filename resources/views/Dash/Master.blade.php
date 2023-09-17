@@ -61,8 +61,8 @@
         <!-- Sidebar Start -->
         <div class="sidebar pe-4 pb-3">
             <nav class="navbar " style="background-color: white;">
-                <a href="index.html" class="navbar-brand mx-4 mb-3">
-                    <h1 style="color: rgb(10, 10, 105);">Helpz</h1>
+                <a href="index.html" class="navbar-brand mx-4 mb-3 ">
+                    <h1 class="contentmaster">Helpz</h1>
                 </a>
                 <div class="d-flex align-items-center ms-4 mb-4">
                     <div class="position-relative">
@@ -84,7 +84,7 @@
                 <div class="navbar-nav w-100">
                     <a src="{{ asset("img-dash/sohieb.jpg") }}" href="{{ route('todos.index') }}" class="nav-item nav-link active"><i
                             class="fa fa-tachometer-alt me-2"  ></i>Dashboard</a>
-                    <a href="category" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i
+                    <a href="category" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-table me-2"></i>Category</a>
 
 
@@ -92,24 +92,24 @@
                         <a href="category" class="nav-link dropdown-toggle" data-bs-toggle="dropdown"><i
                                 class="fas fa-dollar-sign me-2"></i>Our offerings</a>
                         <div class="dropdown-menu bg-transparent border-0">
-                            <a href="equipment" class="dropdown-item" style="color: rgb(10, 10, 105);"><i
+                            <a href="equipment" class="dropdown-item contentmaster" ><i
                                     class="fas fa-chair me-2"></i>Equipment</a>
-                            <a href="services" class="dropdown-item" style="color: rgb(10, 10, 105);"><i
+                            <a href="services" class="dropdown-item contentmaster" ><i
                                     class="fas fa-lightbulb me-2"></i>Services</a>
-                            <a href="medicine" class="dropdown-item" style="color: rgb(10, 10, 105);"><i
+                            <a href="medicine" class="dropdown-item contentmaster" ><i
                                     class="fas fa-medkit me-2"></i>Medicine</a>
                         </div>
                     </div>
-                    <a href="admin" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i
+                    <a href="admin" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-user-tie me-2"></i>Admin</a>
-                    <a href="user" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i
+                    <a href="user" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-user me-2"></i>Users</a>
-                    <a href="{{ asset('/detail') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i
+                    <a href="{{ asset('/detail') }}" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-dollar-sign me-2"></i>Monetaryvolunteer</a>
-                    <a href="{{ asset('/item') }}" class="nav-item nav-link" style="color: rgb(10, 10, 105);"><i
+                    <a href="{{ asset('/item') }}" class="nav-item nav-link contentmaster" ><i
                             class="fas fa-handshake me-2"></i>volunteeritems</a>
-                    <a href="{{ route('admin.logout') }}" class="nav-item nav-link"
-                        style="color: rgb(10, 10, 105);"><i class="fa fa-sign-out me-2"></i>LogOut</a>
+                    <a href="{{ route('admin.logout') }}" class="nav-item nav-link">
+                        <i class="fa fa-sign-out me-2"></i>LogOut</a>
 
                 </div>
             </nav>
@@ -127,17 +127,17 @@
                     <h2 class=" mb-0"><i class="fa fa-user-edit"></i></h2>
                 </a>
                 <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars" style="font-size: 25px; color: rgb(10, 10, 105);"></i>
+                    <i class="fa fa-bars contentmaster" style="font-size: 25px; "></i>
                 </a>
                 <form class="d-none d-md-flex ms-2">
-                    <input class="form-control mt-2 border-1 " type="search" placeholder="Search"
-                        style="background-color: white; border: 1px solid rgb(10, 10, 105) ; border-radius: 10px;">
+                    <input class="form-control mt-2 border-1 contentmaster searchmaster" type="search" placeholder="Search"
+                       >
                 </form>
                 <div class="navbar-nav align-items-center ms-auto">
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-envelope me-lg-0" style="font-size: 20px; color: rgb(10, 10, 105);"></i>
-                            <span class="d-none d-lg-inline-flex" style="color: rgb(10, 10, 105);">Message</span>
+                            <i class="fa fa-envelope me-lg-0 contentmaster" style="font-size: 20px; "></i>
+                            <span class="d-none d-lg-inline-flex" >Message</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end  border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -178,8 +178,8 @@
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <i class="fa fa-bell me-lg-0" style="font-size: 20px; color: rgb(10, 10, 105); "></i>
-                            <span class="d-none d-lg-inline-flex" style="color: rgb(10, 10, 105);">Notificatin</span>
+                            <i class="fa fa-bell me-lg-0 contentmaster" style="font-size: 20px;  "></i>
+                            <span class="d-none d-lg-inline-flex contentmaster" >Notificatin</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end border-0 rounded-0 rounded-bottom m-0">
                             <a href="#" class="dropdown-item">
@@ -232,6 +232,7 @@
         <!-- Back to Top -->
         <a href="#" class="btn btn-lg btn-success btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     </div>
+    
     <script>
         // Get all delete buttons with the 'delete-button' class
         const deleteButtons = document.querySelectorAll('.delete-button');

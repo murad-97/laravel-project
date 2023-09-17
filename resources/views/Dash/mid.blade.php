@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
 @section('Title')
-    Dashbored
+    Midicine
 @endsection
 
 @section('content')
@@ -81,8 +81,8 @@
                                 <td>{{ $medicine->price }}</td>
                                 <td>
                                     <div style="display: grid; grid-template-columns: auto auto;">
-                                        <button class="btn me-2"
-                                            style="width: 51px; height:39px; margin:auto; background-color:rgba(165, 204, 247, 0.786); "><a
+                                        <button class="btn me-2 update-btn">
+                                            <a
                                                 href="{{ route('medicine.edit', $medicine->id) }}" class="settings"
                                                 title="Settings" data-toggle="tooltip"><i class="fa fa-edit "
                                                     style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>

@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    category
+    Add user
  @endsection
 
  @section('content')

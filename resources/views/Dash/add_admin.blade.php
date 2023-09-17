@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    category
+    Add admin
  @endsection
 
  @section('content')
@@ -19,7 +19,7 @@
                         @method('post')
                  
 
-                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Add user</h2>
+                        <h2 class="form-title mb-4" style="color: rgb(10, 10, 105); text-align: center; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Add admin</h2>
                         <div class="form-group">
                             <input type="text" class="form-input" name="name" id="name" value='{{ old('name') }}' placeholder="Name">
                             <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br>
