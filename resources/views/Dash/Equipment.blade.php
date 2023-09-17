@@ -19,7 +19,18 @@
     });
     @endif
 </script>
+@if(session('cancel'))
 
+<script>
+    // Display a SweetAlert message
+    Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: '{{ session('cancel') }}',
+    });
+</script>
+
+                @endif
 
 @if(Session::has('success'))
  <script>

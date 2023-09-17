@@ -22,7 +22,8 @@ class CategoryController extends Controller
     public function index()
     {
         //   if(auth()->user()x)
-        $category = Category::select('*', DB::raw('concat(LEFT(description, 100),"...") as shorter_description'))->get();
+        $category = Category::select('*', DB::raw('SUBSTRING(description, 50, 1000) as showmore_description'), DB::raw('concat(LEFT(description, 100),"...") as shorter_description'))->get();
+
 // 
 $allitem =0;
 

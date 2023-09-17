@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'Categories')
 
 @section('content')
     <!-- Page Header Start -->
@@ -90,11 +90,13 @@
                                             <p><strong>Goal:</strong> ${{ $product->price }}</p>
                                         </div>
                                     </div>
-                                    <div class="causes-text">
+                                    <div class="causes-text read-more-container">
                                         <h3>{{ $product->shortname }}</h3>
                                         <p>
-                                            {{ $product->truncated_description }}
+                                            {{ $product->truncated_description }}<span
+                                                class="read-more-text">{{ $product->showmore_description }} </span>
                                         </p>
+                                        <span class="read-more-btn">Read More...</span>
                                     </div>
 
                                     <div class="causes-btn">
@@ -118,5 +120,4 @@
         <div class="row ">{{ $products->links() }} </div>
     </div>
 
-    <!-- Footer Start -->
 @endsection

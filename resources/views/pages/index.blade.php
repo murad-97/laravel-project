@@ -1,5 +1,5 @@
 @extends('layouts.master')
-@section('title', 'Home')
+@section('title', 'HELPZ')
 
 @section('content')
     <!-- Carousel Start -->
@@ -302,8 +302,10 @@
                             </div>
                             <div class="causes-text">
                                 <h3>{{ $item->name }}</h3>
-                                <p>{{ $item->shorter_description }}
+                                <p>{{ $item->shorter_description }}<span
+                                                class="read-more-text">{{ $item->showmore_description }} </span>
                                 </p>
+                                <span class="read-more-btn">Read More...</span>
                             </div>
 
                             <div class="causes-btn">

@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Volnteer;
 
-
+use App\Models\Volnteerdetail;
+use App\Models\Volnteeritem;
 use Illuminate\Http\Request;
 
 class equipmentDashController extends Controller
@@ -161,9 +162,26 @@ class equipmentDashController extends Controller
      */
     public function destroy($id)
     {
-        Volnteer::destroy($id);
-        return redirect()->route('equipment.index')->with(['deleted' => 'Equipment deleted successfully
-        ']);
+        $details = Volnteerdetail::select('*')
+        ->where('volunteer_id', $id)
+        ->get();
+        $items = Volnteeritem::select('*')
+        ->where('volunteer_id', $id)
+        ->get();
+        if ($details->count()== 0 && $items->count()==0) {
+          ;
+
+            // Redirect to the 'category.index' route
+            Volnteer::destroy($id);
+            return redirect()->route('equipment.index')->with(['deleted' => 'Equipment deleted successfully
+            ']);
+            
+        }else{
+
+            return redirect()->route('equipment.index')->with(['cancel' => "This item has donations you can not delete it"]);
+        }
+
+       
         
     }
 }

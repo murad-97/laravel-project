@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Volnteer;
-
+use App\Models\Volnteerdetail;
+use App\Models\Volnteeritem;
 
 use Illuminate\Http\Request;
 use Symfony\Component\HttpKernel\Controller\ArgumentResolver\ServiceValueResolver;
@@ -171,8 +172,24 @@ class ServicesDashController extends Controller
      */
     public function destroy($id)
     {
-        Volnteer::destroy($id);
-        return redirect()->route('services.index')->with(['deleted' => 'service eleted successfully
-        ']);
+        $details = Volnteerdetail::select('*')
+        ->where('volunteer_id', $id)
+        ->get();
+        $items = Volnteeritem::select('*')
+        ->where('volunteer_id', $id)
+        ->get();
+        if ($details->count()== 0 && $items->count()==0) {
+          ;
+
+            // Redirect to the 'category.index' route
+            Volnteer::destroy($id);
+            return redirect()->route('services.index')->with(['deleted' => 'service eleted successfully
+            ']);
+            
+        }else{
+
+            return redirect()->route('services.index')->with(['cancel' => "This item has donations you can not delete it"]);
+        }
+       
     }
 }

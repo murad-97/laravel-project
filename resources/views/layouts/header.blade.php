@@ -10,7 +10,6 @@
     <link rel="icon" type="image/x-icon" href="{{ asset('images/HELPZ icon.png') }}">
     <!-- Favicon -->
     <link href={{ asset('img/favicon.ico') }} rel="icon">
-
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
@@ -33,7 +32,38 @@
 
     <!-- Template Stylesheet -->
     <link href={{ asset('css/style.css') }} rel="stylesheet">
+    {{-- <link href={{ asset('css/style.css') }} rel="stylesheet"> --}}
     <link href="{{ asset('css/volunteer.css') }}" rel="stylesheet">
+
+    <style>
+        .read-more-container{
+    display: flex;
+    flex-direction: column;
+    color: #111;
+    gap: 1rem;
+}
+
+/* .container1{
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 2px;
+    line-height: 1.4rem;
+    box-shadow: 0 0 1rem rgba(0,0,0,.1);
+} */
+
+.read-more-btn{
+    color: #0984e3;
+    cursor: pointer;
+}
+
+.read-more-text{
+    display: none;
+}
+
+.read-more-text--show{
+    display: inline;
+}
+    </style>
 </head>
 
 <body>
@@ -64,8 +94,7 @@
                                 @csrf
 
                                 <a href="route('logout')"
-                             onclick="event.preventDefault();
-                            this.closest('form').submit();">
+                             onclick="event.preventDefault();this.closest('form').submit();">
                                     {{ __('Log Out') }}
                                 </a>
                             </form>

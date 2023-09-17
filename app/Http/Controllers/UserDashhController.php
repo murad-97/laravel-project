@@ -114,7 +114,7 @@ class UserDashhController extends Controller
         $items = Volnteeritem::select('*')
         ->where('user_id', $id)
         ->get();
-        if ($details->count()== 0 && $details->count()==0) {
+        if ($details->count()== 0 && $items->count()==0) {
           ;
 
             // Redirect to the 'category.index' route
