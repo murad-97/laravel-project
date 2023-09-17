@@ -12,6 +12,7 @@ use Illuminate\Validation\Rules\Password;
 use Illuminate\Support\Facades\DB;
 class AdminLoginController extends Controller
 {
+
     // Show the login form
 
     public function showLoginForm()
@@ -24,18 +25,7 @@ class AdminLoginController extends Controller
         ->join('volnteeritems', 'volnteers.id', '=', 'volnteeritems.volunteer_id')
         ->join('categories', 'volnteers.category_id', '=', 'categories.id')
         ->join('users', 'users.id', '=', 'volnteeritems.user_id')
-        ->value('total_qty'); // Get the total sum of qty for all records
-    
-    // Now $total_qty contains the total sum of qty for all records as a numeric value
-     // Get a single numeric value
-    
-    // Now $total_qty contains the total_qty as a numeric value
-    // Pluck the 'total_qty' value
-
-// Now $items contains an array of 'total_qty' values
-
-        
-
+        ->value('total_qty');
 
         $mouny = Volnteer::select('users.name', 'users.email', 'volnteers.volunteer_name',
         'volnteerdetails.price')
@@ -47,7 +37,8 @@ class AdminLoginController extends Controller
         $totalPrice = $mouny->sum('price');
         $todos = session('todos', []);
         
-        $todos = session('todos', []);
+        
+        
         view()->share([
             'todos' => $todos,
             'recordCount' => $recordCount,
@@ -120,6 +111,7 @@ class AdminLoginController extends Controller
     
         return redirect()->route('todos.index');
     }
+    
     
     public function destroy($todo)
     {

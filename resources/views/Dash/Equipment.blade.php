@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    Dashbored
+    Equipment
  @endsection
 
  @section('content')
@@ -64,7 +64,7 @@
                         <td>{{ $equipment->price}}</td>
                         <td>
                             <div style="display: grid; grid-template-columns: auto auto;">
-                          <button class="btn me-2" style="width: 51px; height:39px; margin:auto; background-color:rgba(165, 204, 247, 0.786); "><a href="{{ route('equipment.edit',$equipment->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
+                          <button class="btn me-2 update-btn"><a href="{{ route('equipment.edit',$equipment->id) }}" class="settings" title="Settings" data-toggle="tooltip" ><i class="fa fa-edit " style="color: rgb(9, 9, 77);  font-size: 18px"></i></a> </button>
                             <form id="delete-form-{{ $equipment->id }}"  method="POST" action="{{ route('equipment.destroy', $equipment->id) }}">
                                 @csrf
                                 @method('DELETE')

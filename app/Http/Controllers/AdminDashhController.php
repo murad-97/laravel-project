@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
 
 class AdminDashhController extends Controller
+
 {
     public function index()
     {
@@ -21,6 +22,7 @@ class AdminDashhController extends Controller
      */
     public function create()
     {
+
         return view('Dash.add_admin');
     }
 

@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    edit admin
+    Edit profile
  @endsection
 
  @section('content')
@@ -39,7 +39,7 @@
                           
                         </div>
                         <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Update" style="color: rgb(10, 10, 105);"/>
+                            <input type="submit" name="submit" id="submit" class="form-submit" style="color: rgb(10, 10, 105);"/>
                         </div>
                         
                           

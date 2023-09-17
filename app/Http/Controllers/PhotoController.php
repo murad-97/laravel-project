@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Termwind\Components\Dd;
 
 class PhotoController extends Controller
 {
@@ -79,7 +80,10 @@ class PhotoController extends Controller
      */
     public function update(Request $request,admin $admin)
     {
-        $input = $request->all();
+
+        
+     
+        
         // dd($request->all());
 
         // if ($image = $request->file('main_picture')) {
@@ -92,8 +96,16 @@ class PhotoController extends Controller
 
         // }
 
+       
+     
+        $input = [
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+           // Setting category_id to the default value '1'
+            'id' => $request->input('id'), // Assuming 'price' is the correct key
+        ];
         $admin->update($input);
-
+      
         return redirect()->route('adminprofile.index')
                         ->with('success','Category updated successfully');
     }

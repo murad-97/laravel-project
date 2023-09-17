@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    edite category
+    Edit midicine
  @endsection
 
  @section('content')

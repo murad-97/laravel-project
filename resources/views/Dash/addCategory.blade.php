@@ -1,7 +1,7 @@
 @extends('Dash.Master')
 
  @section('Title')
-    category
+   Add category
  @endsection
 
  @section('content')
@@ -22,10 +22,10 @@
                             <input type="text" class="form-input" name="name" id="name" placeholder="Name"/>
                             <span style="color:red">@error('name'){{ $message }} @enderror</span><br><br>
                         </div>
-                        <div class="form-group">
-                            <input type="text" class="form-input" name="id" id="name" placeholder="Id"/>
+                        {{-- <div class="form-group">
+                            <input type="text" class="form-input" name="id" id="name" placeholder="Id"/> --}}
                             {{-- <span style="color:red">@error('id'){{ $message }} @enderror</span><br><br> --}}
-                        </div>
+                        {{-- </div> --}}
                         {{-- <div class="form-group">
                             <input type="email" class="form-input" name="email" id="email" placeholder="Email"/>
                         </div> --}}
@@ -40,15 +40,14 @@
                         {{-- <div class="form-group">
                             <input type="file" class="form-input" name="image" id="image" accept="image/*">
                         </div> --}}
-                        <div class="form-group">
+                        <div class="form-group mt-4">
                         
                             <input  name="image" type="file" class="form-control white-input" id="inputPrice">
                             <span style="color:red">@error('image'){{ $message }} @enderror</span><br><br>
+                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
+
                          </div>
                      
-                        <div class="form-group">
-                            <input type="submit" name="submit" id="submit" class="form-submit" value="Add" style="color: rgb(10, 10, 105);"/>
-                        </div>
                         
                           
                         

@@ -142,6 +142,7 @@
                <div id="calender"></div>
            </div>
        </div> --}}
+
        <div class="col-sm-12 col-md-6 col-xl-4">
            <div class="h-100 rounded p-4" style="background-color: rgba(169, 169, 169, 0.064);">
                <div class="d-flex align-items-center justify-content-between mb-4">
@@ -172,6 +173,7 @@
             </div>
             @endforeach
         @endif 
+        
                        
                
               
